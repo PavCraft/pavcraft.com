@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pavcraft</title>
+<meta name="description" content="Pavcraft builds small software tools and automation for online sellers — browser extensions, Telegram bots and ready-to-use templates.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23C8912A'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23fff'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF; --ink:#1C1A17; --muted:#6B6760; --line:#E6E2DA; --tag:#C8912A; --tag-ink:#5A3E0B;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{min-height:100svh;display:grid;grid-template-columns:minmax(300px,420px) 1fr}
+  .tag{
+    border-right:1px solid var(--line);
+    padding:40px 36px 32px;
+    display:flex;flex-direction:column;gap:40px;
+    position:relative;
+  }
+  .brand{font-size:17px;font-weight:600;letter-spacing:-.01em}
+  h1{
+    margin:0;font-size:clamp(34px,4.2vw,50px);line-height:1.08;letter-spacing:-.025em;font-weight:600;
+    text-wrap:balance;max-width:11ch;
+  }
+  .what{color:var(--muted);font-size:17px;line-height:1.5;max-width:34ch;margin:0}
+  dl{margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:20px;row-gap:12px;font-size:15px;line-height:1.45}
+  dt{color:var(--muted)}
+  dd{margin:0}
+  dd a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px}
+  dd a:hover{border-color:var(--ink)}
+  dd a:focus-visible{outline:2px solid var(--tag);outline-offset:3px;border-radius:2px}
+  .foot{margin-top:auto;color:var(--muted);font-size:13px}
+  .stamp{
+    position:absolute;right:-18px;top:34px;transform:rotate(7deg);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:.02em;
+    color:var(--tag-ink);background:var(--paper);
+    border:2px solid var(--tag);border-radius:3px;padding:7px 10px;
+    box-shadow:0 0 0 3px var(--paper);
+  }
+  .field{
+    padding:40px 48px;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 72px,
+      var(--paper);
+  }
+  .note{color:var(--muted);font-size:15px;max-width:40ch;line-height:1.5;background:var(--paper);padding:6px 0;margin:0}
+  .note strong{color:var(--ink);font-weight:500}
+  @media (max-width:760px){
+    body{grid-template-columns:1fr}
+    .tag{border-right:0;border-bottom:1px solid var(--line);padding:32px 22px 28px;gap:28px}
+    .stamp{right:14px;top:22px}
+    .field{padding:28px 22px 40px;min-height:220px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .stamp{animation:settle .5s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes settle{from{transform:rotate(7deg) scale(1.15);opacity:0}to{transform:rotate(7deg) scale(1);opacity:1}}
+  }
+</style>
+</head>
+<body>
+  <aside class="tag">
+    <div class="brand">Pavcraft</div>
+    <h1>Small tools for people who sell online.</h1>
+    <p class="what">Browser extensions, Telegram bots and ready-to-use templates that take the repetitive work out of running a marketplace store.</p>
+    <dl>
+      <dt>Based in</dt><dd>Cherkasy, Ukraine</dd>
+      <dt>Email</dt><dd><a href="mailto:pav.craft.lab@gmail.com">pav.craft.lab@gmail.com</a></dd>
+      <dt>Code</dt><dd><a href="https://github.com/pavcraft" rel="me">github.com/pavcraft</a></dd>
+    </dl>
+    <div class="foot">© 2026 Pavcraft · Pavlo Shypilov</div>
+    <div class="stamp" aria-hidden="true">est. 2026 · Cherkasy</div>
+  </aside>
+  <main class="field">
+    <p class="note"><strong>First product is in the works.</strong> This page will list what's available, with pricing, as soon as there is something to try.</p>
+  </main>
+</body>
+</html>
