@@ -1,260 +1,206 @@
 ---
 name: Pavcraft
-description: Brand world for pavcraft.com, a stairwell wall of handwritten paper notices with tear-off tabs for Ukrainian small business.
+description: Brand world for pavcraft.com, a flat acid-lime board of handwritten paper notices with tear-off tabs and censored marker scribbles, everything draggable.
 colors:
-  whitewash: "#E7E3D9"
-  trim: "#3F5F55"
-  panel: "#6E9686"
-  paper: "#FBFAF6"
-  paper-old: "#EAE4D3"
-  ink: "#1D1D1B"
-  ink-2: "#45423B"
-  pen: "#1F47B8"
-  pen-deep: "#15348A"
-  marker-red: "#C62A22"
-  cut: "#8B877E"
-  tape: "rgba(236,224,170,0.6)"
+  ground: "#D9FF41"
+  ground-ink: "rgba(28,40,0,0.07)"
+  paper: "#FFFFFF"
+  paper-old: "#F1EEE4"
+  ink: "#141414"
+  ink-2: "#3E3D38"
+  pen: "#2B35E8"
+  pen-deep: "#1A22B8"
+  marker-red: "#CF1452"
+  cut: "#9A978E"
+  tape: "rgba(240,232,190,0.72)"
+  sticker-yellow: "#E8C23A"
+  sticker-tape: "rgba(236,224,170,0.96)"
 typography:
   display:
-    fontFamily: "Pangolin, Caveat, cursive"
-    fontSize: "clamp(40px, 6vw, 76px)"
-    fontWeight: 400
-    lineHeight: 1.02
-    letterSpacing: "-0.01em"
+    fontFamily: "Playpen Sans, cursive"
+    fontSize: "clamp(38px, 5.4vw, 70px)"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.02em"
   headline-feature:
-    fontFamily: "Pangolin, Caveat, cursive"
+    fontFamily: "Playpen Sans, cursive"
     fontSize: "clamp(40px, 4.6vw, 58px)"
-    fontWeight: 400
+    fontWeight: 800
     lineHeight: 1.05
   headline:
-    fontFamily: "Pangolin, Caveat, cursive"
+    fontFamily: "Playpen Sans, cursive"
     fontSize: "clamp(30px, 3.2vw, 40px)"
-    fontWeight: 400
+    fontWeight: 800
     lineHeight: 1.05
   body:
-    fontFamily: "Caveat, Pangolin, cursive"
-    fontSize: "24px"
+    fontFamily: "Playpen Sans, cursive"
+    fontSize: "21px"
     fontWeight: 400
-    lineHeight: 1.3
-  body-note:
-    fontFamily: "Caveat, Pangolin, cursive"
-    fontSize: "26px"
-    fontWeight: 400
-    lineHeight: 1.35
+    lineHeight: 1.45
   label:
-    fontFamily: "Pangolin, Caveat, cursive"
-    fontSize: "24px"
-    fontWeight: 400
-    lineHeight: 1.1
-  label-tab:
-    fontFamily: "Caveat, Pangolin, cursive"
-    fontSize: "23px"
-    fontWeight: 700
-    lineHeight: 1
+    fontFamily: "Playpen Sans, cursive"
+    fontSize: "19px"
+    fontWeight: 600
+    lineHeight: 1.2
   scribble:
-    fontFamily: "Caveat, Pangolin, cursive"
-    fontSize: "34px"
-    fontWeight: 700
+    fontFamily: "Shantell Sans, Playpen Sans, cursive"
+    fontSize: "28px"
+    fontWeight: 800
     lineHeight: 1
+rounded:
+  none: "0px"
+  sticker: "3px"
+  round: "50%"
 spacing:
-  gutter-phone: "16px"
+  sm: "14px"
+  md: "28px"
+  lg: "40px"
   gutter: "32px"
-  grid-col-gap: "28px"
-  grid-row-gap: "40px"
-  sheet-x: "28px"
-  sheet-top: "30px"
-  container: "1180px"
 components:
   notice:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    typography: "{typography.body}"
+    rounded: "{rounded.none}"
     padding: "30px 28px 16px"
   notice-old:
     backgroundColor: "{colors.paper-old}"
     textColor: "{colors.ink-2}"
-    typography: "{typography.body}"
+    rounded: "{rounded.none}"
     padding: "30px 28px 16px"
-  tear-tab:
+  tab:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.pen}"
-    typography: "{typography.label-tab}"
+    typography: "{typography.label}"
     height: "132px"
-    width: "44px"
-    padding: "12px 8px"
-  action-link:
-    textColor: "{colors.pen}"
-    typography: "{typography.label}"
-    height: "44px"
-    padding: "8px 0"
-  action-link-hover:
-    textColor: "{colors.pen-deep}"
-  brand-slip:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    padding: "12px 16px 10px"
-  contact-slip:
+  slip:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.pen}"
+    rounded: "{rounded.none}"
     padding: "10px 16px"
-  tape:
-    backgroundColor: "{colors.tape}"
-    height: "44px"
-    width: "112px"
-  reset-slip:
-    backgroundColor: "{colors.paper}"
+  sticker-round:
+    backgroundColor: "{colors.sticker-yellow}"
     textColor: "{colors.ink}"
-    height: "44px"
-    padding: "10px 14px"
+    rounded: "{rounded.round}"
+  sticker-price:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.marker-red}"
+    rounded: "{rounded.sticker}"
+  sticker-blue:
+    backgroundColor: "{colors.pen}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.none}"
 ---
 
 # Design System: Pavcraft
 
-Scope: this file is the Pavcraft brand system (the home page at `/` and brand-level elements such as the favicon). Each product page owns its own world; Pricing Kit's receipt world lives in `design/pricing-kit/DESIGN.md` and must not be mixed into this one, nor this one into it. Commissioner and Martian Mono in `public/fonts` belong to Pricing Kit, not to the brand.
-
 ## Overview
 
-**Creative North Star: "The Stairwell Notice Board"**
+**Creative North Star: "The Notice Nobody Authorised"**
 
-Pavcraft's catalogue is the notice board nobody authorised: paper notices taped to a Ukrainian stairwell (під'їзд) wall. The wall is whitewash above and oil-painted green below, split by a dark trim stripe, with fine plaster grain over both and marker scribbles left by neighbours. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Everything a visitor reads is handwritten, as if by the developer with a felt-tip and a ballpoint.
+Pavcraft's home is a flat acid-lime board with plain white paper notices taped onto it. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Around the notices sit marker scribbles in rude Ukrainian, each swear word hidden under a peelable sticker. The owner pinned this direction on 2026-11-09: make an own variant, keep only notices and tear-off tabs. Everything else of the previous stairwell wall was dropped.
 
-The density is loose and human. Papers hang at slight angles (up to about 4 degrees), break the grid with uneven offsets, and cast shadows that follow their own outline. The page is a place you can touch: every paper peels off by its tape, follows the pointer with a deeper shadow, and sticks where it is dropped at a new small angle. The world refuses the SaaS grid of identical tool cards and the dark tech hero.
+The mood is loud, playful and a little cheeky, but the content stays practical: one tool per notice, one action per tab. The lime ground is a single flat colour with no texture, no gradient and no photograph. Depth comes only from paper-shaped shadows. The board must stay field-neutral: tool pages have their own worlds (Pricing Kit is a receipt).
 
-Tools that do not exist yet appear as yellowed, older notices whose tabs cannot be torn. The brand mark is not a logo but a taped paper slip reading "PAVCRAFT / інструменти для малого бізнесу".
+Everything on the board can be picked up and re-stuck: papers by tape or body, scribbles by their text, with grab and grabbing cursors telling you so.
 
 **Key Characteristics:**
-- Two-tone stairwell wall (whitewash band over green panel, dark trim line) with plaster grain.
-- All type handwritten: Pangolin for headings, slips and controls; Caveat for text, tabs and scribbles.
-- Paper notices with crimped translucent tape, dashed cut lines and vertical tear-off tabs.
-- Ballpoint blue is the only action colour.
-- Peel-and-re-stick interaction on every paper, persisted per viewer, with a reset slip.
+- One flat acid-lime ground (#D9FF41); white and yellowed paper; one ballpoint blue as the action colour; one marker pink-red for scribbles.
+- Two handwritten faces only: Playpen Sans for paper, Shantell Sans for marker scribbles.
+- Tear-off tabs are the navigation; a cut line that never moves.
+- Censor stickers over swear words, peeled by tap.
+- Every paper and scribble is draggable; positions persist per viewer.
 
 ## Colors
 
-A muted municipal palette (whitewash, institutional green, office paper) with ink and two marker colours doing all the talking.
+A single acid-lime board with white office paper, near-black ink, one electric ballpoint blue and one hot marker pink-red.
 
 ### Primary
-- **Ballpoint Blue** (pen): the only action colour. Links, tab labels, the "Написати" slip, focus rings, text selection, and the highlighted beta line inside the Pricing Kit notice.
-- **Pressed Ballpoint** (pen-deep): hover state of the main action link.
+- **Acid Lime Board** (#D9FF41): the whole page ground, theme-color, favicon tile. Never covered by a large panel of another colour.
+- **Ballpoint Blue** (#2B35E8): the only action colour on paper: links, tab labels, "Написати", focus ring, text selection, the blue censor sticker. Hover deepens to Deep Ballpoint (#1A22B8).
 
 ### Secondary
-- **Marker Red** (marker-red): wall scribbles only, notably "ОГОЛОШЕННЯ НЕ КЛЕЇТИ!" and the hand-drawn heart. Never on paper, never for actions. Where a red scribble falls on the green panel at phone widths, the build darkens it to a deep oxblood (#7A1712) so it stays readable.
+- **Marker Pink-Red** (#CF1452): marker scribbles that shout, and the price-tag censor sticker text.
 
 ### Neutral
-- **Stairwell Whitewash** (whitewash): the upper wall band, behind the header and headline. Also the browser theme colour.
-- **Trim Stripe** (trim): the 7px dark green line where whitewash meets paint.
-- **Oil-Paint Green** (panel): the lower wall, behind the notices and footer; also the page background beyond the body.
-- **Office Paper** (paper): current notices, slips, the note, the reset slip.
-- **Yellowed Paper** (paper-old): notices for tools that do not exist yet.
-- **Felt-Tip Black** (ink): headings and main text; black marker scribbles.
-- **Faded Ink** (ink-2): secondary lines (subtitle under the Pricing Kit heading, meta lines, text on yellowed paper).
-- **Cut-Line Grey** (cut): the dashed line above tear-off tabs and between tabs.
-- **Masking Tape** (tape): translucent yellowish tape; slightly more opaque on hover.
+- **Office Paper** (#FFFFFF): notices, slips, the brand tag, the hero note, tear-off tabs.
+- **Yellowed Paper** (#F1EEE4): older notices for future tools ("Наступний інструмент"), with softer ink.
+- **Felt-Tip Ink** (#141414): headings and scribbles; **Soft Ink** (#3E3D38) for secondary text on paper.
+- **Cut Line Grey** (#9A978E): the dashed tear line and tab separators.
+- **Masking Tape** (rgba 240,232,190 at 0.72): translucent crimped tape; **Sticker Yellow** (#E8C23A) and **Sticker Tape** (rgba 236,224,170 at 0.96) for censor stickers.
+- **Ghost Ink** (rgba 28,40,0 at 0.07): oversized background words ("Рутина", "Маржа", "Ціни") as texture only, hidden from assistive tech.
 
 ### Named Rules
-**The One Pen Rule.** Ballpoint blue marks everything that acts. Nothing else on paper is blue, and nothing that acts is any other colour.
+**The One Ground Rule.** The ground is acid lime and nothing else. No second wall colour, no dark mode, no overlays.
 
-**The Wall Speaks Red Rule.** Marker red belongs to the wall (scribbles), not to the papers. It never signals an action or an error.
+**The Ballpoint Rule.** Blue means "you can act here". Pink-red and black are for scribbles, never for links.
 
 ## Typography
 
-**Display Font:** Pangolin (with Caveat, cursive)
-**Body Font:** Caveat (with Pangolin, cursive)
+**Display Font:** Playpen Sans (cursive fallback)
+**Body Font:** Playpen Sans (cursive fallback)
+**Scribble Font:** Shantell Sans (falls back to Playpen Sans), bounce and informality axes at 100, uppercase
 
-**Character:** Pangolin reads as careful felt-tip print, legible enough for headings and controls; Caveat is quick ballpoint and marker handwriting for running text, tabs and scribbles. Both are self-hosted (OFL) with Cyrillic, Cyrillic-ext and Latin subsets; Pangolin has a single weight (400), Caveat is variable 400 to 700.
+**Character:** Playpen Sans is the neat hand of the paper notices: readable Cyrillic, rounded, friendly. Shantell Sans at heavy weight with "BNCE" and "INFM" at 100 is the marker on the wall: bouncy and uppercase. Both are self-hosted OFL variable woff2 subsets (latin, cyrillic, cyrillic-ext).
 
 ### Hierarchy
-- **Display** (Pangolin 400, clamp(40px, 6vw, 76px), 1.02, -0.01em): the page headline, written straight on the whitewash, rotated -1.5 degrees, max 15ch, balanced wrapping.
-- **Headline Feature** (Pangolin 400, clamp(40px, 4.6vw, 58px), 1.05): the heading of the lead tool notice, followed by a Faded Ink subtitle in Pangolin at clamp(24px, 2.4vw, 30px).
-- **Headline** (Pangolin 400, clamp(30px, 3.2vw, 40px), 1.05): headings of other notices.
-- **Body** (Caveat 400, 24px, 1.3; 22px on phones): notice text, max 34ch per paragraph. Meta lines use weight 600 in Faded Ink; emphasis uses weight 700 in Ballpoint Blue.
-- **Body Note** (Caveat 400, 26px, 1.35; 23px on phones): the taped note under the headline, max 30ch.
-- **Label** (Pangolin 400, 19 to 24px): brand slip, contact slip, action link, reset slip, footer.
-- **Label Tab** (Caveat 700, 23px; 21px on phones; 19px on yellowed notices): tear-off tab text, set vertically, reading bottom to top.
-- **Scribble** (Caveat 700, 26 to 38px, line-height 1): marker writing on the wall, each rotated individually.
+- **Display** (800, clamp 38px to 70px, 1.0, -0.02em): the H1 on the board, max 13ch, rotated -1.5deg.
+- **Headline feature** (800, clamp 40px to 58px, 1.05): the Pricing Kit notice title, with a 600-weight "for whom" line beneath.
+- **Headline** (800, clamp 30px to 40px, 1.05): other notice titles.
+- **Body** (400, 21px, 1.45; 19px on phones): notice text at max 34ch.
+- **Label** (600, 19px; 17px on old paper): vertical tab text; links "Відкрити ..." (700, 21px, underlined) and the reset button use the same hand.
+- **Scribble** (800, 22px to 30px, uppercase, Shantell Sans): wall writing only, never paper text.
 
 ### Named Rules
-**The Handwritten-Only Rule.** Every visible letter on the brand surface is Pangolin or Caveat. No system sans, no geometric display face.
-
-**The Print-For-Structure Rule.** Pangolin carries structure (headings, slips, controls); Caveat carries voice (text, tabs, scribbles). Do not swap their roles.
+**The Two Hands Rule.** Paper speaks in Playpen Sans, the wall speaks in Shantell Sans. No third face, no system display faces.
 
 ## Layout
 
-A centred wall section, max 1180px wide, with 32px side gutters (16px on phones). The wall band split sits at 470px from the top on desktop, 420px at 860px and below, 380px at 560px and below, so the header and headline sit on whitewash and the notices on green paint.
+A 12-column grid in a 1180px container with 32px gutters (16px on phones), 40px row gap and 28px column gap. Notices are placed deliberately off-grid by a few pixels and rotated up to about 2.4 degrees; the Pricing Kit notice spans 7 columns beside the 5-column "Що вам заважає?" notice. Below 860px the grid is one column with 44px gaps and some scribbles are hidden; below 560px type steps down. Marker scribbles are absolutely positioned on the board in their own layer.
 
-Header: brand slip left, contact slip right, top-aligned, 30px from the top. The headline and its taped note follow, then the notices on a 12-column grid (row gap 40px, column gap 28px): the lead tool notice spans 7 columns, the side notices 5; the about note spans 6 with a 40px left offset. Notices carry small negative or positive top margins so their edges do not line up.
-
-At 860px and below the grid collapses to one column (gap 44px), rotations soften (1 to 1.6 degrees), and some scribbles are hidden or moved so they do not collide with notices. At 560px and below a second "тут була рутина" scribble appears under the headline, and sheet padding tightens to 28px 20px 14px. The footer sits on the green panel with generous top padding (110px desktop, 230px at 860px and below) to leave room for the bottom scribbles.
+Dragged positions are stored per viewer as offset, angle and stacking order, with separate keys for desktop and mobile layouts, and clamped so a stuck paper stays on the page. A "Повісити все як було" button appears once anything has moved.
 
 ## Elevation & Depth
 
-Depth is physical: paper on a wall. Every paper uses a two-layer drop-shadow filter, so the shadow follows the paper's real outline, including the ragged stub of a torn tab and the tape. There are no backing panels or boxes behind papers. A lifted paper gets a larger, softer shadow and a 3% scale-up; it settles back with a short ease-out.
-
-### Shadow Vocabulary
-- **Stuck** (`filter: drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18))`): every paper at rest.
-- **Lifted** (`filter: drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2))`): a paper being dragged.
+Flat ground, shadows only on paper. Shadows follow the paper's own silhouette (drop-shadow filters: `0 7px 8px rgba(0,0,0,.32)` plus `0 1px 1px rgba(0,0,0,.18)`), never a backing panel. A lifted paper gets a larger shadow (`0 22px 22px rgba(0,0,0,.34)`), scale 1.03 and a straightened angle; a lifted scribble gets `drop-shadow(0 10px 10px rgba(0,0,0,.25))`. Torn tabs have no shadow and no backing: the lime shows through the tear.
 
 ### Named Rules
-**The Shadow Follows Paper Rule.** Shadows are drop-shadow filters on the paper itself, never box-shadow on a rectangle and never a panel behind the paper. A torn tab leaves only the ragged paper stub, with nothing behind it but the wall.
+**The Silhouette Shadow Rule.** Shadows on paper are drop-shadow filters that trace the paper's shape. Box-shadow panels behind papers are forbidden; box-shadow is allowed only on small stickers.
 
 ## Shapes
 
-Papers are sharp-cornered rectangles, rotated individually through a per-paper angle variable. Edges are broken only where paper is broken: tape has crimped (zigzag) ends drawn with a mask, and a torn tab is a ragged stub drawn with a mask. Cut lines are 2px dashed Cut-Line Grey. Marker drawings on the wall (arrow, heart) are hand-drawn inline SVG strokes with round caps and joins in the scribble's own colour. The favicon is the only rounded shape (6px on a 32px tile) and shows the wall split with one taped notice and its tabs.
+Paper is square-cornered and rotated slightly; nothing is rounded except the censor stickers (50% and 3px). Edges are made by cut: dashed 2px tear lines (#9A978E) at the foot of a sheet and between tabs; torn tabs get a ragged zigzag top edge by mask; tape is a crimped-edge masked strip about 28px tall, 112px wide (64px small), slightly rotated.
 
 ## Components
 
-### Notice (signature)
-Tactile and plain, like a sheet of office paper.
-- **Structure:** tape across the top edge, a sheet (heading, text, optional action link), then an optional row of tear-off tabs below a dashed cut line.
-- **Background:** Office Paper; Yellowed Paper for tools that do not exist yet, where text drops to Faded Ink and tabs to a grey-brown, smaller label.
-- **Padding:** 30px 28px 16px (28px 20px 14px on phones). A notice without tabs has no cut line and 22px bottom padding.
-- **Rotation:** about -2 to 2.4 degrees on desktop.
-- **Heading link:** no underline at rest; underline in Ballpoint Blue on hover.
+### Notice (paper)
+White (or yellowed for future tools) sheet, 30px 28px 16px padding, dashed tear line at the bottom, taped by a translucent strip. The whole paper is a drag handle (grab cursor); links inside keep a pointer cursor.
 
-### Tear-off Tabs (signature)
-- **Shape:** equal-width strips (min 44px wide, 132px tall; 120px on phones) with vertical Caveat 700 text in Ballpoint Blue, separated by dashed cut lines.
-- **Hover:** the tab peels, rotating -5 degrees around its top edge (0.18s, cubic-bezier(.16,1,.3,1)); the cut line stays put because it belongs to the sheet.
-- **Click:** the tab tears off (rotates, drops 120px, fades, 0.42s) and the browser then navigates. Without script, or under reduced motion, tabs are plain links.
-- **Torn:** one tab per notice may already be a ragged stub with no backing.
-- **Accessibility:** the tab row is hidden from assistive tech and out of the tab order; each notice carries a real link (heading and action link) for keyboard and screen readers.
+### Tear-off Tabs
+Equal-width vertical-text tabs under the sheet, 132px high (118px on phones), separated by dashed cut lines. The cut line belongs to the sheet and never moves. A tab labelled with the tool name opens it; "за попитом" tabs on old paper are inert. Mouse: hover tilts -5deg; press and pull to tear a tab into a ghost that follows the pointer; release and it falls away and navigates (mailto navigates at once). Touch: hold still about 260ms to arm (the tab tilts and drops 3px), then pull; a swipe keeps scrolling the page. A plain click tears and navigates. Torn tabs stay ragged until Back restores them. Reduced motion skips animation.
 
-### Tape (signature control)
-- **Style:** translucent Masking Tape strip, 112px wide by default (64px small, per-paper overrides), crimped ends, rotated a few degrees, overlapping the paper's top edge by 22px.
-- **Role:** the tape is a real button: grab cursor, 44px hit area, label naming the paper and the keyboard behaviour. Hover makes the tape more opaque.
-- **Drag:** pointer on the tape lifts the paper immediately; with a mouse, the paper body can also be dragged after a 5px threshold. On drop the paper sticks at a new random angle between -3 and 3 degrees, is kept fully on screen, and the position is saved for that viewer (separately for phone and desktop layouts).
-- **Keyboard:** arrow keys move the paper 16px (48px with Shift) and a polite live region announces "Переклеєно".
+### Tape and Slips
+A tape strip at the top of every paper is the explicit grab handle (focusable; arrow keys move 16px, Shift 48px). Touch picks up any paper or scribble after holding still about 320ms. The header carries a brand tag (800, 24px) and a "Написати" slip in Ballpoint Blue.
 
-### Action Link
-- **Style:** Pangolin 24px, Ballpoint Blue, 2px underline, at least 44px tall.
-- **Hover:** shifts to Pressed Ballpoint.
+### Censor Stickers
+Swear words in marker scribbles are covered by a sticker: round yellow "18+", masking-tape "цензура", white price tag "−100%" in pink-red, blue "***". Tap peels the sticker off with a short rotating fall and reveals the word. Stickers are buttons out of the tab order; the scribble itself is draggable.
 
-### Slips (brand, contact, note, reset)
-- **Brand slip:** Office Paper, "PAVCRAFT" in Pangolin with a Caveat 600 Faded Ink line under it, small tape, -1.5 degrees.
-- **Contact slip:** Office Paper, "Написати" in Ballpoint Blue Pangolin, small tape, 2 degrees; underline on hover.
-- **Note:** the taped text under the headline, Body Note size.
-- **Reset slip:** "Повісити все як було", a paper button in the footer, hidden until the viewer has moved something; underline on hover.
-
-### Wall Scribbles
-Marker writing on the wall in Felt-Tip Black, Marker Red or Office Paper white (chalky), Caveat 700, each with its own rotation (-6 to 7 degrees). Decorative and hidden from assistive tech; never interactive. Some carry a strikethrough or a hand-drawn SVG (arrow, heart).
-
-### Focus
-Every link and button focuses with a 3px Ballpoint Blue outline offset by 3px. A skip link on Office Paper appears at the top left on focus.
+### Reset
+A small paper button "Повісити все як було", 44px tall, rotated -1deg, shown only after something moved.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the wall two-tone: whitewash band over oil-paint green with the 7px trim line, plaster grain over both.
-- **Do** set every visible letter in Pangolin or Caveat, Pangolin for structure, Caveat for voice.
-- **Do** present each tool as one notice with tear-off tabs that all point to that tool's single address.
-- **Do** give every paper a tape button so it can be peeled, moved with arrow keys and re-stuck, and keep "Повісити все як було" as the way back.
-- **Do** cast shadows with drop-shadow filters on the paper itself.
-- **Do** use Ballpoint Blue for every action and nothing else on paper.
-- **Do** honour reduced motion: no peel, tear or settle animation, links still work without script.
+- **Do** keep the ground a flat #D9FF41 and let the lime show through gaps and torn tabs.
+- **Do** make every paper and scribble draggable, with grab and grabbing cursors, and keep links on paper pointer-cursor.
+- **Do** cover every swear word with a peelable sticker; the owner asked for this device explicitly.
+- **Do** keep a tear line fixed when a tab lifts, and give a held tab on touch a short hold before pulling so scroll still works.
+- **Do** use Ballpoint Blue (#2B35E8) for every actionable element on paper.
+- **Do** keep 44px minimum targets for links and buttons.
 
 ### Don't:
-- **Don't** build a grid of identical tool cards or a dark tech hero.
-- **Don't** put a backing panel, box or shadowed rectangle behind a paper or a torn tab.
-- **Don't** move the cut line when a tab peels; the tab moves, the sheet stays.
-- **Don't** use Marker Red for actions, errors or anything on paper.
-- **Don't** reuse the Pricing Kit receipt world (or its Commissioner and Martian Mono faces) on brand surfaces.
+- **Don't** add a second wall colour, texture, photo or dark section to the board.
+- **Don't** put shadows or a backing under a torn tab, or a backing panel behind a paper.
+- **Don't** use any face other than Playpen Sans and Shantell Sans; Pangolin and Caveat are retired.
+- **Don't** dress future tools as finished: they are yellowed notices with "за попитом" tabs, not a promise.
+- **Don't** put rude words in body text, titles, meta or links; they live only in marker scribbles under stickers.
+- **Don't** bring back the stairwell wall, plaster grain, oil-paint green or whitewash of the previous home.
