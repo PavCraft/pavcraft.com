@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon-home.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/playpen-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/shantell-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/wall.css?v=19">
+<link rel="stylesheet" href="/assets/wall.css?v=27">
 </head>
 <body>
 <div class="bigwords" aria-hidden="true"><span class="bw1">Рутина</span><span class="bw2">Маржа</span><span class="bw3">Ціни</span></div>
@@ -31,6 +31,7 @@
       <svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M110 6 C 80 10, 40 18, 18 46"/><path d="M14 30 L 17 48 L 34 44"/></svg>
     </span>
     <span class="g-was"><s>тут була рутина</s></span>
+    <span class="g-peek">а під папірцями?</span>
     <span class="g-fop">націнка ≠ прибуток, <span class="cz">блядь<button class="sticker st-blue" type="button" tabindex="-1">***</button></span>!</span>
     <span class="g-heart">Pavcraft
       <svg viewBox="0 0 34 30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 27 C 6 19, 2 13, 3 8 C 4 3, 11 1, 17 8 C 23 1, 30 3, 31 8 C 32 13, 28 19, 17 27 Z"/></svg>
@@ -121,12 +122,27 @@
     <span class="sr" aria-live="polite" id="wall-live"></span>
   </footer>
 </div>
+
+<!-- what was glued to the wall before: each old notice sits exactly under one paper and shows only when that paper is moved -->
+<div class="under">
+  <div class="old-ad" data-for="brand" aria-hidden="true"><b>Продам Excel</b><span class="more">Майже новий, формули не чіпали.</span></div>
+  <div class="old-ad mini" data-for="nav" aria-hidden="true"><b>Тут був номер</b></div>
+  <div class="old-ad" data-for="note" aria-hidden="true" style="--r:2deg"><b>Шукаю бухгалтера на ніч</b>Оплата шоколадкою. Без вихідних.</div>
+  <div class="old-ad promo" data-for="pk" style="--r:-1.5deg">
+    <b>Ви відклеїли оголошення!</b>
+    Напишіть мені слово <span class="code">ВІДІРВАВ</span> — візьму вас у бета-тест Pricing Kit поза чергою: повна версія безкоштовно за чесний відгук.<br><span class="mail">pav.craft.lab@gmail.com</span>
+    <a href="mailto:pav.craft.lab@gmail.com?subject=%D0%91%D0%B5%D1%82%D0%B0%20Pricing%20Kit%20%E2%80%94%20%D0%92%D0%86%D0%94%D0%86%D0%A0%D0%92%D0%90%D0%92">Написати слово →</a>
+  </div>
+  <div class="old-ad stubs" data-for="ask" aria-hidden="true" style="--r:3deg"><b>Загубився прайс за 2019 рік</b>Хто знайде — не повертайте.</div>
+  <div class="old-ad stubs" data-for="next" aria-hidden="true" style="--r:-3deg"><b>Куплю вихідні</b>Дорого. Можна вживані.</div>
+  <div class="old-ad" data-for="about" aria-hidden="true" style="--r:-2deg"><b>Віддам у добрі руки</b>Ручний перерахунок цін. Не кусається, але їсть усі вечори.</div>
+</div>
 <script>
 (function(){
   var KEY='pavcraft-wall-v2'+(matchMedia('(max-width:860px)').matches?'-m':'-d'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var store={}; try{store=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
   var reset=document.querySelector('.reset'), live=document.getElementById('wall-live'), top=10, papers=[].slice.call(document.querySelectorAll('[data-drag]'));
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){} reset.hidden=!Object.keys(store).length}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){} reset.hidden=!Object.keys(store).length; syncPromo()}
   function apply(el){var s=store[el.dataset.drag]; if(!s)return; el.style.setProperty('--dx',s.dx+'px');el.style.setProperty('--dy',s.dy+'px');el.style.setProperty('--r',s.r+'deg');el.style.zIndex=s.z; top=Math.max(top,s.z)}
   function unapply(el){el.style.removeProperty('--dx');el.style.removeProperty('--dy');el.style.removeProperty('--r');el.style.zIndex=''}
   // keep a stuck paper fully on the wall: inside the viewport width and below the top of the page
@@ -244,6 +260,22 @@
     if(reduce||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
     e.preventDefault(); t.classList.add('tearing'); go(t,/^mailto:/.test(t.href)?0:380);
   });
+
+  // old notices under the papers: pin each one inside the untouched spot of its paper, so it only shows once that paper is moved
+  var ads=[].slice.call(document.querySelectorAll('.old-ad'));
+  function under(){ads.forEach(function(ad){
+    var p=document.querySelector('[data-drag="'+ad.dataset.for+'"]'); if(!p)return;
+    var x=0,y=0,n=p; while(n&&n!==document.body){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent}
+    var sh=p.querySelector('.sheet'),w=p.offsetWidth,h=sh?sh.offsetTop+sh.offsetHeight:p.offsetHeight,i=Math.max(8,Math.min(26,w*.07,h*.12)),aw=Math.min(w-2*i,ad.classList.contains('promo')?430:360);
+    ad.style.left=Math.round(x+(w-aw)/2)+'px'; ad.style.top=Math.round(y+i)+'px'; ad.style.width=Math.round(aw)+'px'; ad.style.maxHeight=Math.round(h-2*i)+'px';
+    ad.classList.add('placed');
+  })}
+  // the promo stays out of reach for keyboard and screen readers until its paper is moved
+  function syncPromo(){var pr=document.querySelector('.old-ad.promo'); if(!pr)return; var open=!!store.pk;
+    if(open&&pr.inert&&live)live.textContent='Під оголошенням Pricing Kit знайшлося старе оголошення з кодовим словом';
+    pr.inert=!open; pr.setAttribute('aria-hidden',open?'false':'true')}
+  syncPromo();
+  under(); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(under); addEventListener('resize',under);
 
   // censor stickers: tap to peel off and see what was written underneath
   document.addEventListener('click',function(e){
