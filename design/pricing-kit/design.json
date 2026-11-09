@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T17:49:55+00:00",
+  "title": "Design System: Pavcraft",
+  "extensions": {
+    "colorMeta": {
+      "print-red": {
+        "role": "primary",
+        "displayName": "Print Red",
+        "canonical": "oklch(53.8% 0.200 29.1)",
+        "tonalRamp": [
+          "#230000",
+          "#4E0000",
+          "#7E0B07",
+          "#B21F17",
+          "#DA4A3C",
+          "#F37E6E",
+          "#FFAD9F",
+          "#FFDCD2"
+        ]
+      },
+      "print-red-pressed": {
+        "role": "primary",
+        "displayName": "Pressed Red",
+        "canonical": "oklch(45.2% 0.168 29.0)",
+        "tonalRamp": [
+          "#1F0000",
+          "#480A06",
+          "#761E17",
+          "#A63329",
+          "#CE584A",
+          "#E88678",
+          "#FFB2A6",
+          "#FFDFD6"
+        ]
+      },
+      "counter": {
+        "role": "neutral",
+        "displayName": "Graphite Counter",
+        "canonical": "oklch(21.8% 0.004 84.6)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#252524",
+          "#434240",
+          "#62615F",
+          "#838280",
+          "#A6A5A3",
+          "#CAC9C7",
+          "#EFEEED"
+        ]
+      },
+      "counter-ink": {
+        "role": "neutral",
+        "displayName": "Counter Light",
+        "canonical": "oklch(93.7% 0.011 89.7)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#262522",
+          "#44423D",
+          "#63615B",
+          "#85827C",
+          "#A7A59F",
+          "#CBC9C5",
+          "#EFEEEB"
+        ]
+      },
+      "counter-muted": {
+        "role": "neutral",
+        "displayName": "Counter Dim",
+        "canonical": "oklch(84.0% 0.015 84.6)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#272521",
+          "#45423C",
+          "#656159",
+          "#868279",
+          "#A8A59E",
+          "#CCC9C3",
+          "#F0EEEA"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Thermal Paper",
+        "canonical": "oklch(96.7% 0.008 91.5)",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#262523",
+          "#43423E",
+          "#63615C",
+          "#84827D",
+          "#A6A5A1",
+          "#CAC9C6",
+          "#EFEEEC"
+        ]
+      },
+      "paper-pressed": {
+        "role": "neutral",
+        "displayName": "Pressed Paper",
+        "canonical": "oklch(93.1% 0.014 88.7)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#272521",
+          "#44423C",
+          "#646159",
+          "#85827A",
+          "#A8A59E",
+          "#CBC9C3",
+          "#F0EEEA"
+        ]
+      },
+      "thermal-ink": {
+        "role": "neutral",
+        "displayName": "Thermal Ink",
+        "canonical": "oklch(23.4% 0.004 106.7)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#252524",
+          "#424240",
+          "#61615F",
+          "#828280",
+          "#A5A5A3",
+          "#C9C9C8",
+          "#EEEEED"
+        ]
+      },
+      "faded-ink": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "oklch(41.4% 0.013 81.8)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#272521",
+          "#44423D",
+          "#64615A",
+          "#86827B",
+          "#A8A59F",
+          "#CBC9C4",
+          "#F0EEEB"
+        ]
+      },
+      "dash-rule": {
+        "role": "neutral",
+        "displayName": "Dash Rule",
+        "canonical": "oklch(77.1% 0.018 88.0)",
+        "tonalRamp": [
+          "#0C0B08",
+          "#272520",
+          "#45423A",
+          "#656157",
+          "#868278",
+          "#A8A59C",
+          "#CCC9C2",
+          "#F0EEE9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Printed h1 in double width under the masthead."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2s between star rules."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h3 inside a section or coupon."
+      },
+      "total": {
+        "displayName": "Total",
+        "purpose": "Receipt totals and the post-beta price."
+      },
+      "receipt-line": {
+        "displayName": "Receipt Line",
+        "purpose": "Uppercase item lines with dot leaders; 12.5px under 560px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, list items and FAQ answers; max 66ch; 16px under 560px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Masthead subline and footer, uppercase."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Printed buttons and the nav CTA."
+      }
+    },
+    "shadows": [
+      {
+        "name": "paper-on-counter",
+        "value": "0 22px 50px -18px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.35)",
+        "purpose": "The receipt strip only; the one raised surface."
+      }
+    ],
+    "motion": [
+      {
+        "name": "print-line",
+        "value": "360ms cubic-bezier(.16,1,.3,1), 70ms stagger per line",
+        "purpose": "Receipt lines print in sequence on load and reprint, from opacity .12, translateY(-5px), blur(1.5px). Off under prefers-reduced-motion and in hidden tabs."
+      },
+      {
+        "name": "press",
+        "value": "transform 120ms ease-out, background-color 150ms",
+        "purpose": "Buttons: fill swap on hover, 1px press on active."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Red printed button for the beta application; the only red action.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Подати заявку на бета-тест</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;font-family:'Martian Mono',ui-monospace,monospace;font-stretch:112.5%;font-weight:700;font-size:16px;line-height:1.2;padding:16px 22px;border:2px solid var(--red,#C8231A);background:var(--red,#C8231A);color:var(--paper,#F6F4EE);text-decoration:none;border-radius:0;transition:transform .12s ease-out,background-color .15s} .ds-btn-primary:hover{background:var(--red,#C8231A)D;border-color:var(--red,#C8231A)D} .ds-btn-primary:active{transform:translateY(1px)} .ds-btn-primary:focus-visible{outline:2px solid var(--red,#C8231A);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Paper button with a solid ink border, for the demo link.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Переглянути демо</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Martian Mono',ui-monospace,monospace;font-stretch:112.5%;font-weight:700;font-size:16px;line-height:1.2;padding:16px 22px;border:2px solid var(--ink,#1E1E1C);background:var(--paper,#F6F4EE);color:var(--ink,#1E1E1C);text-decoration:none;border-radius:0;transition:transform .12s ease-out,background-color .15s} .ds-btn:hover{background:#ECE8DE} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:2px solid var(--red,#C8231A);outline-offset:3px}"
+    },
+    {
+      "name": "Reprint Key",
+      "kind": "button",
+      "refersTo": "key-reprint",
+      "description": "Dashed key that reprints the demo receipt.",
+      "html": "<button class=\"ds-key\" type=\"button\">Пробити інший товар</button>",
+      "css": ".ds-key{font-family:'Martian Mono',ui-monospace,monospace;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em;min-height:44px;padding:0 16px;background:transparent;color:var(--ink,#1E1E1C);border:1.5px dashed var(--ink,#1E1E1C);border-radius:0;cursor:pointer} .ds-key:hover{background:#ECE8DE} .ds-key:active{transform:translateY(1px)} .ds-key:focus-visible{outline:2px solid var(--red,#C8231A);outline-offset:3px}"
+    },
+    {
+      "name": "Counter Nav",
+      "kind": "nav",
+      "refersTo": "nav-cta",
+      "description": "Thin nav on the graphite counter with a red CTA block.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">PAVCRAFT</a><nav><a href=\"#\">Як це працює</a><a href=\"#\">Ціна</a><a class=\"ds-nav-cta\" href=\"#\">Подати заявку</a></nav></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 16px 14px;background:var(--counter,#1B1A18);color:var(--counter-ink,#EDEAE2);font-family:'Martian Mono',ui-monospace,monospace;font-stretch:75%;font-size:13px} .ds-nav-brand{font-weight:700;font-stretch:112.5%;letter-spacing:.02em;color:inherit;text-decoration:none} .ds-nav nav{display:flex;align-items:center;gap:18px} .ds-nav nav a{color:var(--counter-muted,#CFCAC0);text-decoration:none} .ds-nav nav a:hover{color:var(--counter-ink,#EDEAE2)} .ds-nav nav a.ds-nav-cta{background:var(--red,#C8231A);color:var(--paper,#F6F4EE);padding:7px 12px;font-weight:700;font-stretch:112.5%} .ds-nav nav a.ds-nav-cta:hover{background:var(--red,#C8231A)D;color:var(--paper,#F6F4EE)} .ds-nav a:focus-visible{outline:2px solid var(--red,#C8231A);outline-offset:3px}"
+    },
+    {
+      "name": "Receipt Strip",
+      "kind": "card",
+      "refersTo": "receipt-strip",
+      "description": "The single paper strip with zigzag tear edges, masthead and printed h1.",
+      "html": "<div class=\"ds-counter\"><div class=\"ds-strip\"><div class=\"ds-mast\"><b>Pricing Kit</b>Google-таблиця для продавців Prom</div><hr class=\"ds-dash\"><h1 class=\"ds-h1\">Ваш товар продається в мінус. Ось чек.</h1></div></div>",
+      "css": ".ds-counter{background:var(--counter,#1B1A18);padding:24px 12px} .ds-strip{position:relative;max-width:760px;margin:0 auto;background:var(--paper,#F6F4EE);color:var(--ink,#1E1E1C);padding:28px clamp(20px,5vw,56px) 40px;font-family:'Martian Mono',ui-monospace,monospace;font-stretch:75%;box-shadow:0 22px 50px -18px rgba(0,0,0,.6),0 2px 6px rgba(0,0,0,.35)} .ds-strip::before{content:'';position:absolute;left:0;right:0;top:-9px;height:10px;background:linear-gradient(-135deg,transparent 7px,var(--paper,#F6F4EE) 0) 0 0/14px 10px,linear-gradient(135deg,transparent 7px,var(--paper,#F6F4EE) 0) 0 0/14px 10px;background-repeat:repeat-x} .ds-strip::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--paper,#F6F4EE) 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,var(--paper,#F6F4EE) 0) 0 0/14px 10px;background-repeat:repeat-x} .ds-mast{text-align:center;font-size:12px;line-height:1.5;color:var(--ink-2,#4F4B44);text-transform:uppercase;letter-spacing:.08em} .ds-mast b{display:block;color:var(--ink,#1E1E1C);font-size:15px;font-stretch:112.5%;letter-spacing:.06em} .ds-dash{border:0;border-top:1.5px dashed var(--rule,#B9B4A8);margin:18px 0} .ds-h1{margin:4px 0 0;font-size:clamp(27px,5.2vw,40px);font-weight:800;font-stretch:112.5%;letter-spacing:-.01em;line-height:1.12;text-wrap:balance}"
+    },
+    {
+      "name": "Receipt Lines",
+      "kind": "custom",
+      "refersTo": "receipt-strip",
+      "description": "Item lines with dot leaders; total in red when negative; struck value and reverse-printed loss stamp.",
+      "html": "<div class=\"ds-slip\"><div class=\"ds-ln\"><span>Ціна на Prom</span><i></i><span>299,00</span></div><div class=\"ds-ln\"><span>Закупівля</span><i></i><span>−224,00</span></div><div class=\"ds-ln ds-total\"><span>Разом</span><i></i><span>−19,50</span></div><div class=\"ds-ln ds-small\"><span>Маржа −6,5% · <span class=\"ds-stamp\">Збиток</span></span><i></i><span></span></div><div class=\"ds-ln ds-struck\"><span>Збиток</span><i></i><span>−19,50</span></div></div>",
+      "css": ".ds-slip{background:var(--paper,#F6F4EE);color:var(--ink,#1E1E1C);padding:20px;font-family:'Martian Mono',ui-monospace,monospace;font-stretch:75%;font-variant-numeric:tabular-nums} .ds-ln{display:flex;align-items:baseline;gap:.6ch;margin:3px 0;text-transform:uppercase;font-size:15px} .ds-ln i{flex:1 1 2ch;min-width:2ch;border-bottom:2px dotted var(--rule,#B9B4A8);transform:translateY(-.3em)} .ds-ln>span:last-child{white-space:nowrap} .ds-total{font-size:clamp(19px,3.6vw,26px);font-weight:800;font-stretch:112.5%;margin-top:10px;color:var(--red,#C8231A)} .ds-total i{border-bottom-width:3px} .ds-small{font-size:13px;color:var(--ink-2,#4F4B44)} .ds-struck>span:first-child{color:var(--red,#C8231A);font-weight:700} .ds-struck>span:last-child{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red,#C8231A)} .ds-stamp{background:var(--red,#C8231A);color:var(--paper,#F6F4EE);padding:0 .5ch;font-weight:700}"
+    },
+    {
+      "name": "Coupon",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "Dashed frame holding the primary action and its terms.",
+      "html": "<div class=\"ds-coupon\"><a class=\"ds-coupon-btn\" href=\"#\">Подати заявку на бета-тест</a><p>Зараз шукаю 5 бета-тестерів. Після бети — 990 грн один раз.</p></div>",
+      "css": ".ds-coupon{border:2px dashed var(--ink,#1E1E1C);padding:18px;text-align:center;background:var(--paper,#F6F4EE);color:var(--ink,#1E1E1C)} .ds-coupon-btn{display:block;font-family:'Martian Mono',ui-monospace,monospace;font-stretch:112.5%;font-weight:700;font-size:16px;padding:16px 22px;background:var(--red,#C8231A);border:2px solid var(--red,#C8231A);color:var(--paper,#F6F4EE);text-decoration:none} .ds-coupon-btn:hover{background:var(--red,#C8231A)D;border-color:var(--red,#C8231A)D} .ds-coupon-btn:focus-visible{outline:2px solid var(--red,#C8231A);outline-offset:3px} .ds-coupon p{margin:12px 0 0;font-family:'Commissioner',system-ui,sans-serif;font-size:15px;color:var(--ink-2,#4F4B44)}"
+    },
+    {
+      "name": "FAQ Row",
+      "kind": "custom",
+      "refersTo": "receipt-strip",
+      "description": "Details row between dashed rules with a printed plus/minus toggle.",
+      "html": "<details class=\"ds-faq\"><summary>Чи потрібно розумітися на формулах?</summary><p>Ні. Ви вставляєте експорт товарів і закупівельні ціни, а таблиця рахує сама.</p></details>",
+      "css": ".ds-faq{border-top:1.5px dashed var(--rule,#B9B4A8);border-bottom:1.5px dashed var(--rule,#B9B4A8);padding:12px 0;background:var(--paper,#F6F4EE);color:var(--ink,#1E1E1C);font-family:'Martian Mono',ui-monospace,monospace;font-stretch:75%} .ds-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:700} .ds-faq summary::-webkit-details-marker{display:none} .ds-faq summary::after{content:'+';font-weight:800} .ds-faq[open] summary::after{content:'−'} .ds-faq summary:focus-visible{outline:2px solid var(--red,#C8231A);outline-offset:3px} .ds-faq p{margin:10px 0 0;font-family:'Commissioner',system-ui,sans-serif;font-size:17px;line-height:1.5;color:var(--ink-2,#4F4B44)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Receipt on the Counter",
+    "overview": "Every Pavcraft page is one long strip of thermal paper lying on a dark graphite shop counter. The strip carries everything: a store-header masthead, printed headings, item lines with dot leaders, totals in double width, dashed and starred cut rules, and a red coupon for the one action that matters. The counter around it carries only a thin nav. Margin is literally a receipt here: price minus costs, total printed at the bottom, red when it is a loss.\n\nThe system is flat, square and printed. Depth comes from paper lying on a darker surface, not from cards or layered panels. Martian Mono, set wide for headings and narrow for item lines, is the printer's voice; Commissioner carries paragraph prose because a 390px phone reader tires of monospace paragraphs. Colour is two-ink: thermal black and one second print colour, red, reserved for loss and the primary action. The page refuses the split hero (copy left, screenshot right) and the row of feature cards; content stacks down the strip in receipt order.",
+    "keyCharacteristics": [
+      "One centred paper strip (max 760px) on a graphite counter, with zigzag tear edges top and bottom.",
+      "Two inks only: thermal black for everything, print red for loss and the primary action.",
+      "Monospace receipt typography with tabular figures; sans-serif only for paragraphs.",
+      "Square corners everywhere; dashed borders are the default stroke.",
+      "State changes texture, not only colour: loss lines are struck through and reverse-printed."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Ink Rule",
+        "body": "Paper carries thermal ink and print red, nothing else. Red appears only where money is lost or where the visitor should act; a red element that is neither is a defect.",
+        "section": "colors"
+      },
+      {
+        "name": "The Counter Stays Dark Rule",
+        "body": "The counter is never lightened and the strip is never darkened; there is no dark-mode inversion (`color-scheme: light`).",
+        "section": "colors"
+      },
+      {
+        "name": "The Printer Voice Rule",
+        "body": "Anything the receipt would print (headings, item lines, totals, buttons, masthead, nav) is Martian Mono. Anything a person would read as a sentence is Commissioner. Never set a paragraph in mono or a total in sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Width Means Weight Rule",
+        "body": "Wide (112.5%) is reserved for headings, totals, buttons and the brand; item lines and labels stay narrow (75%). Width, not size alone, separates the levels.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Paper Rule",
+        "body": "Exactly one surface casts a shadow: the strip. Coupons and blocks inside it are drawn with dashed borders, never lifted.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put all content on one centred paper strip (max 760px) on the graphite counter, with zigzag tear edges top and bottom.",
+      "**Do** keep red for loss and the primary action only; mark loss by texture too (strike-through, reverse-printed stamp), not by colour alone.",
+      "**Do** print figures as receipt lines with dot leaders and tabular numbers; totals go wide and heavy.",
+      "**Do** separate sections with the starred cut rule and sub-parts with the dashed rule.",
+      "**Do** set paragraphs in Commissioner at 17px (16px on phones), max 66ch.",
+      "**Do** keep the beta CTA reachable in the first viewport on a 390px phone via the red nav button."
+    ],
+    "donts": [
+      "**Don't** use a split hero (copy left, screenshot right) or a row of feature cards.",
+      "**Don't** round corners or lift inner blocks with shadows; the strip is the only shadowed surface.",
+      "**Don't** introduce a third ink colour or use red decoratively.",
+      "**Don't** set paragraph prose in Martian Mono.",
+      "**Don't** restyle the masthead as an eyebrow or kicker above the headline."
+    ]
+  }
+}
