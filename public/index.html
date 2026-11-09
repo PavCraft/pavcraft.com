@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon-home.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/playpen-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/shantell-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/wall.css?v=12">
+<link rel="stylesheet" href="/assets/wall.css?v=13">
 </head>
 <body>
 <div class="bigwords" aria-hidden="true"><span class="bw1">Рутина</span><span class="bw2">Маржа</span><span class="bw3">Ціни</span></div>
@@ -142,8 +142,8 @@
   function start(el,e,immediate){
     var s=store[el.dataset.drag]||{dx:0,dy:0};
     drag={el:el,id:e.pointerId,x:e.clientX,y:e.clientY,dx:s.dx,dy:s.dy,on:immediate};
-    if(immediate)lift(el);
-    try{el.setPointerCapture(e.pointerId)}catch(_){}
+    // capture only once a real drag begins, so a plain click still reaches links and stickers inside
+    if(immediate){lift(el);try{el.setPointerCapture(e.pointerId)}catch(_){}}
   }
   function lift(el){var sel=window.getSelection&&window.getSelection(); if(sel)sel.removeAllRanges(); el.classList.remove('settle');el.classList.add('lifted');el.style.zIndex=++top;document.body.style.userSelect='none'}
   document.addEventListener('pointerdown',function(e){
@@ -165,7 +165,7 @@
     if(hold&&e.pointerId===hold.id&&Math.abs(e.clientX-hold.x)+Math.abs(e.clientY-hold.y)>8){clearTimeout(hold.timer);hold=null}
     if(!drag||e.pointerId!==drag.id)return;
     var mx=e.clientX-drag.x,my=e.clientY-drag.y;
-    if(!drag.on){if(Math.abs(mx)+Math.abs(my)<5)return;drag.on=true;lift(drag.el)}
+    if(!drag.on){if(Math.abs(mx)+Math.abs(my)<5)return;drag.on=true;lift(drag.el);try{drag.el.setPointerCapture(drag.id)}catch(_){}}
     moved=true;
     drag.el.style.setProperty('--dx',(drag.dx+mx)+'px');drag.el.style.setProperty('--dy',(drag.dy+my)+'px');
   });
