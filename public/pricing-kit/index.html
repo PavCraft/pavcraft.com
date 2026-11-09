@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing Kit — таблиця цін і маржі для продавців Prom | Pavcraft</title>
+<meta name="description" content="Google-таблиця показує, які товари на Prom продаються в мінус, рахує мінімальну ціну під вашу маржу і готує файл з новими цінами для кабінету. 990 грн один раз.">
+<link rel="canonical" href="https://pavcraft.com/pricing-kit/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pavcraft.com/pricing-kit/">
+<meta property="og:title" content="Pricing Kit — знайдіть товари на Prom, що продаються в мінус">
+<meta property="og:description" content="Google-таблиця рахує чисту маржу кожного товару після комісії Prom, податків, доставки й повернень і готує файл з новими цінами для кабінету.">
+<meta property="og:locale" content="uk_UA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23C8912A'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23fff'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF; --ink:#1C1A17; --muted:#6B6760; --line:#E6E2DA; --soft:#F7F5F0;
+    --tag:#C8912A; --tag-ink:#5A3E0B;
+    --loss:#B3261E; --loss-bg:#FCECEA; --below:#8A5A00; --below-bg:#FDF3DC; --ok:#2E6B3A; --ok-bg:#E7F3E9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{font-size:17px;line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+  header.top{border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-size:17px;font-weight:600;letter-spacing:-.01em;text-decoration:none}
+  .top nav a{font-size:15px;color:var(--muted);text-decoration:none;margin-left:22px}
+  .top nav a:hover{color:var(--ink)}
+
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;margin:0}
+  h1{font-size:clamp(34px,5vw,54px);line-height:1.06;text-wrap:balance;max-width:15ch}
+  h2{font-size:clamp(26px,3.2vw,34px);line-height:1.15;text-wrap:balance;max-width:24ch;margin-bottom:20px}
+  h3{font-size:18px;line-height:1.3;margin-bottom:6px}
+  p{margin:0 0 14px}
+  .lead{font-size:19px;color:var(--muted);max-width:52ch}
+  .kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;color:var(--tag-ink);letter-spacing:.02em;margin-bottom:16px;display:block}
+  .small{font-size:14px;color:var(--muted)}
+
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 12px}
+  .btn{display:inline-block;padding:14px 22px;border-radius:6px;font-weight:500;font-size:16px;text-decoration:none;border:1.5px solid var(--ink);line-height:1.2}
+  .btn.primary{background:var(--ink);color:var(--paper)}
+  .btn.primary:hover{background:#000}
+  .btn.ghost{background:var(--paper);color:var(--ink)}
+  .btn.ghost:hover{background:var(--soft)}
+  .btn:focus-visible,a:focus-visible{outline:2px solid var(--tag);outline-offset:3px}
+
+  .hero{padding-top:64px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+
+  /* demo card */
+  .demo{border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:0 1px 0 var(--line),0 12px 32px -18px rgba(28,26,23,.25);overflow:hidden;position:relative}
+  .demo-head{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--soft);border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .stamp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;font-weight:500;color:var(--tag-ink);border:1.5px solid var(--tag);border-radius:3px;padding:2px 7px;transform:rotate(-3deg)}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+  .kpi{padding:14px;border-right:1px solid var(--line)}
+  .kpi:last-child{border-right:0}
+  .kpi b{display:block;font-size:24px;font-weight:600;letter-spacing:-.02em}
+  .kpi span{font-size:12px;color:var(--muted)}
+  .kpi.loss b{color:var(--loss)} .kpi.below b{color:var(--below)} .kpi.ok b{color:var(--ok)}
+  table.rows{width:100%;border-collapse:collapse;font-size:13px}
+  table.rows th{font-weight:500;color:var(--muted);text-align:left;padding:8px 14px;border-bottom:1px solid var(--line);font-size:12px}
+  table.rows td{padding:9px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.rows tr:last-child td{border-bottom:0}
+  table.rows td.num{font-family:"IBM Plex Mono",ui-monospace,monospace;text-align:right}
+  table.rows th.num{text-align:right}
+  .st{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;font-weight:500;padding:2px 6px;border-radius:3px}
+  .st.loss{color:var(--loss);background:var(--loss-bg)} .st.below{color:var(--below);background:var(--below-bg)} .st.ok{color:var(--ok);background:var(--ok-bg)}
+  .demo-foot{padding:10px 14px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);background:var(--soft)}
+
+  .statuses{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+  .status{border:1px solid var(--line);border-radius:8px;padding:18px}
+  .status .st{display:inline-block;margin-bottom:10px;font-size:12px}
+  .status p{margin:0;font-size:15px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .text{max-width:62ch}
+
+  ol.steps{list-style:none;padding:0;margin:28px 0 0;counter-reset:s;display:grid;gap:0}
+  ol.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:12px;padding:18px 0;border-top:1px solid var(--line)}
+  ol.steps li::before{content:counter(s);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px;color:var(--tag-ink);border:1.5px solid var(--tag);border-radius:50%;width:32px;height:32px;display:grid;place-items:center}
+  ol.steps li p{margin:0}
+  .path{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px;background:var(--soft);padding:1px 6px;border-radius:3px;white-space:nowrap}
+  .tip{margin-top:24px;padding:16px 18px;border-left:3px solid var(--tag);background:var(--soft);border-radius:0 6px 6px 0}
+
+  ul.costs{list-style:none;padding:0;margin:24px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px 40px}
+  ul.costs li{padding-top:14px;border-top:1px solid var(--line)}
+  ul.costs li p{margin:0;font-size:15px;color:var(--muted)}
+  .extra{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+  .extra div{background:var(--soft);border-radius:8px;padding:18px;font-size:15px}
+
+  ul.check{list-style:none;padding:0;margin:0}
+  ul.check li{padding:10px 0 10px 28px;border-top:1px solid var(--line);position:relative;font-size:16px}
+  ul.check li::before{position:absolute;left:0;top:10px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500}
+  ul.check.yes li::before{content:"+";color:var(--ok)}
+  ul.check.no li::before{content:"–";color:var(--loss)}
+
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:28px}
+  .card.main{border:1.5px solid var(--ink)}
+  .price{font-size:48px;font-weight:600;letter-spacing:-.03em;line-height:1;margin:8px 0 6px}
+  .price small{font-size:18px;font-weight:500;color:var(--muted);letter-spacing:0}
+  .card ul{padding-left:18px;margin:16px 0}
+  .card li{margin-bottom:6px;font-size:16px}
+  .card .btns{margin:20px 0 10px}
+  .who{margin-top:28px;font-size:15px;color:var(--muted);max-width:60ch}
+
+  details{border-top:1px solid var(--line);padding:16px 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:500;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--muted)}
+  details[open] summary::after{content:"–"}
+  details p{margin:10px 0 0;color:var(--muted);max-width:68ch}
+
+  .final{text-align:left;border-bottom:0}
+  footer{padding:28px 0 40px;font-size:13px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{text-decoration:none;border-bottom:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .hero-grid,.two,.price-grid,.extra{grid-template-columns:1fr}
+    .statuses{grid-template-columns:1fr}
+    ul.costs{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    section{padding:52px 0}
+    .hero{padding-top:40px}
+    .top nav a{margin-left:14px;font-size:14px}
+    .top nav a:first-child{display:none}
+    .btn{width:100%;text-align:center}
+    .kpi b{font-size:20px}
+    table.rows .hide-sm{display:none}
+    .card{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">Pavcraft</a>
+    <nav aria-label="Розділи">
+      <a href="#how">Як це працює</a>
+      <a href="#price">Ціна</a>
+      <a href="#faq">Питання</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Pricing Kit · Google-таблиця для продавців Prom</span>
+      <h1>Знайдіть товари на Prom, що продаються в мінус</h1>
+      <p class="lead" style="margin-top:20px">Google-таблиця рахує, скільки ви насправді заробляєте на кожному товарі після комісії Prom, податків, доставки й повернень. І готує файл з новими цінами для завантаження в кабінет Prom.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку на бета-тест</a>
+        <a class="btn ghost" href="https://docs.google.com/spreadsheets/d/18NHKD8CaJuf2JX0fdNQ0R7NmBbdj925r7clr6sF3GYw/edit?usp=sharing" target="_blank" rel="noopener">Переглянути демо</a>
+      </div>
+      <p class="small">Зараз шукаю 5 бета-тестерів: повна версія для них безкоштовна. Після бети — 990 грн один раз.<br>Демо на 5 000 вигаданих товарів, лише перегляд.</p>
+    </div>
+
+    <figure class="demo" style="margin:0" aria-label="Приклад аркуша «Огляд» з демо-таблиці">
+      <div class="demo-head"><span>Огляд асортименту · 5 000 товарів</span><span class="stamp">ДЕМО</span></div>
+      <div class="kpis">
+        <div class="kpi loss"><b>1 694</b><span>у збитку</span></div>
+        <div class="kpi below"><b>2 420</b><span>нижче цілі</span></div>
+        <div class="kpi ok"><b>886</b><span>ОК</span></div>
+      </div>
+      <table class="rows">
+        <thead><tr><th>Товар</th><th class="num hide-sm">Маржа</th><th class="num">Ціна → нова</th><th>Статус</th></tr></thead>
+        <tbody>
+          <tr><td>Товар 2973</td><td class="num hide-sm">−52,5%</td><td class="num">101 → 219</td><td><span class="st loss">ЗБИТОК</span></td></tr>
+          <tr><td>Товар 1892</td><td class="num hide-sm">−51,1%</td><td class="num">104 → 229</td><td><span class="st loss">ЗБИТОК</span></td></tr>
+          <tr><td>Товар 2298</td><td class="num hide-sm">−47,5%</td><td class="num">126 → 259</td><td><span class="st loss">ЗБИТОК</span></td></tr>
+        </tbody>
+      </table>
+      <figcaption class="demo-foot">Демо, дані вигадані. Цільова маржа 20%.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. Проблема -->
+<section>
+  <div class="wrap">
+    <h2>Націнка 30% на закупівлю ще не означає 30% прибутку</h2>
+    <div class="text">
+      <p>З кожного продажу на Prom іде комісія, і для кожної категорії вона своя. Далі податок і ЄСВ, комісія за оплату карткою, накладений платіж, доставка, повернення, абонплата за пакет і реклама.</p>
+      <p>Коли товарів сотні, порахувати це вручну для кожного майже неможливо. Тому частина асортименту може продаватися в мінус, а в загальному обороті цього не видно.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Що показує -->
+<section>
+  <div class="wrap">
+    <h2>Статус кожного товару і ціна під вашу маржу</h2>
+    <div class="statuses">
+      <div class="status"><span class="st loss">ЗБИТОК</span><p>Після всіх витрат ви втрачаєте гроші з кожним продажем.</p></div>
+      <div class="status"><span class="st below">НИЖЧЕ ЦІЛІ</span><p>Товар у плюсі, але заробляє менше, ніж ви хочете.</p></div>
+      <div class="status"><span class="st ok">ОК</span><p>Маржа не нижча за вашу ціль.</p></div>
+    </div>
+    <div class="text">
+      <p class="small">Якщо для товару бракує даних, таблиця так і пише: «НЕМАЄ ЗАКУПІВЛІ», «НЕМАЄ СТАВКИ» або «НЕМАЄ ЦІНИ».</p>
+      <p>Цільову маржу задаєте ви, за замовчуванням 20% чистого прибутку з ціни. Для кожного товару таблиця рахує мінімальну ціну, з якою він дає цю маржу, і рекомендовану: мінімальну, округлену вгору до …9 грн (наприклад, 241 → 249).</p>
+      <p>Для окремих товарів можна задати свою маржу. А ті, ціни яких змінювати не треба, позначте галочкою «Не чіпати»: вони не потраплять у файл з новими цінами.</p>
+      <p>Аркуш «Огляд» показує підсумок по всьому асортименту: скільки товарів у збитку і нижче цілі, середню маржу, 20 найгірших товарів і маржу за категоріями.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Як це працює -->
+<section id="how">
+  <div class="wrap">
+    <h2>П'ять кроків на аркуші «Старт»</h2>
+    <ol class="steps">
+      <li><p><b>Налаштування.</b> Оберіть систему оподаткування, вкажіть кількість замовлень на місяць, цільову маржу і ваш пакет Prom.</p></li>
+      <li><p><b>Товари з Prom.</b> У кабінеті Prom: <span class="path">Товари → Експорт → XLSX</span>. Файл прийде на пошту. Відкрийте його і скопіюйте аркуш з товарами в таблицю.</p></li>
+      <li><p><b>Закупівельні ціни.</b> Дві колонки: артикул і закупівельна ціна. Можна скопіювати з прайсу постачальника або вписати вручну.</p></li>
+      <li><p><b>Результат.</b> Перегляньте статуси, мінімальні та рекомендовані ціни.</p></li>
+      <li><p><b>Нові ціни в кабінет.</b> Таблиця готує файл з новими цінами (формат CSV), який ви просто завантажуєте в кабінет Prom: <span class="path">Товари → Імпорт</span>, позначте лише «Ціна» і «Тільки оновлення».</p></li>
+    </ol>
+    <p class="small" style="margin-top:16px">Формули чіпати не треба: ви лише вставляєте дані. На аркуші «Старт» видно, які кроки вже зроблено.</p>
+    <div class="tip text"><b>Перший раз:</b> вивантажте лише 2–3 товари і перевірте, як кабінет прийняв нові ціни. Потім усе інше.</div>
+  </div>
+</section>
+
+<!-- 5. Що враховує -->
+<section>
+  <div class="wrap">
+    <h2>Усі витрати, які з'їдають маржу</h2>
+    <ul class="costs">
+      <li><h3>Комісія Prom за вашою категорією</h3><p>У таблицю вбудовано офіційні ставки для всіх 4 339 категорій Prom, з режимом ProSale і зниженою ставкою для дорогих товарів. Вручну шукати ставку не треба.</p></li>
+      <li><h3>Податки</h3><p>ФОП 2 групи (фіксований), ФОП 3 групи (5% або 3% + ПДВ), ЄСВ, військовий збір.</p></li>
+      <li><h3>Абонплата</h3><p>12 пакетів Prom.</p></li>
+      <li><h3>Оплата і доставка</h3><p>Комісія за оплату карткою, частка замовлень з накладеним платежем, пакування, Нова Пошта, Укрпошта, Meest.</p></li>
+      <li><h3>Повернення і реклама</h3><p>Резерв на повернення і рекламний бюджет, поділений на кількість замовлень.</p></li>
+    </ul>
+    <p class="small">Ставки й тарифи перевірені 08.11.2026. Посилання на офіційні джерела є в самій таблиці, на аркуші «Джерела».</p>
+    <div class="extra">
+      <div><b>Продаєте ще й на Rozetka чи Epicentr?</b> Аркуш «Один товар» показує, де вигідніше продавати конкретний товар. Тарифи Rozetka не публікує, тож ставки зі свого тарифу ви вставляєте самі.</div>
+      <div><b>Є власний сайт чи Hotline?</b> Окремий режим рахує замість комісії майданчика вартість замовлення з реклами за кліки.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6–7. Дані і кому підходить -->
+<section>
+  <div class="wrap two">
+    <div>
+      <h2>Таблиця живе у вашому Google Drive</h2>
+      <p>Ви отримуєте власну копію Google-таблиці. Ваші товари й закупівельні ціни бачите тільки ви: таблиця не підключена до жодних сторонніх сервісів і нікуди не надсилає дані.</p>
+    </div>
+    <div>
+      <h2>Кому підходить</h2>
+      <ul class="check yes">
+        <li>Ви продаєте на Prom на платному пакеті (експорт та імпорт товарів є лише на платних пакетах).</li>
+        <li>У вас десятки або тисячі товарів, і ціни ви ставите від закупівлі.</li>
+        <li>Хочете знати, скільки заробляєте на кожному товарі, а не лише на всьому обороті.</li>
+      </ul>
+      <h3 style="margin-top:24px">Не підійде, якщо</h3>
+      <ul class="check no">
+        <li>вам потрібні ціни конкурентів: таблиця їх не знає і не збирає;</li>
+        <li>у вас ціни у валюті або знижки: у цій версії їх не враховано;</li>
+        <li>у вас понад 5 000 товарів в одному файлі.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Ціна і бета -->
+<section id="price">
+  <div class="wrap">
+    <h2>Зараз — безкоштовно для бета-тестерів. Потім 990 грн один раз</h2>
+    <div class="price-grid">
+      <div class="card">
+        <span class="kicker">Після бети</span>
+        <div class="price">990 <small>грн</small></div>
+        <p class="small">Один раз, без підписки.</p>
+        <ul>
+          <li>Коли зміняться комісії Prom, тарифи доставки чи податки, ви безкоштовно отримаєте листом оновлену версію таблиці.</li>
+          <li>Безкоштовна підтримка: якщо щось не працює, напишіть, допоможу розібратися.</li>
+        </ul>
+        <p class="small">Продаж відкриється після бета-тесту.</p>
+      </div>
+      <!-- РЕЖИМ ПРОДАЖУ (увімкнути після бети, коли буде пробна версія і реквізити):
+      <div class="card main">
+        <span class="kicker">Pricing Kit</span>
+        <div class="price">990 <small>грн</small></div>
+        <p class="small">Один раз, без підписки.</p>
+        <ul>
+          <li>Коли зміняться комісії Prom, тарифи доставки чи податки, ви безкоштовно отримаєте листом оновлену версію таблиці.</li>
+          <li>Безкоштовна підтримка: якщо щось не працює, напишіть, допоможу розібратися.</li>
+          <li>Спершу спробуйте безкоштовно: пробна версія працює на 20 товарах вашого магазину.</li>
+        </ul>
+        <div class="btns">
+          <a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D0%B8">Купити Pricing Kit</a>
+          <a class="btn ghost" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BD%D0%B0%20%D0%B2%D0%B5%D1%80%D1%81%D1%96%D1%8F">Отримати пробну версію</a>
+        </div>
+        <p class="small">Напишіть, і протягом години (щодня з 9:00 до 21:00) я надішлю реквізити для оплати або пробну версію. Після оплати ви отримаєте свою копію таблиці. Після оплати гроші не повертаю, тому й є пробна версія.</p>
+      </div>
+      -->
+
+      <div class="card main">
+        <span class="kicker">Бета-тест</span>
+        <h3 style="font-size:22px;margin-bottom:12px">Шукаю 5 продавців Prom, щоб безкоштовно протестувати таблицю</h3>
+        <p>Пройдіть повний цикл на своєму магазині: експорт товарів → таблиця → завантаження нових цін у кабінет. І чесно розкажіть, що було незрозуміло або не спрацювало. Натомість отримаєте повну версію безкоштовно, без терміну дії, з усіма оновленнями.</p>
+        <p class="small"><b style="color:var(--ink)">Кого шукаю:</b> платний пакет Prom, від 100 товарів, до години вільного часу.</p>
+        <p class="small"><b style="color:var(--ink)">Що буде після заявки:</b> протягом години (щодня з 9:00 до 21:00) я надішлю вам персональну копію таблиці й коротку інструкцію.</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку на бета-тест</a>
+        </div>
+        <p class="small">Або напишіть на <span class="mono">pav.craft.lab@gmail.com</span> з темою «Pricing Kit — бета».</p>
+      </div>
+    </div>
+    <p class="who">Pavcraft — незалежний український розробник. Роблю інструменти, які знімають з продавців маркетплейсів ручну рутину. Pricing Kit — перший з них.</p>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <h2>Питання</h2>
+    <details><summary>Чи потрібно розумітися на формулах?</summary><p>Ні. Ви вставляєте експорт товарів і закупівельні ціни, а таблиця рахує сама.</p></details>
+    <details><summary>Чи не зіпсує імпорт мої товари?</summary><p>В імпорті ви позначаєте лише поле «Ціна» і режим «Тільки оновлення». Для першого разу раджу вивантажити 2–3 товари і перевірити результат у кабінеті. Повний цикл імпорту зараз перевіряю разом із бета-тестерами. Якщо щось піде не так, напишіть: підтримка безкоштовна.</p></details>
+    <details><summary>Звідки ставки комісії і чи не застаріють вони?</summary><p>З офіційних джерел Prom і служб доставки, посилання є на аркуші «Джерела». Коли ставки зміняться, ви безкоштовно отримаєте листом оновлену версію: відкриваєте її і вставляєте свої дані заново.</p></details>
+    <details><summary>Таблиця скаже, яку ціну ставлять конкуренти?</summary><p>Ні. Вона рахує мінімальну ціну під вашу маржу. Чи піднімати ціну конкретного товару, вирішуєте ви, дивлячись на ринок.</p></details>
+    <details><summary>Це бухгалтерська програма?</summary><p>Ні, це інструмент для планування цін. Податки враховано, щоб рахувати маржу, але це не податкова консультація.</p></details>
+    <details><summary>Чи працює з Rozetka?</summary><p>Таблиця зроблена передусім для Prom. Для Rozetka можна вставити вивантаження параметрів товарів з кабінету і ставки з вашого тарифу, щоб порахувати маржу.</p></details>
+    <details><summary>Що потрібно, щоб почати?</summary><p>Акаунт Google, платний пакет Prom, експорт товарів з кабінету і закупівельні ціни.</p></details>
+  </div>
+</section>
+
+<!-- 10. Фінальний заклик -->
+<section class="final">
+  <div class="wrap">
+    <h2>Подивіться, як це виглядає на 5 000 товарів</h2>
+    <p class="lead">Демо відкривається в Google Таблицях, лише для перегляду. Дані вигадані.</p>
+    <div class="btns">
+      <a class="btn ghost" href="https://docs.google.com/spreadsheets/d/18NHKD8CaJuf2JX0fdNQ0R7NmBbdj925r7clr6sF3GYw/edit?usp=sharing" target="_blank" rel="noopener">Переглянути демо</a>
+      <a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку на бета-тест</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Pavcraft · Україна</span>
+    <a href="mailto:pav.craft.lab@gmail.com" class="mono">pav.craft.lab@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
