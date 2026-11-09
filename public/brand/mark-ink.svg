@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 0 76 100" width="76" height="100" role="img" aria-label="Pavcraft"><title>Pavcraft</title><g transform="rotate(-3 42 50)">
+  <rect x="12" y="10" width="58" height="50" fill="#141414"/>
+  <rect x="12" y="60" width="26" height="34" fill="#141414"/>
+  <path d="M38 60 H70 V64 L66 68 L62 63 L58 68 L54 63 L50 69 L46 63 L42 68 L38 64 Z" fill="#141414"/>
+  <path d="M12 60 H70 M38 60 V94" stroke="#FFFFFF" stroke-width="2.6" stroke-dasharray="5 4" fill="none"/>
+  <rect x="27" y="3" width="28" height="13" fill="#D9FF41" transform="rotate(5 41 9)"/>
+</g></svg>
