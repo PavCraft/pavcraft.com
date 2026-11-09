@@ -170,3 +170,6 @@ body{position:relative}
 [data-drag] a:not(.tab),[data-drag] .sticker{cursor:pointer}
 a.tab{cursor:grab}
 .lifted,.lifted *,a.tab.pulling,a.tab.armed{cursor:grabbing !important}
+/* layout containers stretch across the board; let clicks through them to the scribbles and stickers underneath */
+.strip,.hero,.notices{pointer-events:none}
+.strip > *,.hero > *,.notices > *{pointer-events:auto}
