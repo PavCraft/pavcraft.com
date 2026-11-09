@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pricing Kit — таблиця цін і маржі для продавців Prom | Pavcraft</title>
-<meta name="description" content="Google-таблиця показує, які товари на Prom продаються в мінус, рахує мінімальну ціну під вашу маржу і готує файл з новими цінами для кабінету. 990 грн один раз.">
+<title>Pricing Kit — ціни й маржа для продавців Prom | Pavcraft</title>
+<meta name="description" content="Показує, які товари на Prom продаються в мінус, рахує мінімальну ціну під вашу маржу і готує файл з новими цінами для кабінету. Працює з телефона, перші 20 товарів безкоштовно.">
 <link rel="canonical" href="https://pavcraft.com/pricing-kit/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pavcraft.com/pricing-kit/">
 <meta property="og:title" content="Pricing Kit — знайдіть товари на Prom, що продаються в мінус">
-<meta property="og:description" content="Google-таблиця рахує чисту маржу кожного товару після комісії Prom, податків, доставки й повернень і готує файл з новими цінами для кабінету.">
+<meta property="og:description" content="Рахує чисту маржу кожного товару після комісії Prom, податків, доставки й повернень і готує файл з новими цінами для кабінету. Працює в браузері, з телефона.">
 <meta property="og:locale" content="uk_UA">
 <meta name="theme-color" content="#1B1A18">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -25,43 +25,43 @@
     <a href="#how">Як це працює</a>
     <a href="#price">Ціна</a>
     <a href="#faq">Питання</a>
-    <a class="nav-cta" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку</a>
+    <a class="nav-cta" href="/pricing-kit/app/">Спробувати</a>
   </nav>
 </header>
 
 <main id="main" class="receipt">
 
-  <div class="r-head"><b>Pricing Kit</b>Google-таблиця для продавців Prom</div>
+  <div class="r-head"><b>Pricing Kit</b>Ціни й маржа для продавців Prom</div>
   <hr class="dash">
 
   <h1>Ваш товар продається в мінус. Ось чек.</h1>
-  <p class="lead">Таблиця рахує, скільки ви насправді заробляєте на кожному товарі після комісії Prom, податків, доставки й повернень. І готує файл з новими цінами для завантаження в кабінет Prom.</p>
+  <p class="lead">Pricing Kit рахує, скільки ви насправді заробляєте на кожному товарі після комісії Prom, податків, доставки й повернень. І готує файл з новими цінами для завантаження в кабінет Prom. Працює просто в браузері, зокрема з телефона. Перші 20 товарів безкоштовно.</p>
 
-  <section class="slip" aria-label="Приклад розрахунку для одного товару з демо">
+  <section class="slip" aria-label="Приклад розрахунку для одного товару">
     <hr class="dash">
     <div id="slip" aria-live="polite">
-      <div class="ln pl"><span class="lbl">Товар 18 · автомагнітоли</span><span class="fill"></span><span class="val">демо</span></div>
-      <div class="ln pl"><span class="lbl">Ціна на Prom</span><span class="fill"></span><span class="val">299,00</span></div>
-      <div class="ln pl"><span class="lbl">Закупівля</span><span class="fill"></span><span class="val">−224,00</span></div>
-      <div class="ln pl"><span class="lbl">Комісія Prom 14,56%</span><span class="fill"></span><span class="val">−43,53</span></div>
-      <div class="ln pl"><span class="lbl">Податки й інші витрати</span><span class="fill"></span><span class="val">−50,97</span></div>
-      <div class="ln total pl red"><span class="lbl">Разом</span><span class="fill"></span><span class="val">−19,50</span></div>
-      <div class="ln small pl"><span class="lbl">Маржа −6,5% · ціль 20% · <span class="inv">Збиток</span></span><span class="fill"></span><span class="val"></span></div>
-      <div class="ln pl"><span class="lbl">Рекомендована ціна</span><span class="fill"></span><span class="val"><b>429,00</b></span></div>
+      <div class="ln pl"><span class="lbl">Чохол для навушників</span><span class="fill"></span><span class="val">приклад</span></div>
+      <div class="ln pl"><span class="lbl">Ціна на Prom</span><span class="fill"></span><span class="val">149,00</span></div>
+      <div class="ln pl"><span class="lbl">Закупівля</span><span class="fill"></span><span class="val">−60,00</span></div>
+      <div class="ln pl"><span class="lbl">Комісія Prom 20,12%</span><span class="fill"></span><span class="val">−29,98</span></div>
+      <div class="ln pl"><span class="lbl">Податки й інші витрати</span><span class="fill"></span><span class="val">−69,89</span></div>
+      <div class="ln total pl red"><span class="lbl">Прибуток</span><span class="fill"></span><span class="val">−10,87</span></div>
+      <div class="ln small pl"><span class="lbl">Маржа −7,3% · ціль 20% · <span class="inv">Збиток</span></span><span class="fill"></span><span class="val"></span></div>
+      <div class="ln pl"><span class="lbl">Рекомендована ціна</span><span class="fill"></span><span class="val"><b>229,00</b></span></div>
     </div>
     <div class="slip-foot">
-      <button class="key" id="reprint" type="button">Пробити інший товар</button>
-      <span class="muted">Дані вигадані, з демо-таблиці на 5 000 товарів.</span>
+      <button class="key" id="reprint" type="button">Показати інший товар</button>
+      <span class="muted">Приклад, дані вигадані.</span>
     </div>
     <details class="note"><summary>Що входить у витрати і звідки рекомендована ціна</summary><p>«Податки й інші витрати» — податок ФОП, ЄСВ, оплата карткою, доставка, повернення, абонплата і реклама на одне замовлення. Рекомендована ціна — мінімальна, з якою товар дає 20%, округлена вгору до …9 грн.</p></details>
   </section>
 
   <div class="coupon">
     <div class="btn-row">
-      <a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку на <span class="nw">бета-тест</span></a>
-      <a class="btn" href="https://docs.google.com/spreadsheets/d/18NHKD8CaJuf2JX0fdNQ0R7NmBbdj925r7clr6sF3GYw/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Переглянути демо (відкриється в новій вкладці)">Переглянути демо</a>
+      <a class="btn primary" href="/pricing-kit/app/">Порахувати свої товари</a>
+      <a class="btn" href="/pricing-kit/app/#demo">Подивитися на прикладі</a>
     </div>
-    <p class="muted" style="margin:12px auto 0">Зараз шукаю 5 бета-тестерів: повна версія для них безкоштовна. Після бети — 990 грн один раз.</p>
+    <p class="muted" style="margin:12px auto 0">Перші 20 товарів безкоштовно, без реєстрації. Повний доступ — 990 грн один раз, продаж відкриється після бета-тесту.</p>
   </div>
 
   <hr class="stars">
@@ -76,34 +76,34 @@
 
   <section aria-labelledby="h-status">
     <h2 id="h-status">Статус кожного товару і ціна під вашу маржу</h2>
-    <div class="ln small"><span class="lbl">Приклади з демо, грн з одного продажу</span><span class="fill"></span><span class="val"></span></div>
-    <div class="ln struck"><span class="lbl red"><b>Збиток</b></span><span class="fill"></span><span class="val">−19,50</span></div>
+    <div class="ln small"><span class="lbl">Приклади (дані вигадані), грн з одного продажу</span><span class="fill"></span><span class="val"></span></div>
+    <div class="ln struck"><span class="lbl red"><b>Збиток</b></span><span class="fill"></span><span class="val">−10,87</span></div>
     <p class="muted">Після всіх витрат ви втрачаєте гроші з кожним продажем.</p>
-    <div class="ln"><span class="lbl"><b>Нижче цілі</b></span><span class="fill"></span><span class="val">+16,66</span></div>
+    <div class="ln"><span class="lbl"><b>Нижче цілі</b></span><span class="fill"></span><span class="val">+152,46</span></div>
     <p class="muted">Товар у плюсі, але заробляє менше, ніж ви хочете.</p>
-    <div class="ln"><span class="lbl"><b>ОК</b></span><span class="fill"></span><span class="val">+101,66</span></div>
+    <div class="ln"><span class="lbl"><b>ОК</b></span><span class="fill"></span><span class="val">+114,68</span></div>
     <p class="muted">Маржа не нижча за вашу ціль.</p>
-    <p class="muted">Якщо для товару бракує даних, таблиця так і пише: «НЕМАЄ ЗАКУПІВЛІ», «НЕМАЄ СТАВКИ» або «НЕМАЄ ЦІНИ».</p>
+    <p class="muted">Якщо для товару бракує даних, Pricing Kit так і пише: «Немає закупівлі», «Немає комісії» або «Немає ціни».</p>
     <hr class="dash">
-    <p>Цільову маржу задаєте ви, за замовчуванням 20% чистого прибутку з ціни. Для кожного товару таблиця рахує мінімальну ціну, з якою він дає цю маржу, і рекомендовану: мінімальну, округлену вгору до …9 грн (наприклад, 241 → 249).</p>
-    <p>Для окремих товарів можна задати свою маржу. А ті, ціни яких змінювати не треба, позначте галочкою «Не чіпати»: вони не потраплять у файл з новими цінами.</p>
-    <p>Аркуш «Огляд» показує підсумок по всьому асортименту: скільки товарів у збитку і нижче цілі, середню маржу, 20 найгірших товарів і маржу за категоріями.</p>
+    <p>Цільову маржу задаєте ви, за замовчуванням 20% чистого прибутку з ціни. Для кожного товару Pricing Kit рахує мінімальну ціну, з якою він дає цю маржу, і рекомендовану: мінімальну, округлену вгору до …9 грн (наприклад, 241 → 249).</p>
+    <p>Товари, ціни яких змінювати не треба, позначте «Не чіпати»: вони не потраплять у файл з новими цінами. З будь-якого іншого товару галочку теж можна зняти.</p>
+    <p>Зверху — підсумок по всьому асортименту: скільки товарів у збитку, нижче цілі й у нормі, і середня маржа. Під кожною цифрою товару можна розгорнути, з чого вона склалася.</p>
   </section>
 
   <hr class="stars">
 
   <section id="how" aria-labelledby="h-how">
-    <h2 id="h-how">П'ять кроків на аркуші «Старт»</h2>
+    <h2 id="h-how">П'ять кроків, усе з телефона</h2>
     <ol class="steps">
-      <li><p><b>Налаштування.</b> Оберіть систему оподаткування, вкажіть кількість замовлень на місяць, цільову маржу і ваш пакет Prom.</p></li>
-      <li><p><b>Товари з Prom.</b> У кабінеті Prom: <span class="path">Товари → Експорт → XLSX</span>. Файл прийде на пошту. Відкрийте його і скопіюйте аркуш з товарами в таблицю.</p></li>
-      <li><p><b>Закупівельні ціни.</b> Дві колонки: артикул і закупівельна ціна. Можна скопіювати з прайсу постачальника або вписати вручну.</p></li>
-      <li><p><b>Результат.</b> Перегляньте статуси, мінімальні та рекомендовані ціни.</p></li>
-      <li><p><b>Нові ціни в кабінет.</b> Таблиця готує файл з новими цінами (формат CSV), який ви просто завантажуєте в кабінет Prom: <span class="path">Товари → Імпорт</span>, позначте лише «Ціна» і «Тільки оновлення».</p></li>
+      <li><p><b>Умови.</b> Оберіть систему оподаткування, ваш пакет Prom, вкажіть кількість замовлень на місяць і цільову маржу. Це один раз: умови запам'ятовуються в браузері.</p></li>
+      <li><p><b>Товари з Prom.</b> У кабінеті Prom: <span class="path">Товари → Експорт → XLSX</span>. Файл надійде на пошту: збережіть його й оберіть у Pricing Kit. Нічого копіювати не треба.</p></li>
+      <li><p><b>Закупівельні ціни.</b> Оберіть прайс постачальника, де є код товару і ціна: потрібні колонки Pricing Kit знайде сам. Або впишіть закупівлю прямо в картці товару.</p></li>
+      <li><p><b>Чек.</b> Статус кожного товару, чистий прибуток, маржа і рекомендована ціна.</p></li>
+      <li><p><b>Нові ціни в кабінет.</b> Pricing Kit готує файл у тому ж форматі, що експорт Prom, але тільки з відміченими товарами і новою ціною. Завантажте його в кабінет: <span class="path">Товари → Імпорт</span>, позначте лише «Ціна» і «Тільки оновлення».</p></li>
     </ol>
     <hr class="dash">
-    <p class="muted">Формули чіпати не треба: ви лише вставляєте дані. На аркуші «Старт» видно, які кроки вже зроблено.</p>
-    <p><b>Перший раз:</b> вивантажте лише 2–3 товари і перевірте, як кабінет прийняв нові ціни. Потім усе інше.</p>
+    <p class="muted">Ні формул, ні таблиць: ви лише обираєте файли. Нічого встановлювати не треба.</p>
+    <p><b>Перший раз:</b> залиште галочки лише на 2–3 товарах і перевірте, як кабінет прийняв нові ціни. Потім усе інше.</p>
   </section>
 
   <hr class="stars">
@@ -114,17 +114,13 @@
     <p class="muted">Офіційні ставки для всіх категорій Prom, з режимом ProSale і зниженою ставкою для дорогих товарів. Вручну шукати ставку не треба.</p>
     <div class="ln"><span class="lbl"><b>Податки</b></span><span class="fill"></span><span class="val">ФОП 2 і 3 групи</span></div>
     <p class="muted">ФОП 2 групи (фіксований), ФОП 3 групи (5% або 3% + ПДВ), ЄСВ, військовий збір.</p>
-    <div class="ln"><span class="lbl"><b>Абонплата</b></span><span class="fill"></span><span class="val">12 пакетів Prom</span></div>
+    <div class="ln"><span class="lbl"><b>Абонплата</b></span><span class="fill"></span><span class="val">13 пакетів Prom</span></div>
     <div class="ln"><span class="lbl"><b>Оплата і доставка</b></span><span class="fill"></span><span class="val">НП · Укрпошта · Meest</span></div>
-    <p class="muted">Комісія за оплату карткою, частка замовлень з накладеним платежем, пакування, доставка.</p>
+    <p class="muted">Комісія за оплату карткою, частка замовлень з накладеним платежем, пакування, доставка за ваш рахунок за вагою.</p>
     <div class="ln"><span class="lbl"><b>Повернення і реклама</b></span><span class="fill"></span><span class="val">на замовлення</span></div>
     <p class="muted">Резерв на повернення і рекламний бюджет, поділений на кількість замовлень.</p>
     <hr class="dash">
-    <p class="muted">Ставки й тарифи перевірені 08.11.2026. Посилання на офіційні джерела є в самій таблиці, на аркуші «Джерела».</p>
-    <div class="cols" style="margin-top:18px">
-      <p><b>Продаєте ще й на Rozetka чи Epicentr?</b> Аркуш «Один товар» показує, де вигідніше продавати конкретний товар. Тарифи Rozetka не публікує, тож ставки зі свого тарифу ви вставляєте самі.</p>
-      <p><b>Є власний сайт чи Hotline?</b> Окремий режим рахує замість комісії майданчика вартість замовлення з реклами за кліки.</p>
-    </div>
+    <p class="muted">Ставки й тарифи перевірені 08.11.2026 за офіційними джерелами Prom і перевізників. Коли вони зміняться, я оновлю їх на сайті: вам нічого робити не треба.</p>
   </section>
 
   <hr class="stars">
@@ -142,15 +138,15 @@
       <div>
         <h2>Не підійде, якщо</h2>
         <ul class="plain">
-          <li data-m="−">вам потрібні ціни конкурентів: таблиця їх не знає і не збирає;</li>
+          <li data-m="−">вам потрібні ціни конкурентів: Pricing Kit їх не знає і не збирає;</li>
           <li data-m="−">у вас ціни у валюті або знижки: у цій версії їх не враховано;</li>
-          <li data-m="−">у вас понад 5 000 товарів в одному файлі.</li>
+          <li data-m="−">ви продаєте на Rozetka чи Epicentr: поки що тільки Prom.</li>
         </ul>
       </div>
     </div>
     <hr class="dash">
-    <h3>Таблиця живе у вашому Google Drive</h3>
-    <p>Ви отримуєте власну копію Google-таблиці. Ваші товари й закупівельні ціни бачите тільки ви: таблиця не підключена до жодних сторонніх сервісів і нікуди не надсилає дані.</p>
+    <h3>Ваші файли не залишають ваш пристрій</h3>
+    <p>Файл з Prom і прайс читаються просто в браузері, на вашому телефоні чи комп'ютері. На сервер вони не надсилаються: сервера з вашими даними просто немає. Умови й закупівельні ціни зберігаються тільки в цьому браузері.</p>
   </section>
 
   <hr class="stars">
@@ -158,10 +154,10 @@
   <section id="price" aria-labelledby="h-price">
     <h2 id="h-price">Зараз — безкоштовно для бета-тестерів</h2>
     <div class="coupon" style="text-align:left">
-      <h3 style="font-size:17px;margin-bottom:10px">Шукаю 5 продавців Prom, щоб безкоштовно протестувати таблицю</h3>
-      <p>Пройдіть повний цикл на своєму магазині: експорт товарів → таблиця → завантаження нових цін у кабінет. І чесно розкажіть, що було незрозуміло або не спрацювало. Натомість отримаєте повну версію безкоштовно, без терміну дії, з усіма оновленнями.</p>
+      <h3 style="font-size:17px;margin-bottom:10px">Шукаю 5 продавців Prom, щоб безкоштовно протестувати Pricing Kit</h3>
+      <p>Пройдіть повний цикл на своєму магазині: експорт товарів → розрахунок → завантаження нових цін у кабінет. І чесно розкажіть, що було незрозуміло або не спрацювало. Натомість отримаєте повний доступ безкоштовно, без терміну дії, з усіма оновленнями.</p>
       <p class="muted"><b style="color:var(--ink)">Кого шукаю:</b> платний пакет Prom, від 100 товарів, до години вільного часу.</p>
-      <p class="muted"><b style="color:var(--ink)">Що буде після заявки:</b> протягом години (щодня з 9:00 до 21:00) я надішлю вам персональну копію таблиці й коротку інструкцію.</p>
+      <p class="muted"><b style="color:var(--ink)">Що буде після заявки:</b> протягом години (щодня з 9:00 до 21:00) я надішлю вам код повного доступу й коротку інструкцію.</p>
       <a class="btn primary wide" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку на <span class="nw">бета-тест</span></a>
       <p class="muted" style="margin:10px 0 0">Або напишіть на pav.craft.lab@gmail.com з темою «Pricing Kit — бета».</p>
     </div>
@@ -170,7 +166,8 @@
       <div class="ln total"><span class="lbl">Після бети</span><span class="fill"></span><span class="val">990,00 грн</span></div>
       <div class="ln small"><span class="lbl">Один раз, без підписки</span><span class="fill"></span><span class="val"></span></div>
       <ul class="plain" style="margin-top:12px">
-        <li data-m="+">Коли зміняться комісії Prom, тарифи доставки чи податки, ви безкоштовно отримаєте листом оновлену версію таблиці.</li>
+        <li data-m="+">Коли зміняться комісії Prom, тарифи доставки чи податки, я оновлю їх на сайті безкоштовно.</li>
+        <li data-m="+">Перші 20 товарів можна порахувати без оплати й без коду, щоб побачити, як це працює на вашому магазині.</li>
         <li data-m="+">Безкоштовна підтримка: якщо щось не працює, напишіть, допоможу розібратися.</li>
       </ul>
       <p class="muted">Продаж відкриється після бета-тесту.</p>
@@ -183,23 +180,25 @@
 
   <section id="faq" aria-labelledby="h-faq">
     <h2 id="h-faq">Питання</h2>
-    <details><summary>Чи потрібно розумітися на формулах?</summary><p>Ні. Ви вставляєте експорт товарів і закупівельні ціни, а таблиця рахує сама.</p></details>
-    <details><summary>Чи не зіпсує імпорт мої товари?</summary><p>В імпорті ви позначаєте лише поле «Ціна» і режим «Тільки оновлення». Для першого разу раджу вивантажити 2–3 товари і перевірити результат у кабінеті. Повний цикл імпорту зараз перевіряю разом із бета-тестерами. Якщо щось піде не так, напишіть: підтримка безкоштовна.</p></details>
-    <details><summary>Звідки ставки комісії і чи не застаріють вони?</summary><p>З офіційних джерел Prom і служб доставки, посилання є на аркуші «Джерела». Коли ставки зміняться, ви безкоштовно отримаєте листом оновлену версію: відкриваєте її і вставляєте свої дані заново.</p></details>
-    <details><summary>Таблиця скаже, яку ціну ставлять конкуренти?</summary><p>Ні. Вона рахує мінімальну ціну під вашу маржу. Чи піднімати ціну конкретного товару, вирішуєте ви, дивлячись на ринок.</p></details>
+    <details><summary>Чи потрібно розумітися на формулах?</summary><p>Ні. Ви обираєте файл товарів з Prom і прайс із закупівельними цінами, а Pricing Kit рахує сам.</p></details>
+    <details><summary>Чи працює з телефона?</summary><p>Так. Відкрийте сторінку в браузері телефона, нічого встановлювати не треба. Якщо файл з пошти не вдається обрати, відкрийте Pricing Kit на комп'ютері.</p></details>
+    <details><summary>Куди йдуть мої дані?</summary><p>Нікуди. Файли читаються в браузері на вашому пристрої й на сервер не надсилаються. Тому на іншому пристрої файли треба обрати заново.</p></details>
+    <details><summary>Чи не зіпсує імпорт мої товари?</summary><p>В імпорті ви позначаєте лише поле «Ціна» і режим «Тільки оновлення». Для першого разу раджу залишити галочки лише на 2–3 товарах і перевірити результат у кабінеті. Повний цикл імпорту зараз перевіряю разом із бета-тестерами. Якщо щось піде не так, напишіть: підтримка безкоштовна.</p></details>
+    <details><summary>Звідки ставки комісії і чи не застаріють вони?</summary><p>З офіційних джерел Prom і служб доставки. Коли ставки зміняться, я оновлю їх на сайті, а ви просто відкриєте Pricing Kit, як завжди.</p></details>
+    <details><summary>Pricing Kit скаже, яку ціну ставлять конкуренти?</summary><p>Ні. Він рахує мінімальну ціну під вашу маржу. Чи піднімати ціну конкретного товару, вирішуєте ви, дивлячись на ринок.</p></details>
     <details><summary>Це бухгалтерська програма?</summary><p>Ні, це інструмент для планування цін. Податки враховано, щоб рахувати маржу, але це не податкова консультація.</p></details>
-    <details><summary>Чи працює з Rozetka?</summary><p>Таблиця зроблена передусім для Prom. Для Rozetka можна вставити вивантаження параметрів товарів з кабінету і ставки з вашого тарифу, щоб порахувати маржу.</p></details>
-    <details><summary>Що потрібно, щоб почати?</summary><p>Акаунт Google, платний пакет Prom, експорт товарів з кабінету і закупівельні ціни.</p></details>
+    <details><summary>Чи працює з Rozetka?</summary><p>Поки що ні, тільки з Prom.</p></details>
+    <details><summary>Що потрібно, щоб почати?</summary><p>Телефон або комп'ютер з браузером, платний пакет Prom, експорт товарів з кабінету і закупівельні ціни. Реєстрація не потрібна.</p></details>
   </section>
 
   <hr class="stars">
 
   <section aria-labelledby="h-final" style="text-align:center">
-    <h2 id="h-final">Подивіться, як це виглядає на 5 000 товарів</h2>
-    <p class="muted" style="margin-inline:auto">Демо відкривається в Google Таблицях, лише для перегляду. Дані вигадані.</p>
+    <h2 id="h-final">Перевірте свої товари</h2>
+    <p class="muted" style="margin-inline:auto">Перші 20 товарів безкоштовно, без реєстрації. Або спершу подивіться приклад на вигаданих товарах.</p>
     <div class="btn-row" style="margin-top:16px">
-      <a class="btn" href="https://docs.google.com/spreadsheets/d/18NHKD8CaJuf2JX0fdNQ0R7NmBbdj925r7clr6sF3GYw/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Переглянути демо (відкриється в новій вкладці)">Переглянути демо</a>
-      <a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%B1%D0%B5%D1%82%D0%B0">Подати заявку на <span class="nw">бета-тест</span></a>
+      <a class="btn" href="/pricing-kit/app/#demo">Подивитися на прикладі</a>
+      <a class="btn primary" href="/pricing-kit/app/">Порахувати свої товари</a>
     </div>
   </section>
 
@@ -210,9 +209,10 @@
 <script>
 (function(){
   var items=[
-    {n:"Товар 18 · автомагнітоли",p:299,c:224,r:0.1456,profit:-19.50,m:-6.5,st:"ЗБИТОК",nw:429},
-    {n:"Товар 17 · автомобільні антени",p:690,c:511,r:0.1566,profit:16.66,m:2.4,st:"НИЖЧЕ ЦІЛІ",nw:889},
-    {n:"Товар 4 · автомобільний віск",p:299,c:100,r:0.1551,profit:101.66,m:34.0,st:"ОК",nw:null}
+    // з прикладу в застосунку (demo.js), пораховано calc.js
+    {n:"Чохол для навушників",p:149,c:60,r:0.2012,profit:-10.87,m:-7.3,st:"ЗБИТОК",nw:229},
+    {n:"Автокилимки, комплект",p:899,c:520,r:0.1171,profit:152.46,m:17.0,st:"НИЖЧЕ ЦІЛІ",nw:949},
+    {n:"Органайзер для речей",p:349,c:95,r:0.1597,profit:114.68,m:32.9,st:"ОК",nw:null}
   ];
   var i=0,slip=document.getElementById('slip'),btn=document.getElementById('reprint');
   if(!slip||!btn)return;
@@ -221,9 +221,9 @@
   function render(t){
     var com=Math.round(t.p*t.r*100)/100, other=Math.round((t.p-t.c-com-t.profit)*100)/100;
     var loss=t.profit<0;
-    var h=line(t.n,'демо')+line('Ціна на Prom',f(t.p))+line('Закупівля',f(-t.c))+
+    var h=line(t.n,'приклад')+line('Ціна на Prom',f(t.p))+line('Закупівля',f(-t.c))+
       line('Комісія Prom '+(t.r*100).toFixed(2).replace('.',',')+'%',f(-com))+line('Податки й інші витрати',f(-other))+
-      line('Разом',(t.profit>0?'+':'')+f(t.profit),'total'+(loss?' red':''))+
+      line('Прибуток',(t.profit>0?'+':'')+f(t.profit),'total'+(loss?' red':''))+
       line('Маржа '+t.m.toFixed(1).replace('.',',').replace('-','−')+'% · ціль 20% · '+(loss?'<span class="inv">'+t.st+'</span>':t.st),'','small')+
       line('Рекомендована ціна',t.nw?'<b>'+f(t.nw)+'</b>':'без змін');
     slip.innerHTML=h;
