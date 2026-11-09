@@ -29,7 +29,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--pen);outline-offset
 
 /* marker scribbles on the wall */
 .graffiti{position:absolute;inset:0;pointer-events:none;z-index:0;font-family:var(--marker);font-weight:800;font-variation-settings:"BNCE" 100,"INFM" 100;line-height:1;text-transform:uppercase}
-.graffiti span{position:absolute;white-space:nowrap;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--r,0deg));pointer-events:auto;cursor:grab;-webkit-touch-callout:none}
+.graffiti span{position:absolute;white-space:nowrap;transform:rotate(var(--r,0deg))}
 .graffiti .cz{transform:none;cursor:inherit}
 [data-drag].lifted{cursor:grabbing}
 .graffiti .lifted{filter:drop-shadow(0 10px 10px rgba(0,0,0,.25))}
@@ -49,9 +49,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--pen);outline-offset
 
 /* censor stickers over the swear words: tap to peel off */
 .graffiti .cz{position:relative;display:inline-block}
-.sticker{position:absolute;inset:-.14em -.28em;pointer-events:auto;cursor:pointer;border:0;padding:0;font-family:var(--hand);font-weight:700;text-transform:none;font-size:.5em;line-height:1;display:grid;place-items:center;transform:rotate(var(--sr,-5deg));transform-origin:20% 30%;box-shadow:0 2px 3px rgba(0,0,0,.28);touch-action:manipulation}
+.sticker{position:absolute;inset:-.34em -.4em -.3em;pointer-events:auto;cursor:pointer;border:0;padding:0;font-family:var(--hand);font-weight:700;text-transform:none;font-size:.5em;line-height:1;display:grid;place-items:center;transform:rotate(var(--sr,-5deg));transform-origin:20% 30%;box-shadow:0 2px 3px rgba(0,0,0,.28);touch-action:manipulation}
 .st-round{border-radius:50%;background:#E8C23A;color:#1D1D1B;--sr:-8deg;font-size:.55em}
-.st-tape{background:rgba(236,224,170,.96);color:#5E5A52;--sr:3deg;letter-spacing:.06em}
+.st-tape{background:#ECE0AA;color:#5E5A52;--sr:3deg;letter-spacing:.06em}
 .st-price{background:#FBFAF6;color:var(--marker-red);border-radius:3px;--sr:-3deg;font-size:.6em}
 .st-blue{background:var(--pen);color:#FBFAF6;--sr:6deg;font-size:.7em}
 .sticker:hover{box-shadow:0 4px 8px rgba(0,0,0,.32)}
@@ -79,8 +79,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--pen);outline-offset
 .slip a:hover{text-decoration:underline}
 
 .hero{position:relative;z-index:1;margin:30px 0 34px}
-h1{font-family:var(--hand);font-weight:800;font-size:clamp(38px,5.4vw,70px);line-height:1;letter-spacing:-.02em;margin:0;max-width:13ch;color:var(--ink);--r:-1.5deg;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--r));text-wrap:balance;cursor:grab;position:relative;width:fit-content}
-.g-hero{display:none;position:absolute;right:4%;bottom:-54px;--r:-5deg;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--r));cursor:grab;pointer-events:auto;font-family:var(--marker);font-variation-settings:"BNCE" 100,"INFM" 100;text-transform:uppercase;font-weight:800;font-size:28px;color:var(--ink);white-space:nowrap}
+h1{font-family:var(--hand);font-weight:800;font-size:clamp(38px,5.4vw,70px);line-height:1;letter-spacing:-.02em;margin:0;max-width:13ch;color:var(--ink);--r:-1.5deg;transform:rotate(var(--r));text-wrap:balance;position:relative;width:fit-content}
+.g-hero{display:none;position:absolute;right:4%;bottom:-54px;--r:-5deg;transform:rotate(var(--r));font-family:var(--marker);font-variation-settings:"BNCE" 100,"INFM" 100;text-transform:uppercase;font-weight:800;font-size:28px;color:var(--ink);white-space:nowrap}
 .g-hero s{text-decoration-thickness:3px}
 .hero .note{display:inline-block;margin:24px 0 0;max-width:34ch;font-size:21px;line-height:1.45;background:var(--paper);padding:14px 18px;--r:-.8deg}
 
@@ -171,5 +171,7 @@ body{position:relative}
 a.tab{cursor:grab}
 .lifted,.lifted *,a.tab.pulling,a.tab.armed{cursor:grabbing !important}
 /* layout containers stretch across the board; let clicks through them to the scribbles and stickers underneath */
-.strip,.hero,.notices{pointer-events:none}
-.strip > *,.hero > *,.notices > *{pointer-events:auto}
+.strip,.hero,.notices,.foot{pointer-events:none}
+.strip > *,.hero > *,.notices > *,.foot > *{pointer-events:auto}
+.hero h1,.g-hero{pointer-events:none}
+.brand .logo{display:block;height:40px;width:auto;margin:2px 0 4px;-webkit-user-drag:none}
