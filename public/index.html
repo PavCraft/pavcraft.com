@@ -1,82 +1,192 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pavcraft</title>
-<meta name="description" content="Pavcraft builds small software tools and automation for online sellers — browser extensions, Telegram bots and ready-to-use templates.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23C8912A'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23fff'%3EP%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#FFFFFF; --ink:#1C1A17; --muted:#6B6760; --line:#E6E2DA; --tag:#C8912A; --tag-ink:#5A3E0B;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-  body{min-height:100svh;display:grid;grid-template-columns:minmax(300px,420px) 1fr}
-  .tag{
-    border-right:1px solid var(--line);
-    padding:40px 36px 32px;
-    display:flex;flex-direction:column;gap:40px;
-    position:relative;
-  }
-  .brand{font-size:17px;font-weight:600;letter-spacing:-.01em}
-  h1{
-    margin:0;font-size:clamp(34px,4.2vw,50px);line-height:1.08;letter-spacing:-.025em;font-weight:600;
-    text-wrap:balance;max-width:11ch;
-  }
-  .what{color:var(--muted);font-size:17px;line-height:1.5;max-width:34ch;margin:0}
-  dl{margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:20px;row-gap:12px;font-size:15px;line-height:1.45}
-  dt{color:var(--muted)}
-  dd{margin:0}
-  dd a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px}
-  dd a:hover{border-color:var(--ink)}
-  dd a:focus-visible{outline:2px solid var(--tag);outline-offset:3px;border-radius:2px}
-  .foot{margin-top:auto;color:var(--muted);font-size:13px}
-  .stamp{
-    position:absolute;right:-18px;top:34px;transform:rotate(7deg);
-    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:.02em;
-    color:var(--tag-ink);background:var(--paper);
-    border:2px solid var(--tag);border-radius:3px;padding:7px 10px;
-    box-shadow:0 0 0 3px var(--paper);
-  }
-  .field{
-    padding:40px 48px;display:flex;align-items:flex-end;
-    background:
-      linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 72px,
-      var(--paper);
-  }
-  .note{color:var(--muted);font-size:15px;max-width:40ch;line-height:1.5;background:var(--paper);padding:6px 0;margin:0}
-  .note strong{color:var(--ink);font-weight:500}
-  @media (max-width:760px){
-    body{grid-template-columns:1fr}
-    .tag{border-right:0;border-bottom:1px solid var(--line);padding:32px 22px 28px;gap:28px}
-    .stamp{right:14px;top:22px}
-    .field{padding:28px 22px 40px;min-height:220px}
-  }
-  @media (prefers-reduced-motion:no-preference){
-    .stamp{animation:settle .5s cubic-bezier(.2,.8,.2,1) both}
-    @keyframes settle{from{transform:rotate(7deg) scale(1.15);opacity:0}to{transform:rotate(7deg) scale(1);opacity:1}}
-  }
-</style>
+<title>Pavcraft — інструменти для малого бізнесу</title>
+<meta name="description" content="Pavcraft — незалежний український розробник. Інструменти, які прибирають ручну рутину з малого бізнесу. Перший — Pricing Kit, таблиця цін і маржі для продавців Prom.">
+<link rel="canonical" href="https://pavcraft.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pavcraft.com/">
+<meta property="og:title" content="Pavcraft — інструменти для малого бізнесу">
+<meta property="og:description" content="Кожен інструмент прибирає одну ручну рутину. Перший — Pricing Kit для продавців Prom.">
+<meta property="og:locale" content="uk_UA">
+<meta name="theme-color" content="#E7E3D9">
+<link rel="icon" href="/favicon-home.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/pangolin-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/caveat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/wall.css">
 </head>
 <body>
-  <aside class="tag">
-    <div class="brand">Pavcraft</div>
-    <h1>Small tools for people who sell online.</h1>
-    <p class="what">Browser extensions, Telegram bots and ready-to-use templates that take the repetitive work out of running a marketplace store.</p>
-    <dl>
-      <dt>Based in</dt><dd>Ukraine</dd>
-      <dt>Email</dt><dd><a href="mailto:pav.craft.lab@gmail.com">pav.craft.lab@gmail.com</a></dd>
-      <dt>Code</dt><dd><a href="https://github.com/pavcraft" rel="me">github.com/pavcraft</a></dd>
-    </dl>
-    <div class="foot">© 2026 Pavcraft · Pavlo Shypilov</div>
-    <div class="stamp" aria-hidden="true">est. 2026 · Ukraine</div>
-  </aside>
-  <main class="field">
-    <p class="note"><strong>First product is in the works.</strong> This page will list what's available, with pricing, as soon as there is something to try.</p>
+<a class="skip" href="#main">До змісту</a>
+<div class="wrap">
+
+  <div class="graffiti" aria-hidden="true">
+    <span class="g-year">2026</span>
+    <span class="g-noads">ОГОЛОШЕННЯ НЕ КЛЕЇТИ!</span>
+    <span class="g-tear">відірвіть тут
+      <svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M110 6 C 80 10, 40 18, 18 46"/><path d="M14 30 L 17 48 L 34 44"/></svg>
+    </span>
+    <span class="g-was"><s>тут була рутина</s></span>
+    <span class="g-fop">націнка ≠ прибуток</span>
+    <span class="g-heart">Pavcraft
+      <svg viewBox="0 0 34 30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 27 C 6 19, 2 13, 3 8 C 4 3, 11 1, 17 8 C 23 1, 30 3, 31 8 C 32 13, 28 19, 17 27 Z"/></svg>
+    </span>
+  </div>
+
+  <header class="strip">
+    <div class="paper brand" data-drag="brand">
+      <button class="tape small" type="button" aria-label="Відклеїти табличку Pavcraft. Переміщуйте стрілками клавіатури"></button>
+      <a href="/">PAVCRAFT<small>інструменти для малого бізнесу</small></a>
+    </div>
+    <nav class="paper slip" data-drag="nav" aria-label="Контакти">
+      <button class="tape small" type="button" aria-label="Відклеїти записку «Написати». Переміщуйте стрілками клавіатури"></button>
+      <a href="mailto:pav.craft.lab@gmail.com" aria-label="Написати Pavcraft на пошту">Написати</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <h1>Оголошення для тих, хто все робить сам</h1>
+      <p class="paper note" data-drag="note">
+        <button class="tape" type="button" aria-label="Відклеїти записку. Переміщуйте стрілками клавіатури" style="--tape-w:90px;--tape-r:4deg"></button>
+        Кожен інструмент прибирає одну ручну рутину з малого бізнесу. Відірвіть талончик — і перейдіть до інструмента.
+      </p>
+      <span class="g-hero" aria-hidden="true"><s>тут була рутина</s></span>
+    </div>
+
+    <div class="notices">
+      <article class="paper notice pk" data-drag="pk" aria-labelledby="n-pk">
+        <button class="tape" type="button" aria-label="Відклеїти оголошення Pricing Kit. Переміщуйте стрілками клавіатури"></button>
+        <div class="sheet">
+          <h2 id="n-pk"><a href="/pricing-kit/">Pricing Kit <span class="for">для продавців Prom</span></a></h2>
+          <p>Покажу, які ваші товари на Prom продаються в мінус, і підготую файл з новими цінами для кабінету Prom.</p>
+          <p class="meta">Google-таблиця. <span class="pen">Шукаю 5 бета-тестерів:</span> повна версія безкоштовно за повний цикл і чесний відгук. Після бети — 990 грн один раз.</p>
+          <a class="open" href="/pricing-kit/" tabindex="-1">Відкрити Pricing Kit →</a>
+        </div>
+        <div class="tabs" aria-hidden="true">
+          <span class="tab gone"></span>
+          <a class="tab" href="/pricing-kit/" tabindex="-1"><span>Pricing Kit</span></a>
+          <a class="tab" href="/pricing-kit/" tabindex="-1"><span>Pricing Kit</span></a>
+          <a class="tab" href="/pricing-kit/" tabindex="-1"><span>Pricing Kit</span></a>
+          <a class="tab" href="/pricing-kit/" tabindex="-1"><span>Pricing Kit</span></a>
+          <a class="tab" href="/pricing-kit/" tabindex="-1"><span>Pricing Kit</span></a>
+          <a class="tab" href="/pricing-kit/" tabindex="-1"><span>Pricing Kit</span></a>
+        </div>
+      </article>
+
+      <article class="paper notice ask" data-drag="ask" aria-labelledby="n-ask">
+        <button class="tape" type="button" aria-label="Відклеїти оголошення «Що вам заважає?». Переміщуйте стрілками клавіатури"></button>
+        <div class="sheet">
+          <h2 id="n-ask"><a href="mailto:pav.craft.lab@gmail.com?subject=Pavcraft%20%E2%80%94%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D0%B0">Що вам заважає?</a></h2>
+          <p>Напишіть, яку ручну рутину хочете прибрати зі своєї роботи.</p>
+          <p class="meta">pav.craft.lab@gmail.com</p>
+        </div>
+        <div class="tabs" aria-hidden="true">
+          <a class="tab" href="mailto:pav.craft.lab@gmail.com?subject=Pavcraft%20%E2%80%94%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D0%B0" tabindex="-1"><span>Написати</span></a>
+          <a class="tab" href="mailto:pav.craft.lab@gmail.com?subject=Pavcraft%20%E2%80%94%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D0%B0" tabindex="-1"><span>Написати</span></a>
+          <span class="tab gone"></span>
+          <a class="tab" href="mailto:pav.craft.lab@gmail.com?subject=Pavcraft%20%E2%80%94%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D0%B0" tabindex="-1"><span>Написати</span></a>
+          <a class="tab" href="mailto:pav.craft.lab@gmail.com?subject=Pavcraft%20%E2%80%94%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D0%B0" tabindex="-1"><span>Написати</span></a>
+        </div>
+      </article>
+
+      <article class="paper notice old next" data-drag="next" aria-labelledby="n-next">
+        <button class="tape" type="button" aria-label="Відклеїти оголошення «Наступний інструмент». Переміщуйте стрілками клавіатури"></button>
+        <div class="sheet">
+          <h2 id="n-next">Наступний інструмент</h2>
+          <p>Обираю за попитом: спершу перевіряю, чи він справді потрібен, і лише потім роблю.</p>
+        </div>
+        <div class="tabs" aria-hidden="true">
+          <span class="tab"><span>за попитом</span></span><span class="tab"><span>за попитом</span></span><span class="tab"><span>за попитом</span></span><span class="tab"><span>за попитом</span></span><span class="tab"><span>за попитом</span></span>
+        </div>
+      </article>
+
+      <article class="paper notice about" data-drag="about" aria-labelledby="n-about">
+        <button class="tape" type="button" aria-label="Відклеїти записку «Хто пише ці оголошення». Переміщуйте стрілками клавіатури"></button>
+        <div class="sheet">
+          <h2 id="n-about">Хто пише ці оголошення</h2>
+          <p>Pavcraft — незалежний український розробник. Роблю інструменти, які прибирають ручну рутину з малого бізнесу.</p>
+        </div>
+      </article>
+    </div>
   </main>
+
+  <footer class="foot">
+    <span>© 2026 Pavcraft · Україна · <a href="mailto:pav.craft.lab@gmail.com">pav.craft.lab@gmail.com</a></span>
+    <button class="reset" type="button" hidden>Повісити все як було</button>
+    <span class="sr" aria-live="polite" id="wall-live"></span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY='pavcraft-wall-v2'+(matchMedia('(max-width:860px)').matches?'-m':'-d'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var store={}; try{store=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  var reset=document.querySelector('.reset'), live=document.getElementById('wall-live'), top=10, papers=[].slice.call(document.querySelectorAll('[data-drag]'));
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){} reset.hidden=!Object.keys(store).length}
+  function apply(el){var s=store[el.dataset.drag]; if(!s)return; el.style.setProperty('--dx',s.dx+'px');el.style.setProperty('--dy',s.dy+'px');el.style.setProperty('--r',s.r+'deg');el.style.zIndex=s.z; top=Math.max(top,s.z)}
+  function unapply(el){el.style.removeProperty('--dx');el.style.removeProperty('--dy');el.style.removeProperty('--r');el.style.zIndex=''}
+  // keep a stuck paper fully on the wall: inside the viewport width and below the top of the page
+  function fit(el){var s=store[el.dataset.drag]; if(!s)return; var r=el.getBoundingClientRect(), vw=document.documentElement.clientWidth, m=6;
+    if(r.width<vw-2*m){ if(r.left<m)s.dx+=m-r.left; else if(r.right>vw-m)s.dx-=r.right-(vw-m); } else s.dx-=r.left;
+    var docTop=r.top+scrollY; if(docTop<m+20)s.dy+=m+20-docTop;
+    s.dx=Math.round(s.dx); s.dy=Math.round(s.dy); apply(el)}
+  papers.forEach(function(el){apply(el);fit(el)}); reset.hidden=!Object.keys(store).length;
+
+  var drag=null, moved=false;
+  function start(el,e,immediate){
+    var s=store[el.dataset.drag]||{dx:0,dy:0};
+    drag={el:el,id:e.pointerId,x:e.clientX,y:e.clientY,dx:s.dx,dy:s.dy,on:immediate};
+    if(immediate)lift(el);
+    el.setPointerCapture&&el.setPointerCapture(e.pointerId);
+  }
+  function lift(el){el.classList.remove('settle');el.classList.add('lifted');el.style.zIndex=++top;document.body.style.userSelect='none'}
+  document.addEventListener('pointerdown',function(e){
+    moved=false;
+    if(e.button!==0)return;
+    var tape=e.target.closest('.tape'), el=e.target.closest('[data-drag]');
+    if(!el)return;
+    if(tape){e.preventDefault();start(el,e,true);return}
+    if(e.pointerType==='mouse'&&!e.target.closest('a,button'))start(el,e,false);
+  });
+  document.addEventListener('pointermove',function(e){
+    if(!drag||e.pointerId!==drag.id)return;
+    var mx=e.clientX-drag.x,my=e.clientY-drag.y;
+    if(!drag.on){if(Math.abs(mx)+Math.abs(my)<5)return;drag.on=true;lift(drag.el)}
+    moved=true;
+    drag.el.style.setProperty('--dx',(drag.dx+mx)+'px');drag.el.style.setProperty('--dy',(drag.dy+my)+'px');
+  });
+  function end(e){
+    if(!drag||e.pointerId!==drag.id)return;
+    var el=drag.el;
+    if(drag.on){
+      el.classList.remove('lifted');
+      if(e.type==='pointercancel'){ if(store[el.dataset.drag])apply(el); else unapply(el); moved=false; }
+      else{
+        var r=Math.round((Math.random()*6-3)*10)/10;
+        store[el.dataset.drag]={dx:Math.round(drag.dx+(e.clientX-drag.x)),dy:Math.round(drag.dy+(e.clientY-drag.y)),r:r,z:top};
+        el.classList.remove('settle'); apply(el); fit(el); save();
+      }
+    }
+    document.body.style.userSelect=''; drag=null;
+  }
+  document.addEventListener('pointerup',end); document.addEventListener('pointercancel',end);
+  document.addEventListener('click',function(e){if(moved&&e.target.closest('[data-drag]')){e.preventDefault();e.stopPropagation();moved=false}},true);
+
+  document.addEventListener('keydown',function(e){
+    var tape=e.target.closest&&e.target.closest('.tape'); if(!tape)return;
+    var k={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key]; if(!k)return;
+    e.preventDefault(); var el=tape.closest('[data-drag]'), s=store[el.dataset.drag]||{dx:0,dy:0,r:parseFloat(getComputedStyle(el).getPropertyValue('--r'))||0}, step=e.shiftKey?48:16;
+    store[el.dataset.drag]={dx:s.dx+k[0]*step,dy:s.dy+k[1]*step,r:s.r,z:++top}; apply(el); fit(el); save();
+    live.textContent='Переклеєно';
+  });
+  reset.addEventListener('click',function(){store={};save();papers.forEach(unapply);live.textContent='Усе повішено як було'});
+
+  if(!reduce)document.addEventListener('click',function(e){
+    var t=e.target.closest('a.tab'); if(!t||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+    e.preventDefault(); t.classList.add('tearing'); setTimeout(function(){location.href=t.href},380);
+  });
+})();
+</script>
 </body>
 </html>
