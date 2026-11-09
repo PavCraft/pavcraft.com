@@ -1,0 +1,42 @@
+{
+  "checked": "2026-11-08",
+  "note": "Перенесено з Google Таблиці Pricing Kit v1.2 (аркуші «Ставки», «Доставка», «Налаштування»). Оновлювати тут.",
+  "taxes": {
+    "fop2": { "label": "ФОП 2 група", "single": 0, "war": 0, "vat": 0, "fixedMonthly": 2465 },
+    "fop3": { "label": "ФОП 3 група 5%", "single": 0.05, "war": 0.01, "vat": 0, "fixedMonthly": 0 },
+    "fop3vat": { "label": "ФОП 3 група 3% + ПДВ", "single": 0.03, "war": 0.01, "vat": 0.16666666666666666, "fixedMonthly": 0 }
+  },
+  "esvMonthly": 1902.34,
+  "platforms": {
+    "prom": { "acquiring": 0.017, "extra": 0, "ownDomainPerOrder": 10 },
+    "rozetka": { "acquiring": 0.015, "extra": 0, "vatMultiplier": 1.08, "subscriptionMonthly": 120, "defaultCommission": 0.15 }
+  },
+  "prosale": {
+    "Економ": { "col": 1, "highRate": 0.01 },
+    "Звичайний": { "col": 2, "highRate": 0.02 },
+    "Більше продажів": { "col": 3, "highRate": 0.025 },
+    "Турбо": { "col": 4, "highRate": 0.03 }
+  },
+  "promHighThreshold": 10000,
+  "promPackages": [
+    { "name": "Prom мікс 1 000", "yearly": 5400 },
+    { "name": "Prom мікс 6 000", "yearly": 6200 },
+    { "name": "Prom мікс 10 000", "yearly": 9000 },
+    { "name": "Prom мікс 20 000", "yearly": 16000 },
+    { "name": "Prom мікс 50 000", "yearly": 33500 },
+    { "name": "Prom топ (до 100 000)", "yearly": 5700 },
+    { "name": "Prom Лояльність 10 000 (2026)", "yearly": 1400 },
+    { "name": "Легкий старт 10 000 (2026)", "yearly": 1900 },
+    { "name": "Prom сайт 1 000 (лише сайт)", "yearly": 3500 },
+    { "name": "Prom сайт 6 000 (лише сайт)", "yearly": 4400 },
+    { "name": "Prom сайт 10 000 (лише сайт)", "yearly": 7000 },
+    { "name": "Prom сайт 20 000 (лише сайт)", "yearly": 14000 },
+    { "name": "Prom сайт 50 000 (лише сайт)", "yearly": 35000 }
+  ],
+  "carriers": {
+    "Нова Пошта": { "intercity": [90, 135, 200], "cod1": [0.01, 10], "cod2": [0.02, 20] },
+    "Укрпошта": { "intercity": [80, 140, 150], "cod1": [0.02, 15], "cod2": [0.02, 15] },
+    "Meest Пошта": { "intercity": [75, 110, 180], "cod1": [0.02, 20], "cod2": [0.02, 20] }
+  },
+  "weightBands": [2, 10]
+}

@@ -1,0 +1,14 @@
+{
+  "alg": "ECDSA-P256-SHA256",
+  "key": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "6rCS7m8pdG8w8dqZzxi54Af3S6vmwUtaAN79lwdA6sw",
+    "y": "l6XrYFMQ1IM7z4gyGVDTk6WVHHvEj1c7kkXSEVzk_FI"
+  },
+  "revoked": [
+    "PK-TDQD-20261109",
+    "PK-TGWH-20261109",
+    "PK-TCD3-20261109"
+  ]
+}
