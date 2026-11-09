@@ -174,4 +174,7 @@ a.tab{cursor:grab}
 .strip,.hero,.notices,.foot{pointer-events:none}
 .strip > *,.hero > *,.notices > *,.foot > *{pointer-events:auto}
 .hero h1,.g-hero{pointer-events:none}
-.brand .logo{display:block;height:40px;width:auto;margin:2px 0 4px;-webkit-user-drag:none}
+.brand{padding:14px 20px;--r:-2deg}
+.brand .logo{display:block;height:56px;width:auto;margin:0;-webkit-user-drag:none}
+.brand small{font-size:16px}
+@media (max-width:560px){.brand .logo{height:42px}.brand{padding:10px 14px}.brand small{font-size:14px}}
