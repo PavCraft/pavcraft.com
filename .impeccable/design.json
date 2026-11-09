@@ -1,251 +1,183 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-09T23:30:00+02:00",
+  "generatedAt": "2026-11-09T21:45:43.344Z",
   "title": "Design System: Pavcraft",
   "extensions": {
     "colorMeta": {
-      "whitewash": {
-        "role": "neutral",
-        "displayName": "Stairwell Whitewash",
-        "canonical": "oklch(91.6% 0.014 88.7)",
+      "ground": {
+        "role": "primary",
+        "displayName": "Acid Lime Board",
+        "canonical": "#D9FF41",
         "tonalRamp": [
-          "oklch(15% 0.006 88.7)",
-          "oklch(27% 0.009 88.7)",
-          "oklch(39% 0.011 88.7)",
-          "oklch(51% 0.013 88.7)",
-          "oklch(63% 0.013 88.7)",
-          "oklch(75% 0.010 88.7)",
-          "oklch(86% 0.008 88.7)",
-          "oklch(95% 0.006 88.7)"
-        ]
-      },
-      "trim": {
-        "role": "neutral",
-        "displayName": "Trim Stripe",
-        "canonical": "oklch(45.7% 0.041 172.9)",
-        "tonalRamp": [
-          "oklch(15% 0.017 172.9)",
-          "oklch(27% 0.025 172.9)",
-          "oklch(39% 0.032 172.9)",
-          "oklch(51% 0.039 172.9)",
-          "oklch(63% 0.037 172.9)",
-          "oklch(75% 0.030 172.9)",
-          "oklch(86% 0.023 172.9)",
-          "oklch(95% 0.017 172.9)"
-        ]
-      },
-      "panel": {
-        "role": "neutral",
-        "displayName": "Oil-Paint Green",
-        "canonical": "oklch(63.9% 0.050 168.1)",
-        "tonalRamp": [
-          "oklch(15% 0.020 168.1)",
-          "oklch(27% 0.030 168.1)",
-          "oklch(39% 0.039 168.1)",
-          "oklch(51% 0.047 168.1)",
-          "oklch(63% 0.045 168.1)",
-          "oklch(75% 0.036 168.1)",
-          "oklch(86% 0.028 168.1)",
-          "oklch(95% 0.020 168.1)"
-        ]
-      },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Office Paper",
-        "canonical": "oklch(98.5% 0.005 95.1)",
-        "tonalRamp": [
-          "oklch(15% 0.002 95.1)",
-          "oklch(27% 0.003 95.1)",
-          "oklch(39% 0.004 95.1)",
-          "oklch(51% 0.005 95.1)",
-          "oklch(63% 0.004 95.1)",
-          "oklch(75% 0.004 95.1)",
-          "oklch(86% 0.003 95.1)",
-          "oklch(95% 0.002 95.1)"
-        ]
-      },
-      "paper-old": {
-        "role": "neutral",
-        "displayName": "Yellowed Paper",
-        "canonical": "oklch(91.9% 0.024 90.8)",
-        "tonalRamp": [
-          "oklch(15% 0.010 90.8)",
-          "oklch(27% 0.015 90.8)",
-          "oklch(39% 0.019 90.8)",
-          "oklch(51% 0.023 90.8)",
-          "oklch(63% 0.021 90.8)",
-          "oklch(75% 0.017 90.8)",
-          "oklch(86% 0.013 90.8)",
-          "oklch(95% 0.010 90.8)"
-        ]
-      },
-      "ink": {
-        "role": "neutral",
-        "displayName": "Felt-Tip Black",
-        "canonical": "oklch(23% 0.004 106.7)",
-        "tonalRamp": [
-          "oklch(15% 0.002 106.7)",
-          "oklch(27% 0.002 106.7)",
-          "oklch(39% 0.003 106.7)",
-          "oklch(51% 0.004 106.7)",
-          "oklch(63% 0.004 106.7)",
-          "oklch(75% 0.003 106.7)",
-          "oklch(86% 0.002 106.7)",
-          "oklch(95% 0.002 106.7)"
-        ]
-      },
-      "ink-2": {
-        "role": "neutral",
-        "displayName": "Faded Ink",
-        "canonical": "oklch(38% 0.012 87.5)",
-        "tonalRamp": [
-          "oklch(15% 0.005 87.5)",
-          "oklch(27% 0.007 87.5)",
-          "oklch(39% 0.009 87.5)",
-          "oklch(51% 0.011 87.5)",
-          "oklch(63% 0.011 87.5)",
-          "oklch(75% 0.009 87.5)",
-          "oklch(86% 0.007 87.5)",
-          "oklch(95% 0.005 87.5)"
+          "#36410b",
+          "#6e8a00",
+          "#9fc700",
+          "#cdff05",
+          "#d9ff42",
+          "#e5ff80",
+          "#f1ffb8",
+          "#f8fbe9"
         ]
       },
       "pen": {
         "role": "primary",
         "displayName": "Ballpoint Blue",
-        "canonical": "oklch(44.6% 0.184 264.8)",
+        "canonical": "#2B35E8",
         "tonalRamp": [
-          "oklch(15% 0.074 264.8)",
-          "oklch(27% 0.112 264.8)",
-          "oklch(39% 0.145 264.8)",
-          "oklch(51% 0.175 264.8)",
-          "oklch(63% 0.165 264.8)",
-          "oklch(75% 0.134 264.8)",
-          "oklch(86% 0.103 264.8)",
-          "oklch(95% 0.074 264.8)"
-        ]
-      },
-      "pen-deep": {
-        "role": "primary",
-        "displayName": "Pressed Ballpoint",
-        "canonical": "oklch(36.3% 0.148 264.7)",
-        "tonalRamp": [
-          "oklch(15% 0.060 264.7)",
-          "oklch(27% 0.090 264.7)",
-          "oklch(39% 0.116 264.7)",
-          "oklch(51% 0.140 264.7)",
-          "oklch(63% 0.133 264.7)",
-          "oklch(75% 0.108 264.7)",
-          "oklch(86% 0.083 264.7)",
-          "oklch(95% 0.060 264.7)"
+          "#11133c",
+          "#0d137c",
+          "#131cb3",
+          "#1e28e7",
+          "#555ded",
+          "#8c91f3",
+          "#bfc2f8",
+          "#ebecf9"
         ]
       },
       "marker-red": {
         "role": "secondary",
-        "displayName": "Marker Red",
-        "canonical": "oklch(53.9% 0.193 28.6)",
+        "displayName": "Marker Pink-Red",
+        "canonical": "#CF1452",
         "tonalRamp": [
-          "oklch(15% 0.078 28.6)",
-          "oklch(27% 0.117 28.6)",
-          "oklch(39% 0.152 28.6)",
-          "oklch(51% 0.183 28.6)",
-          "oklch(63% 0.173 28.6)",
-          "oklch(75% 0.141 28.6)",
-          "oklch(86% 0.108 28.6)",
-          "oklch(95% 0.078 28.6)"
+          "#3c101f",
+          "#7e0c32",
+          "#b51248",
+          "#e91b5f",
+          "#ee5386",
+          "#f48bae",
+          "#f9bed1",
+          "#faebf0"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Office Paper",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#454545",
+          "#636363",
+          "#828282",
+          "#a1a1a1",
+          "#bfbfbf",
+          "#dbdbdb",
+          "#f2f2f2"
+        ]
+      },
+      "paper-old": {
+        "role": "neutral",
+        "displayName": "Yellowed Paper",
+        "canonical": "#F1EEE4",
+        "tonalRamp": [
+          "#2f2b1e",
+          "#5b512f",
+          "#837444",
+          "#aa975a",
+          "#bfb183",
+          "#d3caab",
+          "#e7e1d0",
+          "#f5f4ef"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Felt-Tip Ink",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "#262626",
+          "#454545",
+          "#636363",
+          "#828282",
+          "#a1a1a1",
+          "#bfbfbf",
+          "#dbdbdb",
+          "#f2f2f2"
         ]
       },
       "cut": {
         "role": "neutral",
-        "displayName": "Cut-Line Grey",
-        "canonical": "oklch(62.4% 0.014 86.9)",
+        "displayName": "Cut Line Grey",
+        "canonical": "#9A978E",
         "tonalRamp": [
-          "oklch(15% 0.006 86.9)",
-          "oklch(27% 0.009 86.9)",
-          "oklch(39% 0.011 86.9)",
-          "oklch(51% 0.013 86.9)",
-          "oklch(63% 0.013 86.9)",
-          "oklch(75% 0.010 86.9)",
-          "oklch(86% 0.008 86.9)",
-          "oklch(95% 0.006 86.9)"
-        ]
-      },
-      "tape": {
-        "role": "neutral",
-        "displayName": "Masking Tape",
-        "canonical": "rgba(236,224,170,0.6)",
-        "tonalRamp": [
-          "rgba(236,224,170,0.4)",
-          "rgba(236,224,170,0.6)",
-          "rgba(236,224,170,0.8)"
+          "#282725",
+          "#494741",
+          "#69665e",
+          "#89867b",
+          "#a6a39b",
+          "#c3c1bc",
+          "#dddcd9",
+          "#f3f3f2"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page headline written on the whitewash."
+        "purpose": "H1 on the board."
       },
       "headline-feature": {
-        "displayName": "Headline Feature",
-        "purpose": "Heading of the lead tool notice."
+        "displayName": "Headline feature",
+        "purpose": "Pricing Kit notice title."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Headings of other notices."
+        "purpose": "Other notice titles."
       },
       "body": {
         "displayName": "Body",
         "purpose": "Notice text, max 34ch."
       },
-      "body-note": {
-        "displayName": "Body Note",
-        "purpose": "Taped note under the headline."
-      },
       "label": {
         "displayName": "Label",
-        "purpose": "Slips, action link, reset slip, footer."
-      },
-      "label-tab": {
-        "displayName": "Label Tab",
-        "purpose": "Vertical text on tear-off tabs."
+        "purpose": "Tab text, links, reset button."
       },
       "scribble": {
         "displayName": "Scribble",
-        "purpose": "Marker writing on the wall, 26 to 38px."
+        "purpose": "Marker writing on the wall only (Shantell Sans)."
       }
     },
     "shadows": [
       {
-        "name": "stuck",
+        "name": "paper-rest",
         "value": "drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18))",
-        "purpose": "Filter on every paper at rest; follows the paper outline."
+        "purpose": "Paper at rest, follows silhouette."
       },
       {
-        "name": "lifted",
+        "name": "paper-lifted",
         "value": "drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2))",
-        "purpose": "Filter on a paper being dragged, with scale(1.03)."
+        "purpose": "Paper while carried."
+      },
+      {
+        "name": "scribble-lifted",
+        "value": "drop-shadow(0 10px 10px rgba(0,0,0,.25))",
+        "purpose": "Marker scribble while carried."
+      },
+      {
+        "name": "sticker",
+        "value": "0 2px 3px rgba(0,0,0,.28)",
+        "purpose": "Censor stickers; box-shadow allowed only here."
+      },
+      {
+        "name": "tab-ghost",
+        "value": "drop-shadow(0 14px 14px rgba(0,0,0,.35))",
+        "purpose": "Tab in the hand while tearing."
       }
     ],
     "motion": [
       {
-        "name": "settle",
-        "value": ".22s cubic-bezier(.16,1,.3,1)",
-        "purpose": "Paper settling after a drop; transform and filter."
+        "name": "ease-settle",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Paper settling and tab hover tilt (.18 to .22s)."
       },
       {
-        "name": "tab-peel",
-        "value": ".18s cubic-bezier(.16,1,.3,1)",
-        "purpose": "Tab rotates -5deg around its top edge on hover."
+        "name": "ease-tear",
+        "value": "cubic-bezier(.5,0,.75,0)",
+        "purpose": "Tab tear-off fall (.42s) and sticker peel (.55s)."
       },
       {
-        "name": "tab-tear",
-        "value": ".42s cubic-bezier(.5,0,.75,0)",
-        "purpose": "Tab tears off and falls; navigation follows after 380ms."
-      },
-      {
-        "name": "reduced-motion",
-        "value": "none",
-        "purpose": "Under prefers-reduced-motion all peel, tear and settle motion is removed."
+        "name": "touch-hold",
+        "value": "260ms tab, 320ms paper",
+        "purpose": "Hold still on touch before a pull or pickup starts; swipes keep scrolling."
       }
     ],
     "breakpoints": [
@@ -264,111 +196,106 @@
       "name": "Notice",
       "kind": "card",
       "refersTo": "notice",
-      "description": "One tool on the wall: taped office paper with heading, text, action link and tear-off tabs.",
-      "html": "<div class=\"ds-wall\"><article class=\"ds-paper ds-notice\" style=\"--r:-1.2deg\"><button class=\"ds-tape\" type=\"button\" aria-label=\"Відклеїти оголошення\"></button><div class=\"ds-sheet\"><h2><a href=\"#\">Pricing Kit <span class=\"ds-for\">для продавців Prom</span></a></h2><p>Покажу, які ваші товари на Prom продаються в мінус.</p><a class=\"ds-open\" href=\"#\">Відкрити Pricing Kit</a></div><div class=\"ds-tabs\"><span class=\"ds-tab ds-tab-gone\"></span><a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a><a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a><a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a></div></article></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--panel);padding:40px 24px} .ds-notice{--pc:var(--paper);max-width:420px;transform:rotate(var(--r));color:var(--ink);font-family:var(--pen-font);font-size:24px;line-height:1.3} .ds-sheet{background:var(--pc);padding:30px 28px 16px;border-bottom:2px dashed var(--cut)} .ds-notice h2{font-family:var(--hand);font-weight:400;font-size:44px;line-height:1.05;margin:0 0 12px} .ds-notice h2 a{color:inherit;text-decoration:none} .ds-notice h2 a:hover{text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--pen)} .ds-for{display:block;font-size:26px;margin-top:6px;color:var(--ink-2)} .ds-notice p{margin:0 0 10px;max-width:34ch} .ds-open{display:inline-block;font-family:var(--hand);font-size:24px;color:var(--pen);text-decoration:underline;text-decoration-thickness:2px;padding:8px 0;min-height:44px} .ds-open:hover{color:var(--pen-deep)} .ds-open:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tabs{display:flex} .ds-tab{flex:1 1 0;min-width:44px;height:132px;padding:12px 8px;display:flex;align-items:center;justify-content:center;background:var(--pc);text-decoration:none;color:var(--pen);font-family:var(--pen-font);font-weight:700;font-size:23px;transform-origin:50% 0;transition:transform .18s cubic-bezier(.16,1,.3,1)} .ds-tab+.ds-tab{border-left:2px dashed var(--cut)} .ds-tab span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap} a.ds-tab:hover{transform:rotate(-5deg)} a.ds-tab:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tab-gone{height:14px;align-self:flex-start} .ds-tab-gone+.ds-tab{border-left-color:transparent} "
+      "description": "White paper sheet with dashed tear line, taped on.",
+      "html": "<div class=\"ds-notice\"><span class=\"ds-tape\"></span><h3>Pricing Kit</h3><p>Один інструмент. Одна рутина.</p></div>",
+      "css": ".ds-notice{position:relative;background:#fff;color:#141414;padding:30px 28px 16px;border-bottom:2px dashed #9A978E;font-family:\"Playpen Sans\",cursive;transform:rotate(-1.2deg);filter:drop-shadow(0 7px 8px rgba(0,0,0,.32));max-width:300px;cursor:grab}.ds-notice h3{font-weight:800;font-size:32px;line-height:1.05;margin:0 0 10px}.ds-notice p{margin:0 0 10px}.ds-tape{position:absolute;top:-14px;left:40%;width:100px;height:28px;background:rgba(240,232,190,.72);transform:rotate(-3deg)}"
     },
     {
       "name": "Old Notice",
       "kind": "card",
       "refersTo": "notice-old",
-      "description": "A tool that does not exist yet: yellowed paper, faded ink, tabs that are not links.",
-      "html": "<div class=\"ds-wall\"><article class=\"ds-paper ds-old\" style=\"--r:2.4deg\"><button class=\"ds-tape\" type=\"button\" aria-label=\"Відклеїти оголошення\"></button><div class=\"ds-sheet\"><h2>Наступний інструмент</h2><p>Обираю за попитом.</p></div><div class=\"ds-tabs\"><span class=\"ds-tab\"><span>за попитом</span></span><span class=\"ds-tab\"><span>за попитом</span></span><span class=\"ds-tab\"><span>за попитом</span></span></div></article></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--panel);padding:40px 24px} .ds-old{--pc:var(--paper-old);max-width:340px;transform:rotate(var(--r));color:var(--ink-2);font-family:var(--pen-font);font-size:24px;line-height:1.3} .ds-sheet{background:var(--pc);padding:30px 28px 16px;border-bottom:2px dashed var(--cut)} .ds-old h2{font-family:var(--hand);font-weight:400;font-size:36px;line-height:1.05;margin:0 0 12px;color:var(--ink)} .ds-old p{margin:0 0 10px} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tabs{display:flex} .ds-tab{flex:1 1 0;min-width:44px;height:132px;padding:12px 8px;display:flex;align-items:center;justify-content:center;background:var(--pc);text-decoration:none;color:var(--pen);font-family:var(--pen-font);font-weight:700;font-size:23px;transform-origin:50% 0;transition:transform .18s cubic-bezier(.16,1,.3,1)} .ds-tab+.ds-tab{border-left:2px dashed var(--cut)} .ds-tab span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap} a.ds-tab:hover{transform:rotate(-5deg)} a.ds-tab:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tab-gone{height:14px;align-self:flex-start} .ds-tab-gone+.ds-tab{border-left-color:transparent} .ds-old .ds-tab{color:#5E5A52;font-size:19px}"
+      "description": "Yellowed paper for a future tool.",
+      "html": "<div class=\"ds-old\"><h3>Наступний інструмент</h3><p>Обираю за попитом.</p></div>",
+      "css": ".ds-old{background:#F1EEE4;color:#3E3D38;padding:30px 28px 16px;font-family:\"Playpen Sans\",cursive;transform:rotate(2.4deg);filter:drop-shadow(0 7px 8px rgba(0,0,0,.32));max-width:300px}.ds-old h3{font-weight:800;font-size:28px;margin:0 0 8px;color:#141414}.ds-old p{margin:0}"
+    },
+    {
+      "name": "Tear-off Tab",
+      "kind": "custom",
+      "refersTo": "tab",
+      "description": "Vertical-text tab under a sheet; pull to tear and navigate.",
+      "html": "<a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a>",
+      "css": ".ds-tab{display:flex;align-items:center;justify-content:center;width:56px;height:132px;background:#fff;color:#2B35E8;font-family:\"Playpen Sans\",cursive;font-weight:600;font-size:19px;text-decoration:none;border-left:2px dashed #9A978E;transform-origin:50% 0;transition:transform .18s cubic-bezier(.16,1,.3,1);cursor:grab}.ds-tab span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}.ds-tab:hover{transform:rotate(-5deg)}.ds-tab:focus-visible{outline:3px solid #2B35E8;outline-offset:3px}"
     },
     {
       "name": "Tape",
-      "kind": "button",
-      "refersTo": "tape",
-      "description": "Crimped translucent tape; a real button that peels the paper, moved by pointer or arrow keys.",
-      "html": "<div class=\"ds-wall\"><div class=\"ds-paper ds-slip\"><button class=\"ds-tape\" type=\"button\" aria-label=\"Відклеїти записку\"></button>Тягніть за скотч</div></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--whitewash);padding:48px 24px} .ds-slip{background:var(--paper);padding:16px 20px;font-family:var(--pen-font);font-size:24px;color:var(--ink);transform:rotate(-1deg)} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} "
-    },
-    {
-      "name": "Brand Slip",
-      "kind": "nav",
-      "refersTo": "brand-slip",
-      "description": "The brand mark and the contact slip, taped to the whitewash band.",
-      "html": "<div class=\"ds-strip\"><div class=\"ds-paper ds-brand\"><button class=\"ds-tape ds-small\" type=\"button\" aria-label=\"Відклеїти табличку\"></button><a href=\"#\">PAVCRAFT<small>інструменти для малого бізнесу</small></a></div><nav class=\"ds-paper ds-contact\"><button class=\"ds-tape ds-small\" type=\"button\" aria-label=\"Відклеїти записку\"></button><a href=\"#\">Написати</a></nav></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-strip{background:var(--whitewash);padding:40px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px} .ds-brand{background:var(--paper);padding:12px 16px 10px;transform:rotate(-1.5deg)} .ds-brand a{font-family:var(--hand);font-size:24px;line-height:1.1;color:var(--ink);text-decoration:none} .ds-brand small{display:block;font-family:var(--pen-font);font-weight:600;font-size:22px;color:var(--ink-2)} .ds-contact{background:var(--paper);padding:10px 16px;transform:rotate(2deg)} .ds-contact a{font-family:var(--hand);font-size:21px;color:var(--pen);text-decoration:none} .ds-contact a:hover{text-decoration:underline} .ds-strip a:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-small{width:64px;margin-left:-32px}"
-    },
-    {
-      "name": "Action Link",
-      "kind": "button",
-      "refersTo": "action-link",
-      "description": "The one action on a notice: Pangolin, ballpoint blue, underlined, 44px tall.",
-      "html": "<div class=\"ds-sheet\"><a class=\"ds-open\" href=\"#\">Відкрити Pricing Kit</a></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-sheet{background:var(--paper);padding:24px 28px} .ds-open{display:inline-block;font-family:var(--hand);font-size:24px;color:var(--pen);text-decoration:underline;text-decoration-thickness:2px;padding:8px 0;min-height:44px} .ds-open:hover{color:var(--pen-deep)} .ds-open:focus-visible{outline:3px solid var(--pen);outline-offset:3px}"
-    },
-    {
-      "name": "Reset Slip",
-      "kind": "button",
-      "refersTo": "reset-slip",
-      "description": "Paper button that re-hangs every moved paper; shown only after the viewer moved something.",
-      "html": "<div class=\"ds-wall\"><button class=\"ds-reset\" type=\"button\">Повісити все як було</button></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--panel);padding:32px 24px} .ds-reset{font-family:var(--hand);font-size:19px;background:var(--paper);color:var(--ink);border:0;padding:10px 14px;cursor:pointer;transform:rotate(-1deg);min-height:44px} .ds-reset:hover{text-decoration:underline} .ds-reset:focus-visible{outline:3px solid var(--pen);outline-offset:3px}"
-    },
-    {
-      "name": "Wall and Scribbles",
       "kind": "custom",
-      "refersTo": "whitewash",
-      "description": "The stairwell wall: whitewash band, trim stripe, green panel, marker scribbles.",
-      "html": "<div class=\"ds-wall\"><span class=\"ds-g ds-red\">ОГОЛОШЕННЯ НЕ КЛЕЇТИ!</span><h1>Оголошення для тих, хто все робить сам</h1><span class=\"ds-g ds-black\"><s>тут була рутина</s></span></div>",
-      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{position:relative;padding:40px 24px 90px;background:linear-gradient(to bottom,var(--whitewash) 0,var(--whitewash) 220px,var(--trim) 220px,var(--trim) 227px,var(--panel) 227px)} .ds-wall h1{font-family:var(--hand);font-weight:400;font-size:52px;line-height:1.02;letter-spacing:-.01em;margin:30px 0 0;max-width:15ch;color:var(--ink);transform:rotate(-1.5deg)} .ds-g{display:inline-block;font-family:var(--pen-font);font-weight:700;line-height:1;white-space:nowrap} .ds-red{color:var(--marker-red);font-size:30px;transform:rotate(-4deg);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px} .ds-black{position:absolute;right:24px;bottom:24px;color:var(--ink);font-size:30px;transform:rotate(-6deg)}"
+      "refersTo": "notice",
+      "description": "Translucent crimped masking tape; the explicit grab handle.",
+      "html": "<button class=\"ds-tapebtn\" aria-label=\"Відклеїти\"></button>",
+      "css": ".ds-tapebtn{display:block;width:112px;height:28px;border:0;background:rgba(240,232,190,.72);transform:rotate(-3deg);cursor:grab;clip-path:polygon(2% 0,98% 0,100% 15%,97% 30%,100% 50%,97% 70%,100% 85%,98% 100%,2% 100%,0 85%,3% 70%,0 50%,3% 30%,0 15%)}.ds-tapebtn:hover{background:rgba(236,224,170,.8)}.ds-tapebtn:focus-visible{outline:3px solid #2B35E8;outline-offset:3px}"
+    },
+    {
+      "name": "Slip Link",
+      "kind": "nav",
+      "refersTo": "slip",
+      "description": "Small taped slip with the contact action.",
+      "html": "<nav class=\"ds-slip\"><a href=\"#\">Написати</a></nav>",
+      "css": ".ds-slip{display:inline-block;background:#fff;padding:10px 16px;transform:rotate(2deg);filter:drop-shadow(0 7px 8px rgba(0,0,0,.32))}.ds-slip a{font-family:\"Playpen Sans\",cursive;font-weight:700;font-size:19px;color:#2B35E8;text-decoration:none}.ds-slip a:hover{text-decoration:underline}.ds-slip a:focus-visible{outline:3px solid #2B35E8;outline-offset:3px}"
+    },
+    {
+      "name": "Open Link",
+      "kind": "button",
+      "refersTo": "tab",
+      "description": "Underlined ballpoint action link on paper.",
+      "html": "<a class=\"ds-open\" href=\"#\">Відкрити Pricing Kit →</a>",
+      "css": ".ds-open{display:inline-block;font-family:\"Playpen Sans\",cursive;font-weight:700;font-size:21px;color:#2B35E8;text-decoration:underline;text-decoration-thickness:2px;padding:8px 0;min-height:44px}.ds-open:hover{color:#1A22B8}.ds-open:focus-visible{outline:3px solid #2B35E8;outline-offset:3px}"
+    },
+    {
+      "name": "Censored Scribble",
+      "kind": "custom",
+      "refersTo": "sticker-round",
+      "description": "Marker scribble with a peelable censor sticker over the swear word.",
+      "html": "<span class=\"ds-scr\">рутина — <span class=\"ds-cz\">слово<button class=\"ds-st\" type=\"button\">18+</button></span></span>",
+      "css": ".ds-scr{font-family:\"Shantell Sans\",\"Playpen Sans\",cursive;font-weight:800;font-variation-settings:\"BNCE\" 100,\"INFM\" 100;text-transform:uppercase;font-size:30px;color:#141414;display:inline-block;transform:rotate(-5deg);cursor:grab}.ds-cz{position:relative;display:inline-block}.ds-st{position:absolute;inset:-.14em -.28em;border:0;padding:0;border-radius:50%;background:#E8C23A;color:#141414;font-family:\"Playpen Sans\",cursive;font-weight:700;font-size:.28em;display:grid;place-items:center;transform:rotate(-8deg);box-shadow:0 2px 3px rgba(0,0,0,.28);cursor:pointer}.ds-st:hover{box-shadow:0 4px 8px rgba(0,0,0,.32)}.ds-st:focus-visible{outline:3px solid #2B35E8}"
     }
   ],
   "narrative": {
-    "northStar": "The Stairwell Notice Board",
-    "overview": "Pavcraft's catalogue is the notice board nobody authorised: paper notices taped to a Ukrainian stairwell (під'їзд) wall. The wall is whitewash above and oil-painted green below, split by a dark trim stripe, with fine plaster grain over both and marker scribbles left by neighbours. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Everything a visitor reads is handwritten, as if by the developer with a felt-tip and a ballpoint.\n\nThe density is loose and human. Papers hang at slight angles (up to about 4 degrees), break the grid with uneven offsets, and cast shadows that follow their own outline. The page is a place you can touch: every paper peels off by its tape, follows the pointer with a deeper shadow, and sticks where it is dropped at a new small angle. The world refuses the SaaS grid of identical tool cards and the dark tech hero.\n\nTools that do not exist yet appear as yellowed, older notices whose tabs cannot be torn. The brand mark is not a logo but a taped paper slip reading \"PAVCRAFT / інструменти для малого бізнесу\".",
+    "northStar": "The Notice Nobody Authorised",
+    "overview": "Pavcraft's home is a flat acid-lime board with plain white paper notices taped onto it. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Around the notices sit marker scribbles in rude Ukrainian, each swear word hidden under a peelable sticker. The owner pinned this direction on 2026-11-09: make an own variant, keep only notices and tear-off tabs. Everything else of the previous stairwell wall was dropped.\n\nThe mood is loud, playful and a little cheeky, but the content stays practical: one tool per notice, one action per tab. The lime ground is a single flat colour with no texture, no gradient and no photograph. Depth comes only from paper-shaped shadows. The board must stay field-neutral: tool pages have their own worlds (Pricing Kit is a receipt).\n\nEverything on the board can be picked up and re-stuck: papers by tape or body, scribbles by their text, with grab and grabbing cursors telling you so.",
     "keyCharacteristics": [
-      "Two-tone stairwell wall (whitewash band over green panel, dark trim line) with plaster grain.",
-      "All type handwritten: Pangolin for headings, slips and controls; Caveat for text, tabs and scribbles.",
-      "Paper notices with crimped translucent tape, dashed cut lines and vertical tear-off tabs.",
-      "Ballpoint blue is the only action colour.",
-      "Peel-and-re-stick interaction on every paper, persisted per viewer, with a reset slip."
+      "One flat acid-lime ground (#D9FF41); white and yellowed paper; one ballpoint blue as the action colour; one marker pink-red for scribbles.",
+      "Two handwritten faces only: Playpen Sans for paper, Shantell Sans for marker scribbles.",
+      "Tear-off tabs are the navigation; a cut line that never moves.",
+      "Censor stickers over swear words, peeled by tap.",
+      "Every paper and scribble is draggable; positions persist per viewer."
     ],
     "rules": [
       {
-        "name": "The One Pen Rule",
-        "body": "Ballpoint blue marks everything that acts. Nothing else on paper is blue, and nothing that acts is any other colour.",
+        "name": "The One Ground Rule",
+        "body": "The ground is acid lime and nothing else. No second wall colour, no dark mode, no overlays.",
         "section": "colors"
       },
       {
-        "name": "The Wall Speaks Red Rule",
-        "body": "Marker red belongs to the wall (scribbles), not to the papers. It never signals an action or an error.",
+        "name": "The Ballpoint Rule",
+        "body": "Blue means \"you can act here\". Pink-red and black are for scribbles, never for links.",
         "section": "colors"
       },
       {
-        "name": "The Handwritten-Only Rule",
-        "body": "Every visible letter on the brand surface is Pangolin or Caveat. No system sans, no geometric display face.",
+        "name": "The Two Hands Rule",
+        "body": "Paper speaks in Playpen Sans, the wall speaks in Shantell Sans. No third face, no system display faces.",
         "section": "typography"
       },
       {
-        "name": "The Print-For-Structure Rule",
-        "body": "Pangolin carries structure (headings, slips, controls); Caveat carries voice (text, tabs, scribbles). Do not swap their roles.",
-        "section": "typography"
-      },
-      {
-        "name": "The Shadow Follows Paper Rule",
-        "body": "Shadows are drop-shadow filters on the paper itself, never box-shadow on a rectangle and never a panel behind the paper. A torn tab leaves only the ragged paper stub, with nothing behind it but the wall.",
+        "name": "The Silhouette Shadow Rule",
+        "body": "Shadows on paper are drop-shadow filters that trace the paper's shape. Box-shadow panels behind papers are forbidden; box-shadow is allowed only on small stickers.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do keep the wall two-tone: whitewash band over oil-paint green with the 7px trim line, plaster grain over both.",
-      "Do set every visible letter in Pangolin or Caveat, Pangolin for structure, Caveat for voice.",
-      "Do present each tool as one notice with tear-off tabs that all point to that tool's single address.",
-      "Do give every paper a tape button so it can be peeled, moved with arrow keys and re-stuck, and keep \"Повісити все як було\" as the way back.",
-      "Do cast shadows with drop-shadow filters on the paper itself.",
-      "Do use Ballpoint Blue for every action and nothing else on paper.",
-      "Do honour reduced motion: no peel, tear or settle animation, links still work without script."
+      "**Do** keep the ground a flat #D9FF41 and let the lime show through gaps and torn tabs.",
+      "**Do** make every paper and scribble draggable, with grab and grabbing cursors, and keep links on paper pointer-cursor.",
+      "**Do** cover every swear word with a peelable sticker; the owner asked for this device explicitly.",
+      "**Do** keep a tear line fixed when a tab lifts, and give a held tab on touch a short hold before pulling so scroll still works.",
+      "**Do** use Ballpoint Blue (#2B35E8) for every actionable element on paper.",
+      "**Do** keep 44px minimum targets for links and buttons."
     ],
     "donts": [
-      "Don't build a grid of identical tool cards or a dark tech hero.",
-      "Don't put a backing panel, box or shadowed rectangle behind a paper or a torn tab.",
-      "Don't move the cut line when a tab peels; the tab moves, the sheet stays.",
-      "Don't use Marker Red for actions, errors or anything on paper.",
-      "Don't reuse the Pricing Kit receipt world (or its Commissioner and Martian Mono faces) on brand surfaces."
+      "**Don't** add a second wall colour, texture, photo or dark section to the board.",
+      "**Don't** put shadows or a backing under a torn tab, or a backing panel behind a paper.",
+      "**Don't** use any face other than Playpen Sans and Shantell Sans; Pangolin and Caveat are retired.",
+      "**Don't** dress future tools as finished: they are yellowed notices with \"за попитом\" tabs, not a promise.",
+      "**Don't** put rude words in body text, titles, meta or links; they live only in marker scribbles under stickers.",
+      "**Don't** bring back the stairwell wall, plaster grain, oil-paint green or whitewash of the previous home."
     ]
   }
 }
