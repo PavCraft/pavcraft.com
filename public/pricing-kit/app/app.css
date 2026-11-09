@@ -1,0 +1,91 @@
+.receipt{padding-bottom:28px}
+.steps-bar{display:flex;gap:4px;margin:0 0 6px}
+.steps-bar button{flex:1;min-height:44px;font:inherit;font-size:11px;font-stretch:75%;text-transform:uppercase;letter-spacing:.04em;background:transparent;border:0;border-bottom:3px solid var(--rule);color:var(--ink-2);cursor:pointer;padding:6px 0 4px}
+.steps-bar button[aria-current="step"]{border-bottom-color:var(--ink);color:var(--ink);font-weight:700}
+.steps-bar button.done{border-bottom-color:var(--ink);color:var(--ink)}
+.screen[hidden],.steps-bar[hidden]{display:none}
+.screen h1{font-size:clamp(24px,5vw,34px)}
+
+/* fields printed as receipt lines */
+.field{display:flex;align-items:center;gap:.6ch;padding:8px 0;border-top:1.5px dashed var(--rule);text-transform:uppercase;font-size:14px}
+.field:first-of-type{border-top:0}
+.field label,.field .lbl{flex:1 1 auto}
+.field input,.field select{font:inherit;font-stretch:100%;font-weight:700;text-transform:none;font-size:16px;min-height:44px;width:9.5ch;text-align:right;background:transparent;border:0;border-bottom:2px solid var(--ink);color:var(--ink);padding:0 2px;border-radius:0}
+.field select{width:auto;max-width:68%;font-size:16px;padding-right:22px;text-align:left;appearance:none;-webkit-appearance:none;padding-right:20px;background:linear-gradient(45deg,transparent 50%,var(--ink) 0) right 8px center/6px 6px no-repeat,linear-gradient(-45deg,transparent 50%,var(--ink) 0) right 2px center/6px 6px no-repeat}
+.field .unit{flex:0 0 auto;font-size:13px;color:var(--ink-2)}
+.hint{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:-2px 0 8px;text-transform:none}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.seg label{flex:1 1 30%;position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:6px 8px;border:1.5px dashed var(--ink);font-size:12.5px;font-stretch:100%;text-transform:uppercase;line-height:1.25;cursor:pointer}
+.seg input:checked+span{background:var(--ink);color:var(--paper);border-style:solid;font-weight:700}
+.seg input:focus-visible+span{outline:2px solid var(--red);outline-offset:3px}
+details.more{margin-top:8px}
+details.more summary{font-size:14px;text-transform:uppercase}
+
+/* file drop */
+.drop{display:block;border:2px dashed var(--ink);padding:26px 16px;text-align:center;cursor:pointer;margin:14px 0}
+.drop:hover{background:#ECE8DE}
+.drop b{display:block;font-stretch:112.5%;font-size:17px;margin-bottom:6px}
+.drop span{font-family:var(--sans);font-size:14px;color:var(--ink-2)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.loaded{border:2px solid var(--ink);padding:12px 14px;margin:14px 0}
+.or{text-align:center;font-size:12px;color:var(--ink-2);text-transform:uppercase;margin:10px 0}
+
+/* results */
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 8px;margin:0 -2px;scrollbar-width:none}
+.chips button{flex:0 0 auto;min-height:44px;font:inherit;font-size:12px;font-stretch:100%;text-transform:uppercase;padding:0 12px;background:transparent;border:1.5px dashed var(--ink);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-style:solid;font-weight:700}
+.item{border-top:1.5px dashed var(--rule);padding:14px 0 10px}
+.item-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item-h b{font-stretch:100%;font-size:14.5px;line-height:1.3;text-transform:uppercase}
+.item-h small{display:block;font-size:12px;color:var(--ink-2);font-weight:400;text-transform:none;margin-top:2px}
+.tag{flex:0 0 auto;font-size:11.5px;font-weight:700;text-transform:uppercase;padding:1px 6px;border:1.5px solid var(--ink);white-space:nowrap}
+.tag.loss{background:var(--red);border-color:var(--red);color:var(--paper)}
+.tag.low{border-style:dashed}
+.tag.none{border-color:var(--ink-2);color:var(--ink-2);border-style:dotted}
+.item .ln{font-size:13px;margin:2px 0}
+.ln.reco{font-size:16px;font-weight:800;font-stretch:112.5%;margin-top:6px}
+.ln.neg .val{color:var(--red);font-weight:700}
+.item-a{display:flex;gap:8px;margin-top:0;align-items:stretch}
+.tick{flex:1;display:flex;align-items:center;gap:10px;min-height:44px;font-size:12.5px;text-transform:uppercase;cursor:pointer}
+.tick input{width:22px;height:22px;accent-color:var(--ink);margin:0}
+.item details{border:0;padding:0;margin-top:4px}
+.item details:last-of-type{border:0}
+.item details summary{font-weight:400;font-size:12.5px;text-transform:uppercase;min-height:44px;align-items:center;justify-content:flex-start;gap:8px;color:var(--ink-2)}
+.item details summary::after{content:"▾";font-weight:400}
+.item details[open] summary::after{content:"▴"}
+.cost-in{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12.5px;text-transform:uppercase}
+.cost-in input{font:inherit;font-size:16px;font-weight:700;width:8ch;min-height:44px;border:0;border-bottom:2px solid var(--ink);background:transparent;text-align:right}
+
+.lock{border:2px dashed var(--ink);padding:16px;margin:18px 0 6px;text-align:center}
+.lock h3{font-size:17px}
+.lock p{margin:6px auto 12px;font-size:15px}
+
+/* sticky action on phone */
+.dock{position:sticky;bottom:0;margin:18px calc(-1 * var(--pad)) -28px;padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));background:var(--paper);border-top:1.5px dashed var(--rule);z-index:2}
+.dock .btn{width:100%}
+.dock .sub{display:block;text-align:center;font-size:12px;color:var(--ink-2);margin-top:6px;text-transform:uppercase}
+@media (max-width:560px){
+  .receipt{padding-bottom:28px}
+  .dock{margin:18px -18px -28px;padding:10px 18px calc(10px + env(safe-area-inset-bottom))}
+  .field{font-size:12.5px}
+}
+.warn{font-family:var(--sans);font-size:14px;color:var(--red);margin:8px 0}
+.drop.busy{opacity:.5;pointer-events:none}
+.drop.busy b::after{content:" · читаємо…"}
+.more-btn{width:100%;margin:14px 0 4px}
+.demo-flag{border:1.5px dashed var(--ink);padding:6px 10px;margin:0 0 12px;font-size:12px;text-transform:uppercase;text-align:center}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.screen h1:focus,.screen h2:focus{outline:none}
+.field input:focus-visible,.field select:focus-visible,.cost-in input:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.loading .screen{visibility:hidden}
+.cost-in span{font-size:12px;color:var(--ink-2)}
+.item .tick{font-size:12px}
+.top .brand,.top nav a{display:inline-flex;align-items:center;min-height:44px}
+.code-form{text-align:left;margin:10px 0 4px}
+.code-form label{display:block;font-size:12.5px;text-transform:uppercase;margin-bottom:4px}
+.code-form textarea{width:100%;font:inherit;font-size:16px;font-stretch:75%;line-height:1.35;padding:8px;border:1.5px dashed var(--ink);background:transparent;color:var(--ink);border-radius:0;resize:vertical;word-break:break-all;margin-bottom:8px}
+.code-form textarea:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.lic-ok{font-size:13px;text-transform:uppercase;font-weight:700;border:2px solid var(--ink);padding:8px 10px;margin:0 0 12px;text-align:center}
+.lic-state .link{min-height:44px;font-size:14px}

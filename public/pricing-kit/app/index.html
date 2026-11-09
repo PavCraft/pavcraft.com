@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pricing Kit — розрахунок цін для Prom</title>
+<meta name="description" content="Порахуйте чисту маржу кожного товару на Prom після комісії, податків і доставки. Працює з телефона, файли не залишають ваш пристрій.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1B1A18">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/martian-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/receipt.css">
+<link rel="stylesheet" href="app.css">
+<script src="vendor/xlsx.mini.min.js" defer></script>
+<script type="module" src="app.js"></script>
+</head>
+<body class="loading">
+
+<header class="top">
+  <a class="brand" href="/">PAVCRAFT</a>
+  <nav aria-label="Розділи">
+    <a href="/pricing-kit/" style="display:inline">Про Pricing Kit</a>
+  </nav>
+</header>
+
+<main id="main" class="receipt">
+  <div class="r-head"><b>Pricing Kit</b>Ціни й маржа для продавців Prom</div>
+  <hr class="dash">
+
+  <nav class="steps-bar" aria-label="Кроки" hidden>
+    <button type="button" data-go="1">Умови</button>
+    <button type="button" data-go="2">Товари</button>
+    <button type="button" data-go="3">Закупівля</button>
+    <button type="button" data-go="4">Чек</button>
+    <button type="button" data-go="5">Prom</button>
+  </nav>
+  <p class="demo-flag" id="demo-flag" hidden>Приклад · товари й ціни вигадані</p>
+  <p id="link-note" role="status" hidden></p>
+  <p class="warn" id="boot-err" hidden>Не вдалося завантажити ставки. Оновіть сторінку.</p>
+
+  <!-- 0 · СТАРТ -->
+  <section class="screen" data-s="0">
+    <h1>Порахуємо, на чому ви заробляєте, а на чому ні.</h1>
+    <p class="lead">Завантажте файл товарів з кабінету Prom і закупівельні ціни. Отримаєте чек по кожному товару і файл з новими цінами для кабінету.</p>
+    <ul class="plain">
+      <li data-m="+">Працює з телефона. Нічого встановлювати не треба.</li>
+      <li data-m="+">Файли не залишають ваш пристрій: розрахунок іде прямо в браузері.</li>
+      <li data-m="+">Перші 20 товарів безкоштовно.</li>
+    </ul>
+    <div class="btn-row" style="margin-top:18px">
+      <button type="button" class="btn primary" data-go="1">Почати розрахунок</button>
+      <button type="button" class="btn" data-go="4" data-demo>Подивитися на прикладі</button>
+    </div>
+    <div class="lic-state" data-slot="start" style="margin-top:14px"></div>
+  </section>
+
+  <!-- 1 · УМОВИ -->
+  <section class="screen" data-s="1" hidden>
+    <h2>Ваші умови</h2>
+    <p class="muted">Заповнюється один раз і зберігається тільки в цьому браузері, не на наших серверах.</p>
+
+    <div style="font-size:13px;text-transform:uppercase;margin-top:10px" id="tax-l">Оподаткування</div>
+    <div class="seg" role="radiogroup" aria-labelledby="tax-l">
+      <label><input type="radio" name="tax" value="fop2" data-k="tax"><span>ФОП 2 гр.</span></label>
+      <label><input type="radio" name="tax" value="fop3" data-k="tax"><span>ФОП 3 гр. 5%</span></label>
+      <label><input type="radio" name="tax" value="fop3vat" data-k="tax"><span>3% + ПДВ</span></label>
+    </div>
+
+    <div class="field"><label for="f-promPackage">Пакет Prom</label><select id="f-promPackage" data-k="promPackage"></select></div>
+    <div class="field" id="row-custom" hidden><label for="f-custom">Ціна пакета за рік</label><input id="f-custom" inputmode="decimal" data-k="customPackageYearly" data-num><span class="unit">грн</span></div>
+    <div class="field"><label for="f-orders">Замовлень на місяць</label><input id="f-orders" inputmode="numeric" data-k="orders" data-num></div>
+    <p class="hint">У середньому за місяць, з усіх магазинів і сайтів разом. На це число діляться ЄСВ, абонплата й реклама.</p>
+    <div class="field"><label for="f-goal">Бажана чиста маржа</label><input id="f-goal" inputmode="decimal" data-k="goal" data-pct><span class="unit">%</span></div>
+    <p class="hint">Скільки гривень з кожних 100 грн ціни лишається вам чистими, коли віднято все: закупівлю, комісію, податки, доставку. Націнку рахують від закупівлі, тут інакше.</p>
+    <div class="field"><label for="f-ship">Доставку платить</label><select id="f-ship" data-k="shipPayer"><option value="buyer">Покупець</option><option value="seller">Продавець</option></select></div>
+    <div class="field" id="row-carrier" hidden><label for="f-carrier">Перевізник</label><select id="f-carrier" data-k="carrier"></select></div>
+
+    <details class="more">
+      <summary>Ще витрати</summary>
+      <div class="field"><label for="f-ads">Реклама на місяць</label><input id="f-ads" inputmode="decimal" data-k="adBudget" data-num><span class="unit">грн</span></div>
+      <p class="hint">Крім ProSale — він уже в комісії Prom.</p>
+      <div class="field"><label for="f-pack">Пакування</label><input id="f-pack" inputmode="decimal" data-k="packing" data-num><span class="unit">грн</span></div>
+      <div class="field"><label for="f-cod">Замовлень з післяплатою</label><input id="f-cod" inputmode="decimal" data-k="codShare" data-pct><span class="unit">%</span></div>
+      <div class="field"><label for="f-ret">Повернень і невикупів</label><input id="f-ret" inputmode="decimal" data-k="returnShare" data-pct><span class="unit">%</span></div>
+      <div class="field"><label for="f-retc">Скільки коштує одне повернення</label><input id="f-retc" inputmode="decimal" data-k="returnCost" data-num><span class="unit">грн</span></div>
+      <div class="field"><label for="f-w">Вага, якщо не вказана</label><input id="f-w" inputmode="decimal" data-k="defaultWeight" data-num><span class="unit">кг</span></div>
+    </details>
+    <details class="more">
+      <summary>Комісія Prom і округлення</summary>
+      <div class="field"><label for="f-prosale">Режим ProSale</label><select id="f-prosale" data-k="prosale"><option>Звичайний</option><option>Економ</option><option>Більше продажів</option><option>Турбо</option></select></div>
+      <p class="hint">«Звичайний» у кабінеті називається «Єдина комісія».</p>
+      <div class="field"><label for="f-site">Сайт компанії на Prom</label><select id="f-site" data-k="siteType"><option value="none">Немає / не знаю</option><option value="subdomain">Піддомен prom.ua</option><option value="own">Власний домен</option></select></div>
+      <div class="field" id="row-siteShare" hidden><label for="f-siteShare">Замовлень з вашого сайту</label><input id="f-siteShare" inputmode="decimal" data-k="siteShare" data-pct><span class="unit">%</span></div>
+      <div class="field"><label for="f-round">Округлення ціни</label><select id="f-round" data-k="rounding"><option value="9">до …9 грн</option><option value="10">до …0 грн</option><option value="none">до гривні</option></select></div>
+      <div class="field"><label for="f-step">Не змінювати ціну, якщо різниця менша за</label><input id="f-step" inputmode="decimal" data-k="minStep" data-num><span class="unit">грн</span></div>
+      <label class="tick" style="border-top:1.5px dashed var(--rule)"><input type="checkbox" data-k="lowerPrices"> Пропонувати нижчу ціну, якщо маржа вища за ціль</label>
+    </details>
+
+    <div class="dock"><button type="button" class="btn primary" data-go="2">Далі: товари</button></div>
+  </section>
+
+  <!-- 2 · ТОВАРИ -->
+  <section class="screen" data-s="2" hidden>
+    <h2>Товари з Prom</h2>
+    <ol class="steps">
+      <li><p>Кабінет Prom → <span class="path">Товари → Експорт</span> → формат XLSX.</p></li>
+      <li><p>Prom надішле файл на вашу пошту. Відкрийте лист у телефоні, натисніть на вкладення й оберіть «Зберегти у Файли» (iPhone) або «Завантажити» (Android).</p></li>
+      <li><p>Поверніться сюди й натисніть «Обрати файл з Prom».</p></li>
+    </ol>
+    <p class="muted" style="margin:14px 0 0">Файл читається в цьому браузері й нікуди не надсилається.</p>
+    <label class="drop" id="drop1">
+      <input type="file" id="file1" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv">
+      <b>Обрати файл з Prom</b>
+      <span>XLSX з листа від Prom</span>
+    </label>
+    <p class="muted" id="pc-hint">Не виходить з телефона? Відкрийте цю сторінку на комп’ютері.</p>
+    <p class="warn" id="err1" role="alert" hidden></p>
+    <div class="loaded" id="loaded1" hidden></div>
+    <div class="dock"><button type="button" class="btn primary" data-go="3">Далі: закупівельні ціни</button></div>
+  </section>
+
+  <!-- 3 · ЗАКУПКА -->
+  <section class="screen" data-s="3" hidden>
+    <h2>Закупівельні ціни</h2>
+    <p>Без закупівельної ціни маржу не порахувати. Завантажте прайс постачальника:</p>
+    <label class="drop" id="drop2">
+      <input type="file" id="file2" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv">
+      <b>Обрати прайс постачальника</b>
+      <span>Будь-який XLSX або CSV, де є артикул і ціна</span>
+    </label>
+    <div id="cost-status"></div>
+    <p class="muted">Прайсу немає? Натисніть «Порахувати» і впишіть закупівельні ціни прямо в картках товарів. Зручно, якщо товарів небагато.</p>
+    <div class="dock"><button type="button" class="btn primary" data-go="4">Порахувати</button><span class="sub" id="cost-sub"></span></div>
+  </section>
+
+  <!-- 4 · ЧЕК -->
+  <section class="screen" data-s="4" hidden>
+    <h2>Чек по товарах</h2>
+    <div id="summary"></div>
+    <hr class="dash">
+    <div class="chips" role="group" aria-label="Фільтр за статусом" id="chips"></div>
+    <div id="list"></div>
+    <div class="lock" id="lock" hidden>
+      <h3 id="lock-title"></h3>
+      <p id="lock-text"></p>
+      <div class="btn-row"><a class="btn primary" href="mailto:pav.craft.lab@gmail.com?subject=Pricing%20Kit%20%E2%80%94%20%D0%BF%D0%BE%D0%B2%D0%BD%D0%B8%D0%B9%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF">Написати нам</a></div>
+      <p class="muted" style="margin:10px 0 0">Або напишіть на <b>pav.craft.lab@gmail.com</b></p>
+      <div class="lic-state" data-slot="lock"></div>
+    </div>
+    <p class="muted" style="margin-top:14px">Рекомендована ціна — мінімум під вашу маржу. Цін конкурентів ми не знаємо: звірте з ринком.</p>
+    <div class="dock"><button type="button" class="btn primary" data-go="5">Нові ціни → Prom</button><span class="sub" id="exportSub"></span></div>
+  </section>
+
+  <!-- 5 · PROM -->
+  <section class="screen" data-s="5" hidden>
+    <h2>Нові ціни в кабінет Prom</h2>
+    <div id="exportSum"></div>
+    <div class="coupon" style="text-align:left">
+      <button type="button" class="btn primary wide" id="dl" data-act="download">Завантажити файл для Prom</button>
+      <p class="muted" style="margin:10px 0 0" id="dl-note"></p>
+    </div>
+    <h3 style="margin-top:22px">Як завантажити</h3>
+    <ol class="steps">
+      <li><p>Кабінет Prom → <span class="path">Товари → Імпорт</span>.</p></li>
+      <li><p>Оберіть завантажений файл.</p></li>
+      <li><p>Оновлювати тільки поле <b>«Ціна»</b>, режим <b>«Тільки оновлення»</b>.</p></li>
+    </ol>
+    <p class="muted">Імпорт доступний на платних пакетах Prom. Якщо з телефона не виходить, надішліть файл собі на пошту й завантажте з комп’ютера.</p>
+    <button type="button" class="link" data-go="4">← Назад до чека</button>
+  </section>
+
+  <hr class="dash">
+  <div class="foot"><b>PAVCRAFT</b> · Pricing Kit · розрахунок, а не податкова консультація</div>
+</main>
+</body>
+</html>
