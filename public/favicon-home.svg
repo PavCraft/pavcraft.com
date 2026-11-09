@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#D9FF41"/><g transform="rotate(-4 16 16)"><rect x="7" y="5" width="18" height="15" fill="#FFFFFF"/><rect x="12" y="3" width="8" height="4" fill="#F0E8BE"/><rect x="7" y="20" width="18" height="6" fill="#FFFFFF"/><path d="M7 20h18M11.5 20v6M16 20v6M20.5 20v6" stroke="#9A978E" stroke-width="1.2" stroke-dasharray="2 1.5"/><rect x="10" y="9" width="12" height="2.6" fill="#141414"/><rect x="10" y="13" width="9" height="1.8" fill="#2B35E8"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Pavcraft"><title>Pavcraft</title><rect width="512" height="512" rx="104" fill="#141414"/><g transform="translate(92 56) scale(4.1)"><g transform="rotate(-3 42 50)">
+  <rect x="12" y="10" width="58" height="50" fill="#D9FF41"/>
+  <rect x="12" y="60" width="26" height="34" fill="#D9FF41"/>
+  <path d="M38 60 H70 V64 L66 68 L62 63 L58 68 L54 63 L50 69 L46 63 L42 68 L38 64 Z" fill="#D9FF41"/>
+  <path d="M12 60 H70 M38 60 V94" stroke="#141414" stroke-width="2.6" stroke-dasharray="5 4" fill="none"/>
+  <rect x="27" y="3" width="28" height="13" fill="#FFFFFF" transform="rotate(5 41 9)"/>
+</g></g></svg>
