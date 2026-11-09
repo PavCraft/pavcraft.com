@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T23:30:00+02:00",
+  "title": "Design System: Pavcraft",
+  "extensions": {
+    "colorMeta": {
+      "whitewash": {
+        "role": "neutral",
+        "displayName": "Stairwell Whitewash",
+        "canonical": "oklch(91.6% 0.014 88.7)",
+        "tonalRamp": [
+          "oklch(15% 0.006 88.7)",
+          "oklch(27% 0.009 88.7)",
+          "oklch(39% 0.011 88.7)",
+          "oklch(51% 0.013 88.7)",
+          "oklch(63% 0.013 88.7)",
+          "oklch(75% 0.010 88.7)",
+          "oklch(86% 0.008 88.7)",
+          "oklch(95% 0.006 88.7)"
+        ]
+      },
+      "trim": {
+        "role": "neutral",
+        "displayName": "Trim Stripe",
+        "canonical": "oklch(45.7% 0.041 172.9)",
+        "tonalRamp": [
+          "oklch(15% 0.017 172.9)",
+          "oklch(27% 0.025 172.9)",
+          "oklch(39% 0.032 172.9)",
+          "oklch(51% 0.039 172.9)",
+          "oklch(63% 0.037 172.9)",
+          "oklch(75% 0.030 172.9)",
+          "oklch(86% 0.023 172.9)",
+          "oklch(95% 0.017 172.9)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Oil-Paint Green",
+        "canonical": "oklch(63.9% 0.050 168.1)",
+        "tonalRamp": [
+          "oklch(15% 0.020 168.1)",
+          "oklch(27% 0.030 168.1)",
+          "oklch(39% 0.039 168.1)",
+          "oklch(51% 0.047 168.1)",
+          "oklch(63% 0.045 168.1)",
+          "oklch(75% 0.036 168.1)",
+          "oklch(86% 0.028 168.1)",
+          "oklch(95% 0.020 168.1)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Office Paper",
+        "canonical": "oklch(98.5% 0.005 95.1)",
+        "tonalRamp": [
+          "oklch(15% 0.002 95.1)",
+          "oklch(27% 0.003 95.1)",
+          "oklch(39% 0.004 95.1)",
+          "oklch(51% 0.005 95.1)",
+          "oklch(63% 0.004 95.1)",
+          "oklch(75% 0.004 95.1)",
+          "oklch(86% 0.003 95.1)",
+          "oklch(95% 0.002 95.1)"
+        ]
+      },
+      "paper-old": {
+        "role": "neutral",
+        "displayName": "Yellowed Paper",
+        "canonical": "oklch(91.9% 0.024 90.8)",
+        "tonalRamp": [
+          "oklch(15% 0.010 90.8)",
+          "oklch(27% 0.015 90.8)",
+          "oklch(39% 0.019 90.8)",
+          "oklch(51% 0.023 90.8)",
+          "oklch(63% 0.021 90.8)",
+          "oklch(75% 0.017 90.8)",
+          "oklch(86% 0.013 90.8)",
+          "oklch(95% 0.010 90.8)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Felt-Tip Black",
+        "canonical": "oklch(23% 0.004 106.7)",
+        "tonalRamp": [
+          "oklch(15% 0.002 106.7)",
+          "oklch(27% 0.002 106.7)",
+          "oklch(39% 0.003 106.7)",
+          "oklch(51% 0.004 106.7)",
+          "oklch(63% 0.004 106.7)",
+          "oklch(75% 0.003 106.7)",
+          "oklch(86% 0.002 106.7)",
+          "oklch(95% 0.002 106.7)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "oklch(38% 0.012 87.5)",
+        "tonalRamp": [
+          "oklch(15% 0.005 87.5)",
+          "oklch(27% 0.007 87.5)",
+          "oklch(39% 0.009 87.5)",
+          "oklch(51% 0.011 87.5)",
+          "oklch(63% 0.011 87.5)",
+          "oklch(75% 0.009 87.5)",
+          "oklch(86% 0.007 87.5)",
+          "oklch(95% 0.005 87.5)"
+        ]
+      },
+      "pen": {
+        "role": "primary",
+        "displayName": "Ballpoint Blue",
+        "canonical": "oklch(44.6% 0.184 264.8)",
+        "tonalRamp": [
+          "oklch(15% 0.074 264.8)",
+          "oklch(27% 0.112 264.8)",
+          "oklch(39% 0.145 264.8)",
+          "oklch(51% 0.175 264.8)",
+          "oklch(63% 0.165 264.8)",
+          "oklch(75% 0.134 264.8)",
+          "oklch(86% 0.103 264.8)",
+          "oklch(95% 0.074 264.8)"
+        ]
+      },
+      "pen-deep": {
+        "role": "primary",
+        "displayName": "Pressed Ballpoint",
+        "canonical": "oklch(36.3% 0.148 264.7)",
+        "tonalRamp": [
+          "oklch(15% 0.060 264.7)",
+          "oklch(27% 0.090 264.7)",
+          "oklch(39% 0.116 264.7)",
+          "oklch(51% 0.140 264.7)",
+          "oklch(63% 0.133 264.7)",
+          "oklch(75% 0.108 264.7)",
+          "oklch(86% 0.083 264.7)",
+          "oklch(95% 0.060 264.7)"
+        ]
+      },
+      "marker-red": {
+        "role": "secondary",
+        "displayName": "Marker Red",
+        "canonical": "oklch(53.9% 0.193 28.6)",
+        "tonalRamp": [
+          "oklch(15% 0.078 28.6)",
+          "oklch(27% 0.117 28.6)",
+          "oklch(39% 0.152 28.6)",
+          "oklch(51% 0.183 28.6)",
+          "oklch(63% 0.173 28.6)",
+          "oklch(75% 0.141 28.6)",
+          "oklch(86% 0.108 28.6)",
+          "oklch(95% 0.078 28.6)"
+        ]
+      },
+      "cut": {
+        "role": "neutral",
+        "displayName": "Cut-Line Grey",
+        "canonical": "oklch(62.4% 0.014 86.9)",
+        "tonalRamp": [
+          "oklch(15% 0.006 86.9)",
+          "oklch(27% 0.009 86.9)",
+          "oklch(39% 0.011 86.9)",
+          "oklch(51% 0.013 86.9)",
+          "oklch(63% 0.013 86.9)",
+          "oklch(75% 0.010 86.9)",
+          "oklch(86% 0.008 86.9)",
+          "oklch(95% 0.006 86.9)"
+        ]
+      },
+      "tape": {
+        "role": "neutral",
+        "displayName": "Masking Tape",
+        "canonical": "rgba(236,224,170,0.6)",
+        "tonalRamp": [
+          "rgba(236,224,170,0.4)",
+          "rgba(236,224,170,0.6)",
+          "rgba(236,224,170,0.8)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page headline written on the whitewash."
+      },
+      "headline-feature": {
+        "displayName": "Headline Feature",
+        "purpose": "Heading of the lead tool notice."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Headings of other notices."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Notice text, max 34ch."
+      },
+      "body-note": {
+        "displayName": "Body Note",
+        "purpose": "Taped note under the headline."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Slips, action link, reset slip, footer."
+      },
+      "label-tab": {
+        "displayName": "Label Tab",
+        "purpose": "Vertical text on tear-off tabs."
+      },
+      "scribble": {
+        "displayName": "Scribble",
+        "purpose": "Marker writing on the wall, 26 to 38px."
+      }
+    },
+    "shadows": [
+      {
+        "name": "stuck",
+        "value": "drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18))",
+        "purpose": "Filter on every paper at rest; follows the paper outline."
+      },
+      {
+        "name": "lifted",
+        "value": "drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2))",
+        "purpose": "Filter on a paper being dragged, with scale(1.03)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "settle",
+        "value": ".22s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Paper settling after a drop; transform and filter."
+      },
+      {
+        "name": "tab-peel",
+        "value": ".18s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Tab rotates -5deg around its top edge on hover."
+      },
+      {
+        "name": "tab-tear",
+        "value": ".42s cubic-bezier(.5,0,.75,0)",
+        "purpose": "Tab tears off and falls; navigation follows after 380ms."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "Under prefers-reduced-motion all peel, tear and settle motion is removed."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "860px"
+      },
+      {
+        "name": "phone",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Notice",
+      "kind": "card",
+      "refersTo": "notice",
+      "description": "One tool on the wall: taped office paper with heading, text, action link and tear-off tabs.",
+      "html": "<div class=\"ds-wall\"><article class=\"ds-paper ds-notice\" style=\"--r:-1.2deg\"><button class=\"ds-tape\" type=\"button\" aria-label=\"Відклеїти оголошення\"></button><div class=\"ds-sheet\"><h2><a href=\"#\">Pricing Kit <span class=\"ds-for\">для продавців Prom</span></a></h2><p>Покажу, які ваші товари на Prom продаються в мінус.</p><a class=\"ds-open\" href=\"#\">Відкрити Pricing Kit</a></div><div class=\"ds-tabs\"><span class=\"ds-tab ds-tab-gone\"></span><a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a><a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a><a class=\"ds-tab\" href=\"#\"><span>Pricing Kit</span></a></div></article></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--panel);padding:40px 24px} .ds-notice{--pc:var(--paper);max-width:420px;transform:rotate(var(--r));color:var(--ink);font-family:var(--pen-font);font-size:24px;line-height:1.3} .ds-sheet{background:var(--pc);padding:30px 28px 16px;border-bottom:2px dashed var(--cut)} .ds-notice h2{font-family:var(--hand);font-weight:400;font-size:44px;line-height:1.05;margin:0 0 12px} .ds-notice h2 a{color:inherit;text-decoration:none} .ds-notice h2 a:hover{text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--pen)} .ds-for{display:block;font-size:26px;margin-top:6px;color:var(--ink-2)} .ds-notice p{margin:0 0 10px;max-width:34ch} .ds-open{display:inline-block;font-family:var(--hand);font-size:24px;color:var(--pen);text-decoration:underline;text-decoration-thickness:2px;padding:8px 0;min-height:44px} .ds-open:hover{color:var(--pen-deep)} .ds-open:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tabs{display:flex} .ds-tab{flex:1 1 0;min-width:44px;height:132px;padding:12px 8px;display:flex;align-items:center;justify-content:center;background:var(--pc);text-decoration:none;color:var(--pen);font-family:var(--pen-font);font-weight:700;font-size:23px;transform-origin:50% 0;transition:transform .18s cubic-bezier(.16,1,.3,1)} .ds-tab+.ds-tab{border-left:2px dashed var(--cut)} .ds-tab span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap} a.ds-tab:hover{transform:rotate(-5deg)} a.ds-tab:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tab-gone{height:14px;align-self:flex-start} .ds-tab-gone+.ds-tab{border-left-color:transparent} "
+    },
+    {
+      "name": "Old Notice",
+      "kind": "card",
+      "refersTo": "notice-old",
+      "description": "A tool that does not exist yet: yellowed paper, faded ink, tabs that are not links.",
+      "html": "<div class=\"ds-wall\"><article class=\"ds-paper ds-old\" style=\"--r:2.4deg\"><button class=\"ds-tape\" type=\"button\" aria-label=\"Відклеїти оголошення\"></button><div class=\"ds-sheet\"><h2>Наступний інструмент</h2><p>Обираю за попитом.</p></div><div class=\"ds-tabs\"><span class=\"ds-tab\"><span>за попитом</span></span><span class=\"ds-tab\"><span>за попитом</span></span><span class=\"ds-tab\"><span>за попитом</span></span></div></article></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--panel);padding:40px 24px} .ds-old{--pc:var(--paper-old);max-width:340px;transform:rotate(var(--r));color:var(--ink-2);font-family:var(--pen-font);font-size:24px;line-height:1.3} .ds-sheet{background:var(--pc);padding:30px 28px 16px;border-bottom:2px dashed var(--cut)} .ds-old h2{font-family:var(--hand);font-weight:400;font-size:36px;line-height:1.05;margin:0 0 12px;color:var(--ink)} .ds-old p{margin:0 0 10px} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tabs{display:flex} .ds-tab{flex:1 1 0;min-width:44px;height:132px;padding:12px 8px;display:flex;align-items:center;justify-content:center;background:var(--pc);text-decoration:none;color:var(--pen);font-family:var(--pen-font);font-weight:700;font-size:23px;transform-origin:50% 0;transition:transform .18s cubic-bezier(.16,1,.3,1)} .ds-tab+.ds-tab{border-left:2px dashed var(--cut)} .ds-tab span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap} a.ds-tab:hover{transform:rotate(-5deg)} a.ds-tab:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-tab-gone{height:14px;align-self:flex-start} .ds-tab-gone+.ds-tab{border-left-color:transparent} .ds-old .ds-tab{color:#5E5A52;font-size:19px}"
+    },
+    {
+      "name": "Tape",
+      "kind": "button",
+      "refersTo": "tape",
+      "description": "Crimped translucent tape; a real button that peels the paper, moved by pointer or arrow keys.",
+      "html": "<div class=\"ds-wall\"><div class=\"ds-paper ds-slip\"><button class=\"ds-tape\" type=\"button\" aria-label=\"Відклеїти записку\"></button>Тягніть за скотч</div></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--whitewash);padding:48px 24px} .ds-slip{background:var(--paper);padding:16px 20px;font-family:var(--pen-font);font-size:24px;color:var(--ink);transform:rotate(-1deg)} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} "
+    },
+    {
+      "name": "Brand Slip",
+      "kind": "nav",
+      "refersTo": "brand-slip",
+      "description": "The brand mark and the contact slip, taped to the whitewash band.",
+      "html": "<div class=\"ds-strip\"><div class=\"ds-paper ds-brand\"><button class=\"ds-tape ds-small\" type=\"button\" aria-label=\"Відклеїти табличку\"></button><a href=\"#\">PAVCRAFT<small>інструменти для малого бізнесу</small></a></div><nav class=\"ds-paper ds-contact\"><button class=\"ds-tape ds-small\" type=\"button\" aria-label=\"Відклеїти записку\"></button><a href=\"#\">Написати</a></nav></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-strip{background:var(--whitewash);padding:40px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px} .ds-brand{background:var(--paper);padding:12px 16px 10px;transform:rotate(-1.5deg)} .ds-brand a{font-family:var(--hand);font-size:24px;line-height:1.1;color:var(--ink);text-decoration:none} .ds-brand small{display:block;font-family:var(--pen-font);font-weight:600;font-size:22px;color:var(--ink-2)} .ds-contact{background:var(--paper);padding:10px 16px;transform:rotate(2deg)} .ds-contact a{font-family:var(--hand);font-size:21px;color:var(--pen);text-decoration:none} .ds-contact a:hover{text-decoration:underline} .ds-strip a:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-paper{position:relative;display:inline-block;filter:drop-shadow(0 7px 8px rgba(0,0,0,.32)) drop-shadow(0 1px 1px rgba(0,0,0,.18));transition:transform .22s cubic-bezier(.16,1,.3,1),filter .22s} .ds-paper:active{filter:drop-shadow(0 22px 22px rgba(0,0,0,.34)) drop-shadow(0 2px 3px rgba(0,0,0,.2));transform:rotate(-.4deg) scale(1.03)} .ds-tape{position:absolute;top:-22px;left:50%;width:112px;height:44px;margin-left:-56px;padding:0;border:0;background:none;cursor:grab;transform:rotate(-3deg)} .ds-tape::before{content:'';position:absolute;left:0;right:0;top:8px;height:28px;background:var(--tape)} .ds-tape:hover::before{background:rgba(236,224,170,.8)} .ds-tape:focus-visible{outline:3px solid var(--pen);outline-offset:3px} .ds-small{width:64px;margin-left:-32px}"
+    },
+    {
+      "name": "Action Link",
+      "kind": "button",
+      "refersTo": "action-link",
+      "description": "The one action on a notice: Pangolin, ballpoint blue, underlined, 44px tall.",
+      "html": "<div class=\"ds-sheet\"><a class=\"ds-open\" href=\"#\">Відкрити Pricing Kit</a></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-sheet{background:var(--paper);padding:24px 28px} .ds-open{display:inline-block;font-family:var(--hand);font-size:24px;color:var(--pen);text-decoration:underline;text-decoration-thickness:2px;padding:8px 0;min-height:44px} .ds-open:hover{color:var(--pen-deep)} .ds-open:focus-visible{outline:3px solid var(--pen);outline-offset:3px}"
+    },
+    {
+      "name": "Reset Slip",
+      "kind": "button",
+      "refersTo": "reset-slip",
+      "description": "Paper button that re-hangs every moved paper; shown only after the viewer moved something.",
+      "html": "<div class=\"ds-wall\"><button class=\"ds-reset\" type=\"button\">Повісити все як було</button></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{background:var(--panel);padding:32px 24px} .ds-reset{font-family:var(--hand);font-size:19px;background:var(--paper);color:var(--ink);border:0;padding:10px 14px;cursor:pointer;transform:rotate(-1deg);min-height:44px} .ds-reset:hover{text-decoration:underline} .ds-reset:focus-visible{outline:3px solid var(--pen);outline-offset:3px}"
+    },
+    {
+      "name": "Wall and Scribbles",
+      "kind": "custom",
+      "refersTo": "whitewash",
+      "description": "The stairwell wall: whitewash band, trim stripe, green panel, marker scribbles.",
+      "html": "<div class=\"ds-wall\"><span class=\"ds-g ds-red\">ОГОЛОШЕННЯ НЕ КЛЕЇТИ!</span><h1>Оголошення для тих, хто все робить сам</h1><span class=\"ds-g ds-black\"><s>тут була рутина</s></span></div>",
+      "css": ":host{--whitewash:#E7E3D9;--trim:#3F5F55;--panel:#6E9686;--paper:#FBFAF6;--paper-old:#EAE4D3;--ink:#1D1D1B;--ink-2:#45423B;--pen:#1F47B8;--pen-deep:#15348A;--marker-red:#C62A22;--cut:#8B877E;--tape:rgba(236,224,170,.6);--hand:'Pangolin','Caveat',cursive;--pen-font:'Caveat','Pangolin',cursive} .ds-wall{position:relative;padding:40px 24px 90px;background:linear-gradient(to bottom,var(--whitewash) 0,var(--whitewash) 220px,var(--trim) 220px,var(--trim) 227px,var(--panel) 227px)} .ds-wall h1{font-family:var(--hand);font-weight:400;font-size:52px;line-height:1.02;letter-spacing:-.01em;margin:30px 0 0;max-width:15ch;color:var(--ink);transform:rotate(-1.5deg)} .ds-g{display:inline-block;font-family:var(--pen-font);font-weight:700;line-height:1;white-space:nowrap} .ds-red{color:var(--marker-red);font-size:30px;transform:rotate(-4deg);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px} .ds-black{position:absolute;right:24px;bottom:24px;color:var(--ink);font-size:30px;transform:rotate(-6deg)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Stairwell Notice Board",
+    "overview": "Pavcraft's catalogue is the notice board nobody authorised: paper notices taped to a Ukrainian stairwell (під'їзд) wall. The wall is whitewash above and oil-painted green below, split by a dark trim stripe, with fine plaster grain over both and marker scribbles left by neighbours. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Everything a visitor reads is handwritten, as if by the developer with a felt-tip and a ballpoint.\n\nThe density is loose and human. Papers hang at slight angles (up to about 4 degrees), break the grid with uneven offsets, and cast shadows that follow their own outline. The page is a place you can touch: every paper peels off by its tape, follows the pointer with a deeper shadow, and sticks where it is dropped at a new small angle. The world refuses the SaaS grid of identical tool cards and the dark tech hero.\n\nTools that do not exist yet appear as yellowed, older notices whose tabs cannot be torn. The brand mark is not a logo but a taped paper slip reading \"PAVCRAFT / інструменти для малого бізнесу\".",
+    "keyCharacteristics": [
+      "Two-tone stairwell wall (whitewash band over green panel, dark trim line) with plaster grain.",
+      "All type handwritten: Pangolin for headings, slips and controls; Caveat for text, tabs and scribbles.",
+      "Paper notices with crimped translucent tape, dashed cut lines and vertical tear-off tabs.",
+      "Ballpoint blue is the only action colour.",
+      "Peel-and-re-stick interaction on every paper, persisted per viewer, with a reset slip."
+    ],
+    "rules": [
+      {
+        "name": "The One Pen Rule",
+        "body": "Ballpoint blue marks everything that acts. Nothing else on paper is blue, and nothing that acts is any other colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Wall Speaks Red Rule",
+        "body": "Marker red belongs to the wall (scribbles), not to the papers. It never signals an action or an error.",
+        "section": "colors"
+      },
+      {
+        "name": "The Handwritten-Only Rule",
+        "body": "Every visible letter on the brand surface is Pangolin or Caveat. No system sans, no geometric display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Print-For-Structure Rule",
+        "body": "Pangolin carries structure (headings, slips, controls); Caveat carries voice (text, tabs, scribbles). Do not swap their roles.",
+        "section": "typography"
+      },
+      {
+        "name": "The Shadow Follows Paper Rule",
+        "body": "Shadows are drop-shadow filters on the paper itself, never box-shadow on a rectangle and never a panel behind the paper. A torn tab leaves only the ragged paper stub, with nothing behind it but the wall.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the wall two-tone: whitewash band over oil-paint green with the 7px trim line, plaster grain over both.",
+      "Do set every visible letter in Pangolin or Caveat, Pangolin for structure, Caveat for voice.",
+      "Do present each tool as one notice with tear-off tabs that all point to that tool's single address.",
+      "Do give every paper a tape button so it can be peeled, moved with arrow keys and re-stuck, and keep \"Повісити все як було\" as the way back.",
+      "Do cast shadows with drop-shadow filters on the paper itself.",
+      "Do use Ballpoint Blue for every action and nothing else on paper.",
+      "Do honour reduced motion: no peel, tear or settle animation, links still work without script."
+    ],
+    "donts": [
+      "Don't build a grid of identical tool cards or a dark tech hero.",
+      "Don't put a backing panel, box or shadowed rectangle behind a paper or a torn tab.",
+      "Don't move the cut line when a tab peels; the tab moves, the sheet stays.",
+      "Don't use Marker Red for actions, errors or anything on paper.",
+      "Don't reuse the Pricing Kit receipt world (or its Commissioner and Martian Mono faces) on brand surfaces."
+    ]
+  }
+}
