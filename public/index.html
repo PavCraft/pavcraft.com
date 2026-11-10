@@ -11,11 +11,11 @@
 <meta property="og:title" content="Pavcraft — інструменти для малого бізнесу">
 <meta property="og:description" content="Кожен інструмент прибирає одну ручну рутину. Перший — Pricing Kit для продавців Prom.">
 <meta property="og:locale" content="uk_UA">
-<meta name="theme-color" content="#D9FF41">
+<meta name="theme-color" content="#22301A">
 <link rel="icon" href="/favicon-home.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/playpen-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/shantell-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/wall.css?v=27">
+<link rel="stylesheet" href="/assets/wall.css?v=34">
 </head>
 <body>
 <div class="bigwords" aria-hidden="true"><span class="bw1">Рутина</span><span class="bw2">Маржа</span><span class="bw3">Ціни</span></div>
@@ -23,19 +23,11 @@
 <div class="wrap">
 
   <div class="graffiti" aria-hidden="true">
-    <span class="g-year">2026</span>
     <span class="g-noads">ОГОЛОШЕННЯ НЕ КЛЕЇТИ,<br><span class="cz">СУКИ<button class="sticker st-round" type="button" tabindex="-1">18+</button></span>!</span>
     <span class="g-rut">рутина — <span class="cz">хуйня<button class="sticker st-tape" type="button" tabindex="-1">цензура</button></span></span>
     <span class="g-excel">Excel, іди <span class="cz">нахуй<button class="sticker st-price" type="button" tabindex="-1">−100%</button></span></span>
-    <span class="g-tear">відірвіть тут
-      <svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M110 6 C 80 10, 40 18, 18 46"/><path d="M14 30 L 17 48 L 34 44"/></svg>
-    </span>
-    <span class="g-was"><s>тут була рутина</s></span>
     <span class="g-peek">а під папірцями?</span>
     <span class="g-fop">націнка ≠ прибуток, <span class="cz">блядь<button class="sticker st-blue" type="button" tabindex="-1">***</button></span>!</span>
-    <span class="g-heart">Pavcraft
-      <svg viewBox="0 0 34 30" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 27 C 6 19, 2 13, 3 8 C 4 3, 11 1, 17 8 C 23 1, 30 3, 31 8 C 32 13, 28 19, 17 27 Z"/></svg>
-    </span>
   </div>
 
   <header class="strip">
@@ -56,7 +48,6 @@
         <button class="tape" type="button" aria-label="Відклеїти записку. Переміщуйте стрілками клавіатури" style="--tape-w:90px;--tape-r:4deg"></button>
         Кожен інструмент прибирає одну ручну рутину з малого бізнесу. Відірвіть талончик — і перейдіть до інструмента.
       </p>
-      <span class="g-hero" aria-hidden="true"><s>тут була рутина</s></span>
     </div>
 
     <div class="notices">
@@ -149,6 +140,8 @@
   function fit(el){var s=store[el.dataset.drag]; if(!s)return; var r=el.getBoundingClientRect(), vw=document.documentElement.clientWidth, m=6;
     if(r.width<vw-2*m){ if(r.left<m)s.dx+=m-r.left; else if(r.right>vw-m)s.dx-=r.right-(vw-m); } else s.dx-=r.left;
     var docTop=r.top+scrollY; if(docTop<m+20)s.dy+=m+20-docTop;
+    // and not below the end of the wall, so dragging down never makes the page longer
+    var docBot=r.bottom+scrollY, maxB=document.body.offsetHeight-m; if(docBot>maxB)s.dy-=docBot-maxB;
     s.dx=Math.round(s.dx); s.dy=Math.round(s.dy); apply(el)}
   papers.forEach(function(el){apply(el);fit(el)}); reset.hidden=!Object.keys(store).length;
   function refit(){papers.forEach(function(el){if(store[el.dataset.drag])fit(el)});save()}
