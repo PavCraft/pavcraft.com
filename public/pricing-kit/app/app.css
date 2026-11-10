@@ -109,3 +109,13 @@ details.more summary{font-size:14px;text-transform:uppercase}
 .pv td small{display:block;color:var(--ink-2);font-size:11px}
 .pv col.c1{width:52%}
 button.link{min-height:44px;padding:10px 0}
+/* пара цін: зараз → рекомендована */
+.pp{display:flex;align-items:flex-end;gap:10px;margin:10px 0 4px;padding:10px 0;border-top:1.5px dashed var(--rule)}
+.pp-c{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pp-l{font-size:11px;text-transform:uppercase;color:var(--ink-2);letter-spacing:.04em}
+.pp-v{font-size:19px;font-weight:700;font-stretch:100%;white-space:nowrap}
+.pp s.pp-v{text-decoration-thickness:2px;color:var(--ink-2);font-weight:400}
+.pp-a{font-size:20px;padding-bottom:2px}
+.pp-new{margin-left:auto;text-align:right;align-items:flex-end}
+.pp-new .pp-v{font-size:24px;font-weight:800;font-stretch:112.5%}
+@media (max-width:360px){.pp-v{font-size:17px}.pp-new .pp-v{font-size:21px}}

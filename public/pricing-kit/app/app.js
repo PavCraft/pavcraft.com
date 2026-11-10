@@ -281,7 +281,10 @@ const TAG = { [STATUS.LOSS]: ['loss', 'Збиток'], [STATUS.LOW]: ['low', 'Н
 function card(x) {
   const r = x.r; const [cls, label] = TAG[r.status];
   const key = esc(x.sku || x.id);
-  const head = `<div class="item-h"><b>${esc(x.name || 'Без назви')}<small>${x.sku ? 'код ' + esc(x.sku) + ' · ' : ''}ціна зараз ${x.price != null ? money(x.price) : '—'}</small></b><span class="tag ${cls}">${label}</span></div>`;
+  // У повній картці ціна стоїть поруч із рекомендованою, тож у шапці лишаємо тільки код.
+  const full = ![STATUS.NO_COST, STATUS.NO_RATE, STATUS.NO_PRICE].includes(r.status);
+  const sub = [x.sku ? 'код ' + esc(x.sku) : '', full ? '' : 'ціна зараз ' + (x.price != null ? money(x.price) : '—')].filter(Boolean).join(' · ');
+  const head = `<div class="item-h"><b>${esc(x.name || 'Без назви')}${sub ? `<small>${sub}</small>` : ''}</b><span class="tag ${cls}">${label}</span></div>`;
   const costInput = (lbl) => `<div class="cost-in"><label for="c-${esc(x.id)}">${lbl}</label><input id="c-${esc(x.id)}" inputmode="decimal" data-cost="${key}" value="${x.cost ?? ''}" placeholder="—"><span>грн</span></div>`;
   if (r.status === STATUS.NO_COST) return `<article class="item" data-id="${esc(x.id)}">${head}${costInput('Закупівельна ціна')}</article>`;
   if (r.status === STATUS.NO_RATE) return `<article class="item">${head}<p class="hint">Категорії ${esc(x.cat)} немає в таблиці комісій Prom. Перевірте колонку «Ідентифікатор_підрозділу».</p></article>`;
@@ -292,8 +295,14 @@ function card(x) {
     ${x.costEst ? `<span class="tag-est">Умовна закупівля ${pct(state.estimate.pct)} ціни</span>` : ''}
     ${ln('Чистий прибуток', money(r.profit), neg ? 'neg' : '')}
     ${ln('Маржа', pct(r.margin), neg ? 'neg' : '')}
-    ${change ? ln('Рекомендована ціна', money(r.reco), 'reco') : ''}
-    ${change ? `<div class="ln small"><span class="lbl">Найнижча ціна для цілі ${pct(r.goal)}</span><span class="fill"></span><span class="val">${money(r.minPrice)}</span></div>` : ''}
+    ${change ? `<div class="pp">
+        <div class="pp-c"><span class="pp-l">Ціна зараз</span><s class="pp-v">${money(x.price)}</s></div>
+        <span class="pp-a" aria-hidden="true">→</span>
+        <div class="pp-c pp-new"><span class="pp-l">Рекомендована</span><b class="pp-v">${money(r.reco)}</b></div>
+      </div>
+      ${ln('Різниця', `${r.change > 0 ? '+' : '−'}${money(Math.abs(r.change))} · ${r.change > 0 ? '+' : '−'}${pct(Math.abs(r.changePct))}`, 'small')}
+      ${ln(`Найнижча ціна для цілі ${pct(r.goal)}`, money(r.minPrice), 'small')}`
+    : ln('Ціна зараз', money(x.price) + (r.reco != null ? ' · без змін' : ''))}
     <details><summary>Звідки ці цифри</summary>${breakdown(x)}${costInput('Змінити закупівельну ціну')}
       <label class="tick"><input type="checkbox" data-keep="${esc(x.id)}" ${x.keep ? 'checked' : ''}> Не чіпати ціну цього товару</label></details>
     ${change && !x.keep ? `<div class="item-a"><label class="tick"><input type="checkbox" data-exp="${esc(x.id)}" ${r.export ? 'checked' : ''}> Змінити ціну на ${money(r.reco)}</label></div>${x.costEst && !r.export ? '<p class="hint">Закупівля умовна — перевірте ціну, перш ніж ставити галочку.</p>' : ''}` : ''}
