@@ -67,7 +67,8 @@
     </div>
 
     <div class="field"><label for="f-promPackage">Пакет Prom</label><select id="f-promPackage" data-k="promPackage"></select></div>
-    <div class="field" id="row-custom" hidden><label for="f-custom">Ціна пакета за рік</label><input id="f-custom" inputmode="decimal" data-k="customPackageYearly" data-num><span class="unit">грн</span></div>
+    <div class="field" id="row-custom"><label for="f-custom">Ціна пакета за рік</label><input id="f-custom" inputmode="decimal" data-k="customPackageYearly" data-num><span class="unit">грн</span></div>
+    <p class="hint" id="hint-custom"></p>
     <div class="field"><label for="f-orders">Замовлень на місяць</label><input id="f-orders" inputmode="numeric" data-k="orders" data-num></div>
     <p class="hint">У середньому за місяць, з усіх магазинів і сайтів разом. На це число діляться ЄСВ, абонплата й реклама.</p>
     <div class="field"><label for="f-goal">Бажана чиста маржа</label><input id="f-goal" inputmode="decimal" data-k="goal" data-pct><span class="unit">%</span></div>
@@ -90,7 +91,7 @@
       <div class="field"><label for="f-prosale">Режим ProSale</label><select id="f-prosale" data-k="prosale"><option>Звичайний</option><option>Економ</option><option>Більше продажів</option><option>Турбо</option></select></div>
       <p class="hint">«Звичайний» у кабінеті називається «Єдина комісія».</p>
       <div class="field"><label for="f-site">Сайт компанії на Prom</label><select id="f-site" data-k="siteType"><option value="none">Немає / не знаю</option><option value="subdomain">Піддомен prom.ua</option><option value="own">Власний домен</option></select></div>
-      <div class="field" id="row-siteShare" hidden><label for="f-siteShare">Замовлень з вашого сайту</label><input id="f-siteShare" inputmode="decimal" data-k="siteShare" data-pct><span class="unit">%</span></div>
+      <div class="field" id="row-siteShare"><label for="f-siteShare">Замовлень з вашого сайту</label><input id="f-siteShare" inputmode="decimal" data-k="siteShare" data-pct><span class="unit">%</span></div>
       <div class="field"><label for="f-round">Округлення ціни</label><select id="f-round" data-k="rounding"><option value="9">до …9 грн</option><option value="10">до …0 грн</option><option value="none">до гривні</option></select></div>
       <div class="field"><label for="f-step">Не змінювати ціну, якщо різниця менша за</label><input id="f-step" inputmode="decimal" data-k="minStep" data-num><span class="unit">грн</span></div>
       <label class="tick" style="border-top:1.5px dashed var(--rule)"><input type="checkbox" data-k="lowerPrices"> Пропонувати нижчу ціну, якщо маржа вища за ціль</label>
@@ -116,7 +117,7 @@
     <p class="muted" id="pc-hint">Не виходить з телефона? Відкрийте цю сторінку на комп’ютері.</p>
     <p class="warn" id="err1" role="alert" hidden></p>
     <div class="loaded" id="loaded1" hidden></div>
-    <div class="dock"><button type="button" class="btn primary" data-go="3">Далі: закупівельні ціни</button></div>
+    <div class="dock"><button type="button" class="btn primary" data-go="3" id="next-costs">Далі: закупівельні ціни</button><span class="sub" id="next-costs-sub"></span></div>
   </section>
 
   <!-- 3 · ЗАКУПКА -->

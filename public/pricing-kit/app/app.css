@@ -89,3 +89,7 @@ details.more summary{font-size:14px;text-transform:uppercase}
 .code-form textarea:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .lic-ok{font-size:13px;text-transform:uppercase;font-weight:700;border:2px solid var(--ink);padding:8px 10px;margin:0 0 12px;text-align:center}
 .lic-state .link{min-height:44px;font-size:14px}
+.field[hidden]{display:none}
+.field.off{opacity:.45}
+.field.off input,.field.off select{border-bottom-style:dashed}
+.steps-bar button:disabled{opacity:.35;cursor:not-allowed}

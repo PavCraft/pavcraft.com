@@ -74,6 +74,8 @@ function readSettingsForm() {
   const s = { ...state.settings };
   for (const el of $$('[data-k]')) {
     const k = el.dataset.k;
+    // Неактивне поле лише показує ціну обраного пакета — не перезаписуємо нею «свій пакет».
+    if (el.id === 'f-custom' && (el.disabled || s.promPackage !== 'custom')) continue;
     if (el.type === 'radio') { if (el.checked) s[k] = el.value; continue; }
     if (el.type === 'checkbox') { s[k] = el.checked; continue; }
     if (el.dataset.num != null || el.dataset.pct != null) {
@@ -86,11 +88,24 @@ function readSettingsForm() {
   if (!state.demo) ls.set('settings', s);
   syncSettingsVisibility();
 }
+function setRowEnabled(rowSel, on) {
+  const row = $(rowSel);
+  row.classList.toggle('off', !on);
+  for (const el of $$('input,select', row)) el.disabled = !on;
+}
 function syncSettingsVisibility() {
   const s = state.settings;
-  $('#row-custom').hidden = s.promPackage !== 'custom';
+  // Пакет Prom: ціна підставляється з тарифів; вписати свою можна лише для «Інший / свій пакет».
+  const custom = s.promPackage === 'custom';
+  setRowEnabled('#row-custom', custom);
+  const pkg = state.rates.promPackages.find((p) => p.name === s.promPackage);
+  $('#f-custom').value = custom ? (s.customPackageYearly || '') : (pkg ? pkg.yearly : '');
+  $('#hint-custom').textContent = custom
+    ? 'Впишіть, скільки ви платите за рік. На розрахунок іде 1/12 цієї суми щомісяця.'
+    : `Ціна з тарифів Prom (перевірено ${state.rates.checked.split('-').reverse().join('.')}), на розрахунок іде ${fmt((pkg?.yearly || 0) / 12)} грн на місяць. Платите іншу суму — оберіть «Інший / свій пакет».`;
   $('#row-carrier').hidden = s.shipPayer !== 'seller';
-  $('#row-siteShare').hidden = s.siteType !== 'own';
+  // Частка замовлень з власного сайту має сенс лише для власного домену.
+  setRowEnabled('#row-siteShare', s.siteType === 'own');
 }
 
 // ---------- розрахунок ----------
@@ -125,8 +140,16 @@ function recalc() {
 
 // ---------- екрани ----------
 const SCREENS = ['start', 'settings', 'products', 'costs', 'result', 'export'];
+// Без файлу товарів далі кроку «Товари» не пускаємо.
+function syncNav() {
+  const has = items().length > 0;
+  $$('.steps-bar button').forEach((b) => { b.disabled = +b.dataset.go >= 3 && !has; });
+  $('#next-costs').disabled = !has;
+  $('#next-costs-sub').textContent = has ? '' : 'Спершу оберіть файл з Prom';
+}
 function go(n) {
-  if (n >= 4 && !items().length) n = 2;
+  if (n >= 3 && !items().length) n = 2;
+  syncNav();
   if (n === 4 || n === 5) { recalc(); renderResult(); renderExport(); }
   if (n === 2) renderProducts();
   if (n === 3) renderCosts();
@@ -145,6 +168,7 @@ function go(n) {
 }
 
 function renderProducts() {
+  syncNav();
   const box = $('#loaded1'), drop = $('#drop1'), err = $('#err1');
   err.hidden = true;
   if (state.demo) { drop.hidden = true; box.hidden = false; box.innerHTML = ln('Приклад', '20 вигаданих товарів') + `<button class="link" data-act="exit-demo">Завантажити свій файл</button>`; return; }
