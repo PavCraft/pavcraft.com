@@ -207,3 +207,43 @@ a.tab{cursor:grab}
 .old-ad::before{display:none}
 .g-peek{left:49%;top:452px;--r:-6deg}@media (max-width:860px){.g-peek{left:auto;top:auto}}
 @media (max-width:860px){.foot{padding-top:340px}}
+/* one shared stacking layer for every paper: a lifted paper goes over everything, including the footer and the other blocks */
+.strip,.hero,.notices,.foot{z-index:auto}
+/* the reset button always keeps its place, so the footer never grows when it appears and the scribbles above it never shift */
+.reset[hidden]{display:block;visibility:hidden}
+@media (max-width:860px){
+  .foot{padding-top:404px}
+  .g-rut{bottom:414px}.g-noads{bottom:314px}.g-heart{bottom:264px}.g-fop{bottom:204px}.g-peek{bottom:484px}
+}
+
+/* ===== Dark wall (10.11): the wall is dark olive, lime is the marker; only the paper glows ===== */
+:root{--ground:#22301A;--ground-ink:rgba(217,255,65,.035);--tape:rgba(240,232,190,.85);--wall-text:#F4F1E6;--marker-lime:#D9FF41}
+html{scrollbar-color:var(--marker-lime) var(--ground)}
+.graffiti span{color:var(--marker-lime)}
+.graffiti .g-noads{color:#FFFFFF}
+.hero h1{color:var(--wall-text)}
+.g-hero,.g-peek{color:var(--marker-lime)}
+.foot,.foot a{color:var(--wall-text)}
+.paper{filter:drop-shadow(0 8px 10px rgba(0,0,0,.45)) drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+.paper.lifted{filter:drop-shadow(0 22px 22px rgba(0,0,0,.5)) drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.old-ad.promo{box-shadow:inset 0 0 0 3px var(--marker-lime)}
+.old-ad.promo b{color:var(--ink)}
+.old-ad.promo .code{background:var(--marker-lime);color:var(--ink)}
+/* fewer scribbles and stickers: five on a computer, three on a phone; stickers in two colours only */
+.g-year,.g-was,.g-heart,.g-tear,.g-hero{display:none !important}
+.st-round,.st-blue,.st-tape{background:#F3E6A8;color:#5E5A52;border-radius:0}
+.st-price{background:#FFFFFF;color:#5E5A52}
+@media (max-width:860px){
+  .g-fop{display:none}
+  .foot{padding-top:270px}
+  .g-noads{bottom:160px}.g-rut{bottom:250px}.g-peek{bottom:335px}
+}
+@media (max-width:560px){.hero{margin-bottom:44px}}
+.g-peek{left:47%;top:380px}
+@media (max-width:860px){.g-peek{left:auto;top:auto;bottom:352px}.g-noads{bottom:178px}.g-rut{bottom:268px}.foot{padding-top:290px}}
+.g-peek{left:auto;right:5%;top:410px}@media (max-width:860px){.g-peek{right:4%;top:auto}}
+@media (min-width:861px){.g-noads{right:28px}}
+/* focus ring: blue on paper, lime where it sits on the dark wall */
+.foot a:focus-visible,.reset:focus-visible,.skip:focus-visible,.tape:focus-visible,.brand > a:focus-visible{outline-color:var(--marker-lime)}
+.old-ad.promo{box-shadow:inset 0 0 0 3px var(--ink)}
+@media (max-width:860px){.foot{padding-top:320px}}
