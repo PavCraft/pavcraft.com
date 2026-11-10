@@ -40,6 +40,8 @@ const state = {
   manualCost: ls.get('manualCost', {}), // ключ (артикул або ID) → ціна
   keep: ls.get('keep', {}),             // id → true («не чіпати»)
   expOff: {},           // id → true (знято галочку експорту)
+  expOn: {},            // id → true (галочку поставлено вручну — для умовної закупівлі)
+  estimate: { on: false, pct: 0.6, ...ls.get('estimate', {}) }, // умовна закупівля, % від ціни
   costTable: null, costCols: null,
   demo: false,
   demoManual: {}, demoKeep: {}, // правки в прикладі не змішуються з вашими даними
@@ -52,6 +54,7 @@ const fmt = (n, d = 0) => n == null || !isFinite(n) ? '—' : n.toLocaleString('
 const money = (n) => (n < 0 ? '−' : '') + fmt(Math.abs(n)) + ' грн';
 const pct = (x, d = 0) => x == null ? '—' : (x < 0 ? '−' : '') + fmt(Math.abs(x * 100), d) + '%';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const plural = (n, one, few, many) => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; };
 const ln = (l, v, cls = '') => `<div class="ln ${cls}"><span class="lbl">${l}</span><span class="fill"></span><span class="val">${v}</span></div>`;
 
 // ---------- налаштування ----------
@@ -129,9 +132,15 @@ function recalc() {
   const all = items();
   const limit = state.licensed || state.demo ? all.length : Math.min(all.length, TRIAL_LIMIT);
   state.rows = all.slice(0, limit).map((it) => {
-    const x = { ...it, cost: costFor(it), keep: !!keepStore()[it.id] };
+    let cost = costFor(it), costEst = false;
+    // Умовна закупівля — лише там, де своєї немає (прайс або вписано вручну).
+    if (cost == null && !state.demo && state.estimate.on && it.price > 0) {
+      cost = Math.round(it.price * state.estimate.pct * 100) / 100; costEst = true;
+    }
+    const x = { ...it, cost, costEst, keep: !!keepStore()[it.id] };
     const r = calcItem(state.ctx, x);
-    if (r.export && state.expOff[it.id]) r.export = false;
+    // Товари з умовною закупівлею не йдуть у файл, поки людина сама не поставить галочку.
+    if (r.export && (state.expOff[it.id] || (costEst && !state.expOn[it.id]))) r.export = false;
     return { ...x, r };
   });
   const order = { [STATUS.LOSS]: 0, [STATUS.LOW]: 1, [STATUS.NO_COST]: 2, [STATUS.NO_RATE]: 3, [STATUS.NO_PRICE]: 4, [STATUS.OK]: 5 };
@@ -196,20 +205,52 @@ function renderCosts() {
   if (state.costTable) {
     const labels = columnLabels(state.costTable);
     const opts = (sel) => labels.map((l, i) => `<option value="${i}" ${i === sel ? 'selected' : ''}>${esc(l)}</option>`).join('');
-    const found = all.filter((it) => (it.sku && state.costMap.has(it.sku)) || state.costMap.has(it.id)).length;
+    const matched = all.filter((it) => (it.sku && state.costMap.has(it.sku)) || state.costMap.has(it.id));
+    const found = matched.length;
     html += `<div class="loaded">
       ${ln(esc(state.costTable.fileName), '✓')}
-      ${ln('Знайдено закупівельних цін', `${fmt(found)} з ${fmt(all.length)}`, found ? '' : 'neg')}
+      ${ln('Знайдено закупівельних цін', `${fmt(found)} із ${fmt(all.length)}`, found ? '' : 'neg')}
       <div class="field"><label for="c-key">Де в прайсі код товару</label><select id="c-key" data-cc="keyCol">${opts(state.costCols.keyCol)}</select></div>
       <div class="field"><label for="c-price">Де в прайсі ціна закупівлі</label><select id="c-price" data-cc="priceCol">${opts(state.costCols.priceCol)}</select></div>
       <p class="hint">Код товару в прайсі має збігатися з «Код_товару» у Prom (або з ID товару). Якщо знайдено мало — оберіть інші колонки.</p>
+      ${costPreview(matched)}
       <button class="link" data-act="reset-costs">Обрати інший прайс</button></div>`;
   }
   const manual = Object.keys(state.manualCost).length;
   if (manual) html += `<p class="muted">Вписано вручну: ${fmt(manual)}. <button class="link" data-act="clear-manual">Очистити</button></p>`;
   box.innerHTML = html;
   $('#drop2').hidden = !!state.costTable;
-  if (!state.costTable && !manual) $('#cost-sub').textContent = 'Без закупівельних цін маржу не порахуємо';
+  $('#est-h').textContent = state.costTable ? 'Для товарів без закупівлі' : 'Прайсу немає?';
+  $('#est-on').checked = state.estimate.on;
+  $('#est-pct').value = +(state.estimate.pct * 100).toFixed(1);
+  setRowEnabled('#row-est', state.estimate.on);
+  if (!state.costTable && !manual && !state.estimate.on) $('#cost-sub').textContent = 'Без закупівельних цін маржу не порахуємо';
+}
+
+// Попередній перегляд: перші товари з Prom, для яких знайдено закупівлю, — щоб одразу видно було, чи ті колонки.
+function costPreview(matched) {
+  const rows = matched.filter((it) => it.price > 0).slice(0, 5);
+  if (!rows.length) {
+    const t = state.costTable, k = state.costCols.keyCol;
+    const keys = new Set(items().flatMap((it) => [it.sku, it.id].filter(Boolean)));
+    const keyHits = t.rows.filter((r) => keys.has(String(r[k] ?? '').trim())).length;
+    if (matched.length) return `<p class="warn">Коди збіглися, але в цих товарів у Prom немає ціни, тож перевірити закупівлю не вийде.</p>`;
+    if (keyHits) return `<p class="warn">Коди товарів збіглися (${fmt(keyHits)}), але у вибраній колонці ціни немає чисел. Оберіть колонку з закупівельною ціною.</p>`;
+    const prom = items().slice(0, 3).map((it) => esc(it.sku || it.id)).join(', ');
+    const file = t.rows.slice(0, 6).map((r) => String(r[k] ?? '').trim()).filter(Boolean).slice(0, 3).map(esc).join(', ');
+    return `<p class="warn">Жоден код не збігся. У Prom коди такі: ${prom}. У вибраній колонці прайсу: ${file || 'порожньо'}.</p>`;
+  }
+  const val = (it) => state.costMap.get(it.sku) ?? state.costMap.get(it.id);
+  const ratios = matched.filter((it) => it.price > 0).map((it) => val(it) / it.price).sort((a, b) => a - b);
+  const med = ratios[Math.floor(ratios.length / 2)];
+  const warn = med > 1 ? 'Закупівля в середньому більша за ціну продажу. Схоже, обрано не ту колонку ціни.'
+    : med < 0.05 ? 'Закупівля підозріло мала порівняно з ціною. Схоже, обрано не ту колонку (наприклад, кількість).' : '';
+  return `<div class="pv"><div class="pv-h">Перевірте на перших товарах</div>
+    <table><colgroup><col class="c1"><col><col></colgroup>
+    <thead><tr><th>Товар з Prom</th><th>Ціна на Prom</th><th>Закупівля з прайсу</th></tr></thead><tbody>
+    ${rows.map((it) => `<tr><td>${esc(it.name || 'Без назви')}<small>код ${esc(it.sku || it.id)}</small></td><td>${fmt(it.price)}</td><td>${fmt(val(it), 2)}</td></tr>`).join('')}
+    </tbody></table>
+    ${warn ? `<p class="warn">${warn}</p>` : `<p class="hint">Закупівля в середньому ${pct(med)} від ціни на Prom. Якщо ці числа схожі на ваші закупівельні ціни — колонки обрано правильно.</p>`}</div>`;
 }
 
 function breakdown(x) {
@@ -217,7 +258,7 @@ function breakdown(x) {
   const t = { ...state.rates.taxes[s.tax], ...(s.taxOverride || {}) };
   const L = [];
   L.push(ln('Ціна', money(G), 'small'));
-  L.push(ln('Закупівля', '−' + money(x.cost), 'small'));
+  L.push(ln(x.costEst ? `Закупівля (умовно ${pct(state.estimate.pct)})` : 'Закупівля', '−' + money(x.cost), 'small'));
   L.push(ln(`Комісія Prom ${pct(r.commission, 1)}`, '−' + money(r.commissionAmount), 'small'));
   const tax = G * (t.single + t.war + t.vat);
   if (tax) L.push(ln('Податки з ціни', '−' + money(tax), 'small'));
@@ -248,13 +289,14 @@ function card(x) {
   const neg = r.profit < 0;
   const change = r.reco != null && r.reco !== x.price;
   return `<article class="item" data-id="${esc(x.id)}">${head}
+    ${x.costEst ? `<span class="tag-est">Умовна закупівля ${pct(state.estimate.pct)} ціни</span>` : ''}
     ${ln('Чистий прибуток', money(r.profit), neg ? 'neg' : '')}
     ${ln('Маржа', pct(r.margin), neg ? 'neg' : '')}
     ${change ? ln('Рекомендована ціна', money(r.reco), 'reco') : ''}
     ${change ? `<div class="ln small"><span class="lbl">Найнижча ціна для цілі ${pct(r.goal)}</span><span class="fill"></span><span class="val">${money(r.minPrice)}</span></div>` : ''}
     <details><summary>Звідки ці цифри</summary>${breakdown(x)}${costInput('Змінити закупівельну ціну')}
       <label class="tick"><input type="checkbox" data-keep="${esc(x.id)}" ${x.keep ? 'checked' : ''}> Не чіпати ціну цього товару</label></details>
-    ${change && !x.keep ? `<div class="item-a"><label class="tick"><input type="checkbox" data-exp="${esc(x.id)}" ${r.export ? 'checked' : ''}> Змінити ціну на ${money(r.reco)}</label></div>` : ''}
+    ${change && !x.keep ? `<div class="item-a"><label class="tick"><input type="checkbox" data-exp="${esc(x.id)}" ${r.export ? 'checked' : ''}> Змінити ціну на ${money(r.reco)}</label></div>${x.costEst && !r.export ? '<p class="hint">Закупівля умовна — перевірте ціну, перш ніж ставити галочку.</p>' : ''}` : ''}
   </article>`;
 }
 
@@ -269,14 +311,15 @@ function renderResult() {
     ln('В нормі', fmt(B[STATUS.OK])) +
     (B[STATUS.NO_COST] ? ln('Без закупівельної ціни', fmt(B[STATUS.NO_COST])) : '') +
     (B[STATUS.NO_RATE] ? ln('Немає комісії категорії', fmt(B[STATUS.NO_RATE])) : '') +
-    ln('Середня маржа', pct(sum.avgMargin), 'total');
+    (state.rows.some((x) => x.costEst) ? ln(`З умовною закупівлею (${pct(state.estimate.pct)} ціни)`, fmt(state.rows.filter((x) => x.costEst).length), 'small') : '') +
+    ln(state.rows.some((x) => x.costEst) ? 'Середня маржа (з умовними)' : 'Середня маржа', pct(sum.avgMargin), 'total');
   const chips = [['all', 'Усі', sum.total], [STATUS.LOSS, 'Збиток', B[STATUS.LOSS]], [STATUS.LOW, 'Нижче цілі', B[STATUS.LOW]], [STATUS.NO_COST, 'Без закупівлі', B[STATUS.NO_COST]], [STATUS.OK, 'ОК', B[STATUS.OK]]].filter(([k, , n]) => k === 'all' || n);
   if (!chips.some(([k]) => k === state.filter)) state.filter = 'all';
   $('#chips').innerHTML = chips.map(([k, l, n]) => `<button type="button" aria-pressed="${state.filter === k}" data-f="${k}">${l} · ${fmt(n)}</button>`).join('');
   const list = state.rows.filter((x) => state.filter === 'all' || x.r.status === state.filter);
   const open = new Set($$('#list article[data-id] details[open]').map((d) => d.closest('article').dataset.id));
   $('#list').innerHTML = list.slice(0, state.shown).map(card).join('') +
-    (list.length > state.shown ? `<button class="key more-btn" data-act="more">Показати ще ${fmt(Math.min(PAGE, list.length - state.shown))} з ${fmt(list.length - state.shown)}</button>` : '');
+    (list.length > state.shown ? `<button class="key more-btn" data-act="more">Показати ще ${fmt(Math.min(PAGE, list.length - state.shown))} із ${fmt(list.length - state.shown)}</button>` : '');
   for (const a of $$('#list article[data-id]')) if (open.has(a.dataset.id)) { const d = $('details', a); if (d) d.open = true; }
   const lock = $('#lock');
   lock.hidden = state.licensed || state.demo || total <= TRIAL_LIMIT;
@@ -284,7 +327,9 @@ function renderResult() {
     $('#lock-title').textContent = `Розраховано ${fmt(TRIAL_LIMIT)} з ${fmt(total)}`;
     $('#lock-text').textContent = `Решта ${fmt(total - TRIAL_LIMIT)} товарів відкриються з кодом повного доступу. Повний доступ — 990 грн один раз, продаж відкриється після бета-тесту. Зараз код безкоштовно отримують бета-тестери: напишіть нам.`;
   }
-  $('#exportSub').textContent = sum.toExport ? `${fmt(sum.toExport)} товарів зі зміненою ціною` : 'Немає цін для зміни';
+  const estWaiting = state.rows.filter((x) => x.costEst && !x.r.export && x.r.reco != null && x.r.reco !== x.price && !x.keep).length;
+  $('#exportSub').textContent = sum.toExport ? `${fmt(sum.toExport)} ${plural(sum.toExport, 'товар', 'товари', 'товарів')} зі зміненою ціною`
+    : estWaiting ? 'Товари з умовною закупівлею відмітьте самі' : 'Немає цін для зміни';
 }
 
 function renderExport() {
@@ -296,7 +341,8 @@ function renderExport() {
   const btn = $('#dl');
   btn.disabled = !ex.length || state.demo;
   $('#dl-note').textContent = state.demo ? 'У прикладі файл не створюється — завантажте свій експорт з Prom.'
-    : !ex.length ? 'Немає товарів зі зміною ціни.' : 'Файл у тому ж форматі, що експорт з Prom. Змінено тільки колонку «Ціна» і лише у відмічених товарах.';
+    : !ex.length ? 'Немає товарів зі зміною ціни.' : 'Файл у тому ж форматі, що експорт з Prom. Змінено тільки колонку «Ціна» і лише у відмічених товарах.' +
+      (ex.some((x) => x.costEst) ? ` Серед них ${fmt(ex.filter((x) => x.costEst).length)} з умовною закупівлею — ви відмітили їх самі.` : '');
 }
 
 function download() {
@@ -350,7 +396,7 @@ async function onProductsFile(file) {
       err.hidden = false; return;
     }
     res.fileName = file.name;
-    state.src = res; state.demo = false; state.expOff = {}; state.shown = PAGE;
+    state.src = res; state.demo = false; state.expOff = {}; state.expOn = {}; state.shown = PAGE;
     await idb.set('src', { header: res.header, rows: res.rows, idx: res.idx, items: res.items, sheetName: res.sheetName, fileName: res.fileName, problems: res.problems });
     if (state.costTable) {
       state.costCols = guessCostColumns(state.costTable, costKeys());
@@ -413,7 +459,20 @@ document.addEventListener('change', (e) => {
     idb.set('costs', { rows: state.costTable.rows, width: state.costTable.width, fileName: state.costTable.fileName, cols: state.costCols });
     renderCosts(); return;
   }
-  if (t.matches('[data-exp]')) { if (t.checked) delete state.expOff[t.dataset.exp]; else state.expOff[t.dataset.exp] = true; recalc(); renderResult(); renderExport(); return; }
+  if (t.matches('[data-exp]')) {
+    const id = t.dataset.exp;
+    if (t.checked) { delete state.expOff[id]; state.expOn[id] = true; } else { state.expOff[id] = true; delete state.expOn[id]; }
+    recalc(); renderResult(); renderExport(); return;
+  }
+  if (t.id === 'est-on' || t.id === 'est-pct') {
+    const v = parseFloat(String($('#est-pct').value).replace(',', '.'));
+    const next = { on: $('#est-on').checked, pct: isFinite(v) && v > 0 && v < 100 ? v / 100 : state.estimate.pct };
+    // Умовна закупівля змінилась — галочки, поставлені під старий відсоток, скидаємо.
+    if (next.on !== state.estimate.on || next.pct !== state.estimate.pct) state.expOn = {};
+    state.estimate = next;
+    ls.set('estimate', state.estimate);
+    renderCosts(); return;
+  }
   if (t.matches('[data-keep]')) { const k = keepStore(); if (t.checked) k[t.dataset.keep] = true; else delete k[t.dataset.keep]; if (!state.demo) ls.set('keep', state.keep); recalc(); renderResult(); renderExport(); return; }
   if (t.matches('[data-cost]')) {
     const v = parseFloat(String(t.value).replace(',', '.').replace(/\s/g, ''));

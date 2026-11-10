@@ -130,7 +130,13 @@
       <span>Будь-який XLSX або CSV, де є артикул і ціна</span>
     </label>
     <div id="cost-status"></div>
-    <p class="muted">Прайсу немає? Натисніть «Порахувати» і впишіть закупівельні ціни прямо в картках товарів. Зручно, якщо товарів небагато.</p>
+    <div class="est-box">
+      <h3 id="est-h">Прайсу немає?</h3>
+      <p class="muted">Закупівельну ціну можна вписати в картці кожного товару на наступному кроці. Або порахувати приблизно:</p>
+      <label class="tick"><input type="checkbox" id="est-on"> Рахувати закупівлю умовно</label>
+      <div class="field" id="row-est"><label for="est-pct">Закупівля, % від ціни на Prom</label><input id="est-pct" inputmode="decimal"><span class="unit">%</span></div>
+      <p class="hint">Число від 1 до 99. Тільки для товарів, де закупівлю не знайдено в прайсі й не вписано вручну. Це лише припущення, не ваші справжні цифри: такі товари позначені «умовна закупівля» і не потрапляють у файл для Prom, поки ви самі не поставите галочку.</p>
+    </div>
     <div class="dock"><button type="button" class="btn primary" data-go="4">Порахувати</button><span class="sub" id="cost-sub"></span></div>
   </section>
 

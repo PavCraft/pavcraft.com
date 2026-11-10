@@ -93,3 +93,19 @@ details.more summary{font-size:14px;text-transform:uppercase}
 .field.off{opacity:.45}
 .field.off input,.field.off select{border-bottom-style:dashed}
 .steps-bar button:disabled{opacity:.35;cursor:not-allowed}
+/* умовна закупівля */
+.est-box{border-top:1.5px dashed var(--rule);margin-top:18px;padding-top:14px}
+.est-box h3{font-size:16px}
+.est-box .tick{font-size:13px}
+.tag-est{display:inline-block;font-size:11px;text-transform:uppercase;border:1.5px dotted var(--ink-2);color:var(--ink-2);padding:0 5px;margin:4px 0 2px}
+/* попередній перегляд прайсу */
+.pv{margin:12px 0 4px}
+.pv-h{font-size:12px;text-transform:uppercase;margin-bottom:4px}
+.pv table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12.5px;font-stretch:75%}
+.pv th{font-weight:400;color:var(--ink-2);text-align:right;padding:4px 0 4px 6px;border-bottom:1.5px dashed var(--rule);text-transform:uppercase;font-size:11px}
+.pv th:first-child,.pv td:first-child{text-align:left;padding-left:0}
+.pv td{padding:5px 0 5px 6px;text-align:right;border-bottom:1px dotted var(--rule);vertical-align:top}
+.pv td:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv td small{display:block;color:var(--ink-2);font-size:11px}
+.pv col.c1{width:52%}
+button.link{min-height:44px;padding:10px 0}
