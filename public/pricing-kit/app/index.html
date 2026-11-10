@@ -81,7 +81,7 @@
       <div class="field"><label for="f-ads">Реклама на місяць</label><input id="f-ads" inputmode="decimal" data-k="adBudget" data-num><span class="unit">грн</span></div>
       <p class="hint">Крім ProSale — він уже в комісії Prom.</p>
       <div class="field"><label for="f-pack">Пакування</label><input id="f-pack" inputmode="decimal" data-k="packing" data-num><span class="unit">грн</span></div>
-      <div class="field"><label for="f-cod">Замовлень з післяплатою</label><input id="f-cod" inputmode="decimal" data-k="codShare" data-pct><span class="unit">%</span></div>
+      <div class="field"><label for="f-cod">Замовлень з накладеним платежем</label><input id="f-cod" inputmode="decimal" data-k="codShare" data-pct><span class="unit">%</span></div>
       <div class="field"><label for="f-ret">Повернень і невикупів</label><input id="f-ret" inputmode="decimal" data-k="returnShare" data-pct><span class="unit">%</span></div>
       <div class="field"><label for="f-retc">Скільки коштує одне повернення</label><input id="f-retc" inputmode="decimal" data-k="returnCost" data-num><span class="unit">грн</span></div>
       <div class="field"><label for="f-w">Вага, якщо не вказана</label><input id="f-w" inputmode="decimal" data-k="defaultWeight" data-num><span class="unit">кг</span></div>
@@ -135,6 +135,7 @@
       <p class="muted">Закупівельну ціну можна вписати в картці кожного товару на наступному кроці. Або порахувати приблизно:</p>
       <label class="tick"><input type="checkbox" id="est-on"> Рахувати закупівлю умовно</label>
       <div class="field" id="row-est"><label for="est-pct">Закупівля, % від ціни на Prom</label><input id="est-pct" inputmode="decimal"><span class="unit">%</span></div>
+      <p class="warn" id="est-err" role="alert" hidden></p>
       <p class="hint">Число від 1 до 99. Тільки для товарів, де закупівлю не знайдено в прайсі й не вписано вручну. Це лише припущення, не ваші справжні цифри: такі товари позначені «умовна закупівля» і не потрапляють у файл для Prom, поки ви самі не поставите галочку.</p>
     </div>
     <div class="dock"><button type="button" class="btn primary" data-go="4">Порахувати</button><span class="sub" id="cost-sub"></span></div>
@@ -143,6 +144,7 @@
   <!-- 4 · ЧЕК -->
   <section class="screen" data-s="4" hidden>
     <h2>Чек по товарах</h2>
+    <p class="calc-for" id="calc-for"></p>
     <div id="summary"></div>
     <hr class="dash">
     <div class="chips" role="group" aria-label="Фільтр за статусом" id="chips"></div>
@@ -155,7 +157,7 @@
       <div class="lic-state" data-slot="lock"></div>
     </div>
     <p class="muted" style="margin-top:14px">Рекомендована ціна — мінімум під вашу маржу. Цін конкурентів ми не знаємо: звірте з ринком.</p>
-    <div class="dock"><button type="button" class="btn primary" data-go="5">Нові ціни → Prom</button><span class="sub" id="exportSub"></span></div>
+    <div class="dock"><button type="button" class="btn primary" data-go="5">Файл для Prom</button><span class="sub" id="exportSub"></span></div>
   </section>
 
   <!-- 5 · PROM -->

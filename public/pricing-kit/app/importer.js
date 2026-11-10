@@ -75,7 +75,7 @@ export async function readProducts(file) {
     }
   }
   if (!best || best.score < 2) {
-    return { problems: ['Не схоже на експорт товарів: не знайшли рядок із назвами колонок.'] };
+    return { problems: ['Це не файл товарів з Prom. Потрібен експорт: Кабінет Prom → Товари → Експорт → XLSX (файл прийде на пошту).'] };
   }
   const header = best.rows[best.headerRow].map(norm);
   const data = best.rows.slice(best.headerRow + 1);
@@ -85,11 +85,12 @@ export async function readProducts(file) {
 
   const problems = [];
   let fatal = false;
-  if (platform !== 'prom') { fatal = true; problems.push('Поки що працюємо тільки з експортом Prom (у файлі має бути колонка «Унікальний_ідентифікатор»).'); }
+  if (platform !== 'prom') { fatal = true; problems.push('Це не файл товарів з Prom. Потрібен експорт: Кабінет Prom → Товари → Експорт → XLSX (файл прийде на пошту). Поки що працюємо тільки з Prom.'); }
   const need = { id: 'ID товару', name: 'назва', price: 'ціна', cat: 'категорія' };
   const missing = Object.entries(need).filter(([f]) => idx[f] == null).map(([, l]) => l);
   if (idx.id == null || idx.price == null) fatal = true;
-  if (missing.length) problems.push('Не знайшли колонки: ' + missing.join(', ') + '. Перевірте, що це аркуш «Export Products Sheet» з першим рядком назв.');
+  if (missing.length && platform === 'prom') problems.push(fatal ? 'Схоже, це не повний експорт товарів з Prom: немає колонок ' + missing.join(', ') + '. Вивантажте товари ще раз: Кабінет Prom → Товари → Експорт → XLSX.'
+    : 'У файлі немає колонки ' + missing.join(', ') + ' — для частини товарів розрахунок буде неповним.');
 
   const items = [];
   const currencies = new Set();

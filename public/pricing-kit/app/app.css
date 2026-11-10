@@ -19,7 +19,7 @@
 .seg input{position:absolute;opacity:0}
 .seg span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:6px 8px;border:1.5px dashed var(--ink);font-size:12.5px;font-stretch:100%;text-transform:uppercase;line-height:1.25;cursor:pointer}
 .seg input:checked+span{background:var(--ink);color:var(--paper);border-style:solid;font-weight:700}
-.seg input:focus-visible+span{outline:2px solid var(--red);outline-offset:3px}
+.seg input:focus-visible+span{outline:2px solid var(--ink);outline-offset:3px}
 details.more{margin-top:8px}
 details.more summary{font-size:14px;text-transform:uppercase}
 
@@ -119,3 +119,12 @@ button.link{min-height:44px;padding:10px 0}
 .pp-new{margin-left:auto;text-align:right;align-items:flex-end}
 .pp-new .pp-v{font-size:24px;font-weight:800;font-stretch:112.5%}
 @media (max-width:360px){.pp-v{font-size:17px}.pp-new .pp-v{font-size:21px}}
+/* фокус полів — чорнилом, червоний лише для збитку й головної дії */
+.field input:focus-visible,.field select:focus-visible,.cost-in input:focus-visible,.code-form textarea:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.cost-in input:focus{outline:2px solid var(--ink)}
+/* фільтри переносяться, щоб на телефоні було видно всі */
+.chips{flex-wrap:wrap;overflow:visible}
+.item-a{flex-wrap:wrap;gap:0 16px}
+.item-a .tick{flex:0 1 auto}
+.calc-for{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 10px}
+.calc-for .link{font-size:14px;min-height:auto;padding:0}

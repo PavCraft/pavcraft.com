@@ -230,11 +230,12 @@ export function calcAll(ctx, items) {
 export function summarize(rows) {
   const by = {};
   for (const s of Object.values(STATUS)) by[s] = 0;
-  let mSum = 0, mN = 0, exp = 0;
+  let mSum = 0, mN = 0, exp = 0, profit = 0, revenue = 0;
   for (const x of rows) {
     by[x.r.status]++;
-    if (x.r.margin != null) { mSum += x.r.margin; mN++; }
+    if (x.r.margin != null) { mSum += x.r.margin; mN++; profit += x.r.profit; revenue += x.price; }
     if (x.r.export) exp++;
   }
-  return { total: rows.length, by, avgMargin: mN ? mSum / mN : null, toExport: exp };
+  // avgMargin — проста середня по товарах; totalMargin — маржа всього асортименту (прибуток ÷ виручка), її й показуємо.
+  return { total: rows.length, by, avgMargin: mN ? mSum / mN : null, totalMargin: revenue ? profit / revenue : null, totalProfit: profit, toExport: exp };
 }

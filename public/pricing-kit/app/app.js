@@ -105,7 +105,7 @@ function syncSettingsVisibility() {
   $('#f-custom').value = custom ? (s.customPackageYearly || '') : (pkg ? pkg.yearly : '');
   $('#hint-custom').textContent = custom
     ? 'Впишіть, скільки ви платите за рік. На розрахунок іде 1/12 цієї суми щомісяця.'
-    : `Ціна з тарифів Prom (перевірено ${state.rates.checked.split('-').reverse().join('.')}), на розрахунок іде ${fmt((pkg?.yearly || 0) / 12)} грн на місяць. Платите іншу суму — оберіть «Інший / свій пакет».`;
+    : `Ціна з тарифів Prom (перевірено ${state.rates.checked.split('-').reverse().join('.')}), на розрахунок іде ${fmt((pkg?.yearly || 0) / 12)} грн на місяць. Свій пакет дивіться: Кабінет Prom → Тарифи і рахунки. Платите іншу суму — оберіть «Інший / свій пакет».`;
   $('#row-carrier').hidden = s.shipPayer !== 'seller';
   // Частка замовлень з власного сайту має сенс лише для власного домену.
   setRowEnabled('#row-siteShare', s.siteType === 'own');
@@ -190,7 +190,7 @@ function renderProducts() {
     ln(esc(src.fileName || 'Файл з Prom'), '✓') +
     ln('Товарів у файлі', fmt(n), 'small') +
     ln('Категорій Prom', fmt(cats), 'small') +
-    (state.licensed ? ln('Повний доступ', state.license.number, 'small') : ln('Безкоштовно розрахуємо', fmt(Math.min(n, TRIAL_LIMIT)), 'small')) +
+    (state.licensed ? ln('Повний доступ', state.license.number, 'small') : ln('Безкоштовно розрахуємо', n > TRIAL_LIMIT ? `перші ${fmt(TRIAL_LIMIT)} з файлу` : fmt(n), 'small')) +
     (src.problems?.length ? `<p class="warn">${src.problems.map(esc).join('<br>')}</p>` : '') +
     `<button class="link" data-act="reset-products">Обрати інший файл</button>`;
 }
@@ -223,6 +223,9 @@ function renderCosts() {
   $('#est-h').textContent = state.costTable ? 'Для товарів без закупівлі' : 'Прайсу немає?';
   $('#est-on').checked = state.estimate.on;
   $('#est-pct').value = +(state.estimate.pct * 100).toFixed(1);
+  $('#est-err').hidden = !state.estErr;
+  if (state.estErr) $('#est-err').textContent = `Вкажіть число від 1 до 99. Зараз рахуємо з ${fmt(state.estimate.pct * 100, state.estimate.pct * 100 % 1 ? 1 : 0)}%.`;
+  state.estErr = false;
   setRowEnabled('#row-est', state.estimate.on);
   if (!state.costTable && !manual && !state.estimate.on) $('#cost-sub').textContent = 'Без закупівельних цін маржу не порахуємо';
 }
@@ -244,6 +247,7 @@ function costPreview(matched) {
   const ratios = matched.filter((it) => it.price > 0).map((it) => val(it) / it.price).sort((a, b) => a - b);
   const med = ratios[Math.floor(ratios.length / 2)];
   const warn = med > 1 ? 'Закупівля в середньому більша за ціну продажу. Схоже, обрано не ту колонку ціни.'
+    : med >= 0.95 ? 'Закупівля майже дорівнює ціні на Prom. Схоже, обрано роздрібну ціну (РРЦ), а не закупівлю — перевірте колонку.'
     : med < 0.05 ? 'Закупівля підозріло мала порівняно з ціною. Схоже, обрано не ту колонку (наприклад, кількість).' : '';
   return `<div class="pv"><div class="pv-h">Перевірте на перших товарах</div>
     <table><colgroup><col class="c1"><col><col></colgroup>
@@ -292,7 +296,7 @@ function card(x) {
   const neg = r.profit < 0;
   const change = r.reco != null && r.reco !== x.price;
   return `<article class="item" data-id="${esc(x.id)}">${head}
-    ${x.costEst ? `<span class="tag-est">Умовна закупівля ${pct(state.estimate.pct)} ціни</span>` : ''}
+    ${x.costEst ? `<span class="tag-est">Умовна закупівля ${pct(state.estimate.pct, state.estimate.pct * 100 % 1 ? 1 : 0)} ціни</span>` : ''}
     ${ln('Чистий прибуток', money(r.profit), neg ? 'neg' : '')}
     ${ln('Маржа', pct(r.margin), neg ? 'neg' : '')}
     ${change ? `<div class="pp">
@@ -304,8 +308,11 @@ function card(x) {
       ${ln(`Найнижча ціна для цілі ${pct(r.goal)}`, money(r.minPrice), 'small')}`
     : ln('Ціна зараз', money(x.price) + (r.reco != null ? ' · без змін' : ''))}
     <details><summary>Звідки ці цифри</summary>${breakdown(x)}${costInput('Змінити закупівельну ціну')}
-      <label class="tick"><input type="checkbox" data-keep="${esc(x.id)}" ${x.keep ? 'checked' : ''}> Не чіпати ціну цього товару</label></details>
-    ${change && !x.keep ? `<div class="item-a"><label class="tick"><input type="checkbox" data-exp="${esc(x.id)}" ${r.export ? 'checked' : ''}> Змінити ціну на ${money(r.reco)}</label></div>${x.costEst && !r.export ? '<p class="hint">Закупівля умовна — перевірте ціну, перш ніж ставити галочку.</p>' : ''}` : ''}
+      </details>
+    ${change ? `<div class="item-a">
+      ${x.keep ? '' : `<label class="tick"><input type="checkbox" data-exp="${esc(x.id)}" ${r.export ? 'checked' : ''}> Змінити ціну на ${money(r.reco)}</label>`}
+      <label class="tick"><input type="checkbox" data-keep="${esc(x.id)}" ${x.keep ? 'checked' : ''}> Не чіпати</label></div>
+      ${x.costEst && !r.export && !x.keep ? '<p class="hint">Закупівля умовна — перевірте ціну, перш ніж ставити галочку.</p>' : ''}` : ''}
   </article>`;
 }
 
@@ -320,8 +327,11 @@ function renderResult() {
     ln('В нормі', fmt(B[STATUS.OK])) +
     (B[STATUS.NO_COST] ? ln('Без закупівельної ціни', fmt(B[STATUS.NO_COST])) : '') +
     (B[STATUS.NO_RATE] ? ln('Немає комісії категорії', fmt(B[STATUS.NO_RATE])) : '') +
-    (state.rows.some((x) => x.costEst) ? ln(`З умовною закупівлею (${pct(state.estimate.pct)} ціни)`, fmt(state.rows.filter((x) => x.costEst).length), 'small') : '') +
-    ln(state.rows.some((x) => x.costEst) ? 'Середня маржа (з умовними)' : 'Середня маржа', pct(sum.avgMargin), 'total');
+    (state.rows.some((x) => x.costEst) ? ln(`З умовною закупівлею (${pct(state.estimate.pct, state.estimate.pct * 100 % 1 ? 1 : 0)} ціни)`, fmt(state.rows.filter((x) => x.costEst).length), 'small') : '') +
+    ln(state.rows.some((x) => x.costEst) ? 'Маржа по всіх товарах (з умовними)' : 'Маржа по всіх товарах', pct(sum.totalMargin), 'total') +
+    (sum.totalProfit != null && sum.by[STATUS.OK] + sum.by[STATUS.LOW] + sum.by[STATUS.LOSS] ? ln('Прибуток, якщо продати кожен товар один раз', money(sum.totalProfit), 'small' + (sum.totalProfit < 0 ? ' neg' : '')) : '');
+  const st = state.settings, taxL = state.rates.taxes[st.tax]?.label || '';
+  $('#calc-for').innerHTML = `Розраховано для: ${esc(taxL)}, ${esc(st.promPackage === 'custom' ? 'свій пакет Prom' : st.promPackage)}, ${fmt(st.orders)} замовлень на місяць, ціль ${pct(st.goal)}. <button type="button" class="link" data-go="1">Змінити умови</button>`;
   const chips = [['all', 'Усі', sum.total], [STATUS.LOSS, 'Збиток', B[STATUS.LOSS]], [STATUS.LOW, 'Нижче цілі', B[STATUS.LOW]], [STATUS.NO_COST, 'Без закупівлі', B[STATUS.NO_COST]], [STATUS.OK, 'ОК', B[STATUS.OK]]].filter(([k, , n]) => k === 'all' || n);
   if (!chips.some(([k]) => k === state.filter)) state.filter = 'all';
   $('#chips').innerHTML = chips.map(([k, l, n]) => `<button type="button" aria-pressed="${state.filter === k}" data-f="${k}">${l} · ${fmt(n)}</button>`).join('');
@@ -457,8 +467,21 @@ document.addEventListener('click', (e) => {
   if (act === 'download') download();
   if (act === 'show-code') { const slot = a.nextElementSibling; slot.hidden = !slot.hidden; if (!slot.hidden) $('textarea', slot).focus(); }
 });
+// Після правки в картці список перебудовується; тримаємо ту саму картку на тому ж місці екрана.
+function keepPlace(t, fn) {
+  const art = t.closest('article[data-id]');
+  const id = art?.dataset.id, top = art?.getBoundingClientRect().top;
+  fn();
+  const again = id && $(`#list article[data-id="${CSS.escape(id)}"]`);
+  if (again) window.scrollBy(0, again.getBoundingClientRect().top - top);
+}
 document.addEventListener('change', (e) => {
   const t = e.target;
+  if (t.closest('#list') && t.matches('[data-exp],[data-keep],[data-cost]') && !t.dataset.kept) {
+    e.stopImmediatePropagation();
+    keepPlace(t, () => { t.dataset.kept = '1'; t.dispatchEvent(new Event('change', { bubbles: true })); });
+    return;
+  }
   if (t.matches('[data-k]')) { readSettingsForm(); return; }
   if (t.id === 'file1' && t.files[0]) { onProductsFile(t.files[0]); t.value = ''; return; }
   if (t.id === 'file2' && t.files[0]) { onCostFile(t.files[0]); t.value = ''; return; }
@@ -475,7 +498,9 @@ document.addEventListener('change', (e) => {
   }
   if (t.id === 'est-on' || t.id === 'est-pct') {
     const v = parseFloat(String($('#est-pct').value).replace(',', '.'));
-    const next = { on: $('#est-on').checked, pct: isFinite(v) && v > 0 && v < 100 ? v / 100 : state.estimate.pct };
+    const okPct = isFinite(v) && v > 0 && v < 100;
+    const next = { on: $('#est-on').checked, pct: okPct ? v / 100 : state.estimate.pct };
+    state.estErr = t.id === 'est-pct' && !okPct;
     // Умовна закупівля змінилась — галочки, поставлені під старий відсоток, скидаємо.
     if (next.on !== state.estimate.on || next.pct !== state.estimate.pct) state.expOn = {};
     state.estimate = next;
