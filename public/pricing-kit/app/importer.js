@@ -159,7 +159,10 @@ export function guessCostColumns(table, keys) {
 }
 
 export function columnLabels(table) {
-  const first = table.rows[0] || [];
+  // Шапка прайсу — перший із перших 10 рядків, де щонайменше дві текстові клітинки
+  // (над нею часто буває назва постачальника чи дата).
+  const isText = (v) => typeof v === 'string' && v.trim() && !/^[\d\s.,]+$/.test(v);
+  const first = table.rows.slice(0, 10).find((r) => r.filter(isText).length >= 2) || table.rows[0] || [];
   return Array.from({ length: table.width }, (_, c) => {
     const letter = XLSX.utils.encode_col(c);
     const h = norm(first[c]);
