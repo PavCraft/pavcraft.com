@@ -1,9 +1,11 @@
 ---
 name: Pavcraft
-description: Brand world for pavcraft.com, a flat acid-lime board of handwritten paper notices with tear-off tabs and censored marker scribbles, everything draggable.
+description: Brand world for pavcraft.com, a flat dark-olive board of handwritten paper notices with tear-off tabs and censored marker scribbles, everything draggable.
 colors:
-  ground: "#D9FF41"
-  ground-ink: "rgba(28,40,0,0.07)"
+  ground: "#22301A"
+  ground-ink: "rgba(217,255,65,0.035)"
+  marker-lime: "#D9FF41"
+  wall-text: "#F4F1E6"
   paper: "#FFFFFF"
   paper-old: "#F1EEE4"
   ink: "#141414"
@@ -12,8 +14,8 @@ colors:
   pen-deep: "#1A22B8"
   marker-red: "#CF1452"
   cut: "#9A978E"
-  tape: "rgba(240,232,190,0.72)"
-  sticker-yellow: "#E8C23A"
+  tape: "rgba(240,232,190,0.85)"
+  sticker-yellow: "#F3E6A8"
   sticker-tape: "rgba(236,224,170,0.96)"
 typography:
   display:
@@ -97,14 +99,14 @@ components:
 
 **Creative North Star: "The Notice Nobody Authorised"**
 
-Pavcraft's home is a flat acid-lime board with plain white paper notices taped onto it. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Around the notices sit marker scribbles in rude Ukrainian, each swear word hidden under a peelable sticker. The owner pinned this direction on 2026-11-09: make an own variant, keep only notices and tear-off tabs. Everything else of the previous stairwell wall was dropped.
+Pavcraft's home is a flat dark-olive board with plain white paper notices taped onto it. Each tool is one notice with tear-off tabs; tearing a tab takes you to the tool. Around the notices sit marker scribbles in rude Ukrainian, each swear word hidden under a peelable sticker. The owner pinned this direction on 2026-11-09: make an own variant, keep only notices and tear-off tabs. Everything else of the previous stairwell wall was dropped. On 2026-11-10 the owner found the acid-lime wall too garish and chose the dark wall: the board is dark olive, lime moved into the marker, and the wall carries fewer scribbles (five on a computer, three on a phone) and stickers in two colours only.
 
-The mood is loud, playful and a little cheeky, but the content stays practical: one tool per notice, one action per tab. The lime ground is a single flat colour with no texture, no gradient and no photograph. Depth comes only from paper-shaped shadows. The board must stay field-neutral: tool pages have their own worlds (Pricing Kit is a receipt).
+The mood is loud, playful and a little cheeky, but the content stays practical: one tool per notice, one action per tab. The olive ground is a single flat colour with no texture, no gradient and no photograph. Depth comes only from paper-shaped shadows. The board must stay field-neutral: tool pages have their own worlds (Pricing Kit is a receipt).
 
 Everything on the board can be picked up and re-stuck: papers by tape or body, scribbles by their text, with grab and grabbing cursors telling you so.
 
 **Key Characteristics:**
-- One flat acid-lime ground (#D9FF41); white and yellowed paper; one ballpoint blue as the action colour; one marker pink-red for scribbles.
+- One flat dark-olive ground (#22301A); white and yellowed paper glow on it; one ballpoint blue as the action colour on paper; lime (#D9FF41) marker for scribbles, one white scribble.
 - Two handwritten faces only: Playpen Sans for paper, Shantell Sans for marker scribbles.
 - Tear-off tabs are the navigation; a cut line that never moves.
 - Censor stickers over swear words, peeled by tap.
@@ -112,27 +114,28 @@ Everything on the board can be picked up and re-stuck: papers by tape or body, s
 
 ## Colors
 
-A single acid-lime board with white office paper, near-black ink, one electric ballpoint blue and one hot marker pink-red.
+A single dark-olive board with white office paper, near-black ink on paper, one electric ballpoint blue on paper and an acid-lime marker on the wall.
 
 ### Primary
-- **Acid Lime Board** (#D9FF41): the whole page ground, theme-color, favicon tile. Never covered by a large panel of another colour.
+- **Olive Board** (#22301A): the whole page ground and theme-color. Never covered by a large panel of another colour.
+- **Lime Marker** (#D9FF41): wall scribbles, the hint scribble, the promo code highlight and the favicon tile. Wall text (H1, footer) is **Chalk White** (#F4F1E6).
 - **Ballpoint Blue** (#2B35E8): the only action colour on paper: links, tab labels, "Написати", focus ring, text selection, the blue censor sticker. Hover deepens to Deep Ballpoint (#1A22B8).
 
 ### Secondary
-- **Marker Pink-Red** (#CF1452): marker scribbles that shout, and the price-tag censor sticker text.
+- **Marker Pink-Red** (#CF1452): retired from the wall (it vibrated against lime); kept only as a token.
 
 ### Neutral
 - **Office Paper** (#FFFFFF): notices, slips, the brand tag, the hero note, tear-off tabs.
 - **Yellowed Paper** (#F1EEE4): older notices for future tools ("Наступний інструмент"), with softer ink.
 - **Felt-Tip Ink** (#141414): headings and scribbles; **Soft Ink** (#3E3D38) for secondary text on paper.
 - **Cut Line Grey** (#9A978E): the dashed tear line and tab separators.
-- **Masking Tape** (rgba 240,232,190 at 0.72): translucent crimped tape; **Sticker Yellow** (#E8C23A) and **Sticker Tape** (rgba 236,224,170 at 0.96) for censor stickers.
-- **Ghost Ink** (rgba 28,40,0 at 0.07): oversized background words ("Рутина", "Маржа", "Ціни") as texture only, hidden from assistive tech.
+- **Masking Tape** (rgba 240,232,190 at 0.72): translucent crimped tape; censor stickers come in two colours only: **Sticker Tape** (#F3E6A8) and white.
+- **Ghost Ink** (lime at 0.035): oversized background words ("Рутина", "Маржа", "Ціни") as texture only, hidden from assistive tech.
 
 ### Named Rules
-**The One Ground Rule.** The ground is acid lime and nothing else. No second wall colour, no dark mode, no overlays.
+**The One Ground Rule.** The ground is dark olive and nothing else. No second wall colour, no light section, no overlays. Only paper glows.
 
-**The Ballpoint Rule.** Blue means "you can act here". Pink-red and black are for scribbles, never for links.
+**The Ballpoint Rule.** Blue means "you can act here" and lives on paper. Lime and white are for wall scribbles, never for links on paper.
 
 ## Typography
 
@@ -161,7 +164,7 @@ Dragged positions are stored per viewer as offset, angle and stacking order, wit
 
 ## Elevation & Depth
 
-Flat ground, shadows only on paper. Shadows follow the paper's own silhouette (drop-shadow filters: `0 7px 8px rgba(0,0,0,.32)` plus `0 1px 1px rgba(0,0,0,.18)`), never a backing panel. A lifted paper gets a larger shadow (`0 22px 22px rgba(0,0,0,.34)`), scale 1.03 and a straightened angle; a lifted scribble gets `drop-shadow(0 10px 10px rgba(0,0,0,.25))`. Torn tabs have no shadow and no backing: the lime shows through the tear.
+Flat ground, shadows only on paper. Shadows follow the paper's own silhouette (drop-shadow filters: `0 8px 10px rgba(0,0,0,.45)` plus `0 1px 1px rgba(0,0,0,.3)`), never a backing panel. A lifted paper gets a larger shadow (`0 22px 22px rgba(0,0,0,.5)`), scale 1.03 and a straightened angle; a lifted scribble gets `drop-shadow(0 10px 10px rgba(0,0,0,.25))`. Torn tabs have no shadow and no backing: the olive wall shows through the tear.
 
 ### Named Rules
 **The Silhouette Shadow Rule.** Shadows on paper are drop-shadow filters that trace the paper's shape. Box-shadow panels behind papers are forbidden; box-shadow is allowed only on small stickers.
@@ -182,7 +185,7 @@ Equal-width vertical-text tabs under the sheet, 132px high (118px on phones), se
 A tape strip at the top of every paper is the explicit grab handle (focusable; arrow keys move 16px, Shift 48px). Touch picks up any paper or scribble after holding still about 320ms. The header carries a brand tag (800, 24px) and a "Написати" slip in Ballpoint Blue.
 
 ### Censor Stickers
-Swear words in marker scribbles are covered by a sticker: round yellow "18+", masking-tape "цензура", white price tag "−100%" in pink-red, blue "***". Tap peels the sticker off with a short rotating fall and reveals the word. Stickers are buttons out of the tab order; the scribble itself is draggable.
+Swear words in marker scribbles are covered by a sticker: "18+", "цензура" and "***" on masking-tape yellow, "−100%" on a white price tag. Tap peels the sticker off with a short rotating fall and reveals the word. Stickers are buttons out of the tab order; the scribble itself is draggable.
 
 ### Reset
 A small paper button "Повісити все як було", 44px tall, rotated -1deg, shown only after something moved.
@@ -190,7 +193,8 @@ A small paper button "Повісити все як було", 44px tall, rotated
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the ground a flat #D9FF41 and let the lime show through gaps and torn tabs.
+- **Do** keep the ground a flat #22301A and let it show through gaps and torn tabs.
+- **Do** keep the wall sparse: at most five scribbles on a computer and three on a phone.
 - **Do** make every paper and scribble draggable, with grab and grabbing cursors, and keep links on paper pointer-cursor.
 - **Do** cover every swear word with a peelable sticker; the owner asked for this device explicitly.
 - **Do** keep a tear line fixed when a tab lifts, and give a held tab on touch a short hold before pulling so scroll still works.
@@ -198,7 +202,7 @@ A small paper button "Повісити все як було", 44px tall, rotated
 - **Do** keep 44px minimum targets for links and buttons.
 
 ### Don't:
-- **Don't** add a second wall colour, texture, photo or dark section to the board.
+- **Don't** add a second wall colour, texture, photo or light section to the board, and don't bring back the acid-lime ground or pink-red/blue scribbles on the wall.
 - **Don't** put shadows or a backing under a torn tab, or a backing panel behind a paper.
 - **Don't** use any face other than Playpen Sans and Shantell Sans; Pangolin and Caveat are retired.
 - **Don't** dress future tools as finished: they are yellowed notices with "за попитом" tabs, not a promise.
